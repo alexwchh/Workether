@@ -1,0 +1,7 @@
+<div class="tab-bar">
+    <nav mat-tab-nav-bar color="primary">
+        <a [routerLink]="taskUrl" routerLinkActive #rla="routerLinkActive" mat-tab-link class="tab" [active]="rla.isActive">TASK</a>
+        <a mat-tab-link class="tab">FILE</a>
+        <a mat-tab-link class="tab">AGENDA</a>
+    </nav>
+</div>

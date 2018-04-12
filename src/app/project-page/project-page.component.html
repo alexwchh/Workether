@@ -1,0 +1,73 @@
+<div class="project-page">
+  <div class="project-container">
+    <div *ngIf="starredProjects.length>0">
+      <h2>Starred</h2>
+
+      <mat-grid-list cols="4" rowHeight="2:1" gutterSize="20px">
+
+        <mat-grid-tile *ngFor="let project of starredProjects" class="mat-elevation-z2" [rowspan]="1" (click)="onNavigate($event,project)">
+          <span class="project-title-label">{{project.project_name}}</span>
+          <span class="example-fill-remaining-space"></span>
+          <div class="project-options">
+
+            <button mat-icon-button class="edit-button" color="basic">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button class="delete-button" (click)="onDelete(project)" color="basic">
+              <mat-icon>delete</mat-icon>
+            </button>
+            <button mat-icon-button [class.starred]="project.isStarred" class="star-button" (click)="onAndOffStarred(project)" color="basic">
+              <mat-icon>stars</mat-icon>
+            </button>
+          </div>
+        </mat-grid-tile>
+
+      </mat-grid-list>
+    </div>
+    <h2>My Projects</h2>
+
+    <mat-grid-list cols="4" rowHeight="2:1" gutterSize="20px">
+      <mat-grid-tile *ngFor="let project of activeProjects" class="mat-elevation-z2" [colspan]="1" [rowspan]="1">
+        <span class="project-title-label">{{project.project_name}}</span>
+        <span class="example-fill-remaining-space"></span>
+        <div class="project-options">
+
+          <button mat-icon-button class="edit-button" color="basic">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button class="delete-button" (click)="onDelete(project)" color="basic">
+            <mat-icon>delete</mat-icon>
+          </button>
+          <button mat-icon-button [class.starred]="project.isStarred" (click)="onAndOffStarred(project)" class="star-button" color="basic">
+            <mat-icon>stars</mat-icon>
+          </button>
+        </div>
+      </mat-grid-tile>
+
+    </mat-grid-list>
+    <mat-slide-toggle class="show-deleted-project" color="primary" [(ngModel)]="showDltChecked">
+      <h2>Show Deleted Projects</h2>
+    </mat-slide-toggle>
+
+    <mat-grid-list *ngIf="showDltChecked" cols="4" rowHeight="2:1" gutterSize="20px">
+      <mat-grid-tile *ngFor="let project of deletedProjects" class="mat-elevation-z2" [colspan]="1" [rowspan]="1">
+        <span class="project-title-label">{{project.project_name}}</span>
+        <span class="example-fill-remaining-space"></span>
+        <div class="project-options">
+
+          <!-- <button mat-icon-button class="inactive-edit-button" color="basic" disabled="disabled">
+          <mat-icon>edit</mat-icon>
+        </button> -->
+          <button mat-icon-button class="inactive-delete-button" (click)="onDestroy(project)" color="primary">
+            <mat-icon>delete</mat-icon>
+          </button>
+          <!-- <button mat-icon-button [class.starred]="project.isStarred" (click)="onAndOffStarred(project)" class="inactive-star-button" color="basic" disabled="disabled">
+          <mat-icon>stars</mat-icon>
+        </button> -->
+        </div>
+      </mat-grid-tile>
+
+    </mat-grid-list>
+
+  </div>
+</div>

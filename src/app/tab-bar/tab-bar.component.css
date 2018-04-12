@@ -1,0 +1,19 @@
+.tab-bar{
+    position: fixed;
+    top: 60px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    
+}
+.mat-tab-nav-bar{
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: row;
+    
+    justify-content:center;
+    align-items: center;
+    /* background: burlywood; */
+   
+    /* background:white; */
+}

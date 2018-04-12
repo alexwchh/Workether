@@ -1,0 +1,36 @@
+
+
+.example-fill-remaining-space {
+    /* This fills the remaining space, by using flexbox. 
+       Every toolbar row uses a flexbox row layout. */
+    flex: 1 1 auto;
+  }
+  .navbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+  
+    z-index: 2;
+  }
+  .mat-toolbar{
+      position: fixed;
+      top:0;
+      height: 60px;
+  }
+  .add-project-button{
+      margin-left: 20px;
+  }
+.noti-button{
+    margin-left: 20px;
+}
+.account-button{
+    margin-left: 20px;
+}
+
+/* .searchbar{
+      height:124;
+      margin-left:10px ;
+      padding: 0px;
+      box-shadow: inset 2px 2px 2px white
+  } */

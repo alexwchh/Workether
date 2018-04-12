@@ -1,0 +1,52 @@
+<div class="card-container"></div>
+ <mat-card class="login-card">
+     <mat-card-header>
+         <mat-card-title><h1>Workether</h1></mat-card-title>
+         <mat-card-subtitle *ngIf="isSignin"><h2>Sign in</h2></mat-card-subtitle>
+         <mat-card-subtitle *ngIf="isLogin"><h2>Log in</h2></mat-card-subtitle>
+
+     </mat-card-header>
+     <mat-card-content>
+        <form (ngSubmit)="onLogin()" #loginForm="ngForm">
+            <div class="form-group">
+        
+              <mat-form-field>
+              <input matInput ngModel type="text" class="form-control" id="account" name ="account"
+              required minlength="4" 
+              [(ngModel)]="newAccount"
+              placeholder="Email/Name"
+              email  #account ="ngModel"> 
+              <mat-error *ngIf="account.invalid && (account.dirty || account.touched)">
+        
+              <span *ngIf="account.errors.required">Account is required</span>
+              <span *ngIf="account.errors.email">Not a valid Email</span>  
+              </mat-error>
+            </mat-form-field>
+        
+              <mat-form-field>
+                  <input matInput ngModel type="text" class="form-control" id="pwd" 
+                  required minlength="8" maxlength="20"
+                  [(ngModel)]="newPsw"
+                  placeholder="password"
+                  name ="psw"
+                  #psw ="ngModel"
+                  >
+              </mat-form-field>
+              <span class="loginbtn-container">             
+                
+
+              </span>
+            </div>
+
+          </form>
+          <button *ngIf ="isSignin" mat-raised-button  class="signinBtn"  (click)="loginToggle();loginForm.reset()">Sign in</button>
+          <button *ngIf ="isSignin" mat-raised-button  class="signinBtnr" color="primary"  (click)="signUp();loginForm.reset()">Done</button>
+          <button *ngIf ="isLogin" mat-raised-button  class="loginBtn" (click)="loginToggle();loginForm.reset()">Sign up</button>
+          <button *ngIf ="isLogin" mat-raised-button  class="loginBtnr" color="primary"  (click)="logIn();loginForm.reset()">Sign in</button>
+
+          
+     </mat-card-content>
+    
+  
+ </mat-card>
+  

@@ -1,0 +1,290 @@
+/* // @import '~@angular/material/theming';
+// @include mat-core();
+
+
+// $candy-app-primary: mat-palette($mat-indigo);
+// //$candy-app-accent:  mat-palette($mat-accent);
+// $candy-app-warn: mat-palette($mat-red);
+
+
+
+// app-navbar{
+//     position: fixed;
+//     top: 0;
+//     left: 0;
+//     right: 0;
+//     z-index: 2;
+    
+// } */
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+.material-icons.md-indigo { color:#3F51B5; }
+.tasklists-container {
+  position: fixed;
+  top: 110px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  padding: 0;
+}
+
+.board-scrum-stages {
+    /*display: flex;
+    */position: relative;
+    height: 100%;
+    overflow-x: auto;
+    overflow-y: auto;
+    padding: 30px;
+    white-space: nowrap;
+    box-sizing: border-box;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+}
+.scrum-stage{
+    position: relative;
+    height: 100%;
+    width: 288px;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    margin-right: 10px;
+    vertical-align: top;
+    background-color: #eee;
+    border-radius: 3px;
+}
+/* .scrum-stage {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  line-height: 20px;
+  align-content: center;
+  align-items: center;
+  width: 288px;
+  height: 100%;
+  background: #eeeeee;
+  box-sizing: border-box;
+
+
+    position: relative;
+    height: 100%;
+    width: 288px;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    margin-right: 10px;
+    vertical-align: top;
+    background-color: #eee;
+    border-radius: 3px;
+} */
+.scrum-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 13px;
+    padding-right: 0px;
+  
+    height: 50px;
+    background: inherit;
+  }
+ .scrum-stage .scrum-stage-wrap{
+     box-sizing: border-box;
+    position: relative;
+    height: 100%;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto; 
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-height: 0%;
+ } 
+ .scrum-stage .scrum-stage-wrap .scrum-stage-content{
+     box-sizing: border-box;
+    overflow: auto;
+    overflow-x: visible;
+    -webkit-overflow-scrolling: touch;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+ .scrum-stage-tasks{
+    transition: opacity 0.08s ease-out;
+    opacity: 1;
+ }
+ .scrum-stage-tasks .task-item {
+    font-size: 14px;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+  /* 横轴的布局 */
+  /* justify-content: flex-start; */
+  /* 纵轴的布局 */
+ 
+  position: relative;
+  background: #fafafa;
+  max-width: 273px;
+  width: 100%;
+  min-height: 48px;
+  box-sizing: border-box;
+  border-radius: 3px;
+  margin: 0 8px 8px;
+  white-space: normal;
+}
+.task-priority{
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 4px;
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+    transition: all 218ms ease-in;
+    cursor: pointer;
+    background: blueviolet;
+}
+
+
+.scrum-stage-tasks .task-item .task-check{
+    box-sizing: border-box;
+    flex: 0 0 auto;
+    -webkit-flex: 0 0 auto;
+    margin: 13px 12px 0 14px;
+
+}
+
+.scrum-stage-tasks .task-item .task-content-set{
+    padding: 14px 0;
+    line-height: 20px;
+    overflow: hidden;
+    cursor: pointer;  
+    box-sizing: border-box;
+    
+    
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+}
+.scrum-stage-tasks .task-item .task-content-set .task-content-wrapper{
+    overflow: visible;
+    min-height: 20px;
+    box-sizing: border-box;
+
+
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+}
+.scrum-stage-tasks .task-item .task-content-set .task-content-wrapper .task-content{
+    word-wrap: break-word;
+    overflow: hidden;
+    margin: 0px 12px 0 0;
+    box-sizing: border-box;
+
+
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+}
+.scrum-stage .task-item .task-content-set .task-info-wrapper{
+    box-sizing: border-box;
+
+
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding-right: 14px;
+}
+.scrum-stage-tasks .task-item .task-content-set .task-info-wrapper .task-infos{
+    box-sizing: border-box;
+
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    overflow: hidden;
+    margin-top: 4px;
+    line-height: 16px;
+    font-size: 0;
+}
+
+.scrum-stage-wrap .task-creator-handler-wrap{
+    width: 100%;
+    background-color:red;
+    box-sizing: border-box;
+    transition: box-shadow 218ms ease;
+}
+.scrum-stage-wrap .task-creator-handler-wrap .task-creator-handler{
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin: 0 8px;
+    padding: 14px 15px;
+    border-radius: 3px;
+    font-size: 15px;
+}
+
+
+
+
+
+
+.example-fill-remaining-space {
+  /* This fills the remaining space, by using flexbox. 
+       Every toolbar row uses a flexbox row layout. */
+  flex: 1 1 auto;
+}
