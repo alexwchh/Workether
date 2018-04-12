@@ -1,0 +1,37 @@
+<div class="scrum-stage mat-elevation-z3">
+    <header class="scrum-header">
+        <span>On The Go</span>
+        <span class="example-fill-remaining-space"></span>
+        <mat-menu #appMenu="matMenu">
+            <button mat-menu-item>Settings</button>
+            <button mat-menu-item>Help</button>
+        </mat-menu>
+
+        <button mat-icon-button [matMenuTriggerFor]="appMenu">
+            <mat-icon>more_vert</mat-icon>
+        </button>
+    </header>
+    <div class="scrum-stage-wrap">
+        <section class="scrum-stage-content">
+            <div class="scrum-stage-tasks">
+
+                <app-task-item></app-task-item>
+                <app-task-item></app-task-item>
+                <app-task-item></app-task-item>
+                <app-task-item></app-task-item>
+                <app-task-item></app-task-item>
+                
+            </div>
+            <div class="scrum-stage-tasks-done">
+
+            </div>
+
+        </section>
+        <div class="task-creator-handler-wrap">
+            <a class="task-creater-handler">
+                <i class="material-icons">mode_edit</i>
+            </a>
+        </div>
+    </div>
+    
+</div>

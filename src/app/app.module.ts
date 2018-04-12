@@ -61,6 +61,8 @@ import { CookieService } from 'ngx-cookie-service';
 import { TasksComponent } from './tasks/tasks.component';
 import { TaskPageComponent } from './task-page/task-page.component';
 import { TabBarComponent } from './tab-bar/tab-bar.component';
+import { TaskItemComponent } from './task-item/task-item.component';
+import { ScrumStageComponent } from './scrum-stage/scrum-stage.component';
 
 @NgModule({
   declarations: [
@@ -76,7 +78,9 @@ import { TabBarComponent } from './tab-bar/tab-bar.component';
     ProjectPageComponent,
     TasksComponent,
     TaskPageComponent,
-    TabBarComponent
+    TabBarComponent,
+    TaskItemComponent,
+    ScrumStageComponent
     
   ],
   imports: [
