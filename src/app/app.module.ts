@@ -63,6 +63,12 @@ import { TaskPageComponent } from './task-page/task-page.component';
 import { TabBarComponent } from './tab-bar/tab-bar.component';
 import { TaskItemComponent } from './task-item/task-item.component';
 import { ScrumStageComponent } from './scrum-stage/scrum-stage.component';
+import { CovalentLayoutModule } from '@covalent/core/layout';
+import { CovalentStepsModule  } from '@covalent/core/steps';
+import { CovalentCommonModule } from '@covalent/core/common';
+import { TasklistService } from './tasklist.service';
+/* any other core modules */
+// (optional) Additional Covalent Modules imports
 
 @NgModule({
   declarations: [
@@ -122,6 +128,10 @@ import { ScrumStageComponent } from './scrum-stage/scrum-stage.component';
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
+
+    CovalentLayoutModule,
+    CovalentStepsModule,
+    CovalentCommonModule,
   ],
   // The providers array tells Angular to create a single, 
   // shared instance of HeroService and inject into any class that asks for it.
@@ -131,7 +141,8 @@ import { ScrumStageComponent } from './scrum-stage/scrum-stage.component';
     ProjectService,
     UserService,
     MainLoginService,
-    CookieService
+    CookieService,
+    TasklistService
   ],
   entryComponents:[
     AddProjectDialogComponent

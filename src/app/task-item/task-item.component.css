@@ -1,4 +1,9 @@
+.task-item-wrapper{
+  box-sizing: border-box;
+  margin: 0 8px 8px;
+}
 .task-item {
+  box-sizing: border-box;
   font-size: 14px;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -15,12 +20,12 @@
 
   position: relative;
   background: #fafafa;
-  max-width: 273px;
+  max-width: 272px;
   width: 100%;
   min-height: 48px;
-  box-sizing: border-box;
+  
   border-radius: 3px;
-  margin: 0 8px 8px;
+  /* margin: 0 8px 8px; */
   white-space: normal;
 }
 .task-priority {
@@ -64,7 +69,7 @@
   -ms-flex-align: stretch;
   align-items: stretch;
 }
-.scrum-stage-tasks .task-item .task-content-set .task-content-wrapper {
+.task-item .task-content-set .task-content-wrapper {
   overflow: visible;
   min-height: 20px;
   box-sizing: border-box;

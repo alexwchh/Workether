@@ -20,7 +20,17 @@
                 <app-task-item></app-task-item>
                 <app-task-item></app-task-item>
                 <app-task-item></app-task-item>
-                
+                <app-task-item></app-task-item>
+                <app-task-item></app-task-item>
+                <app-task-item></app-task-item>
+                <app-task-item></app-task-item>
+                <app-task-item></app-task-item>
+                <app-task-item></app-task-item>
+                <app-task-item></app-task-item>
+                <app-task-item></app-task-item>
+                <app-task-item></app-task-item>
+                <app-task-item></app-task-item>
+
             </div>
             <div class="scrum-stage-tasks-done">
 
@@ -28,11 +38,21 @@
 
         </section>
         <div class="task-creator-handler-wrap">
-            <a class="task-creator-handler">
-                <i class="material-icons">mode_edit</i>
-            </a>
-            <textarea matInput placeholder="Favorite food" ></textarea>
+
+            <div class="task-creator-handler">
+                <div class="add-task-input-wrap" [tdToggle]="toggleDiv">
+                    <mat-form-field class="add-task-input">
+                        <!-- <input matInput placeholder="Add task..."> -->
+                        <textarea matInput placeholder="Autosize textarea" matTextareaAutosize matAutosizeMinRows="0" matAutosizeMaxRows="5"></textarea>
+
+                    </mat-form-field>
+
+                </div>
+                <button mat-icon-button color="primary" (click)="toggle()" class="add-task-button">
+                    <mat-icon class="mat-18">add_circle</mat-icon>
+                </button>
+
+            </div>
         </div>
     </div>
-    
 </div>

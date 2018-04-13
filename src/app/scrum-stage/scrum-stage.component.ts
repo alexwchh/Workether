@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./scrum-stage.component.css']
 })
 export class ScrumStageComponent implements OnInit {
-
+  toggleDiv:boolean =true;
   constructor() { }
 
   ngOnInit() {
+  }
+  toggle():void{
+     this.toggleDiv=!this.toggleDiv;
   }
 
 }
