@@ -1,12 +1,12 @@
 <div class="task-item-wrapper">
 <div class="task-item mat-elevation-z1">
     <div class="task-priority"></div>
-    <mat-checkbox class="task-check"></mat-checkbox>
+    <mat-checkbox [(ngModel)]="isComplete" class="task-check" (click)="onDeleteReq()" [checked]="isComplete"></mat-checkbox>
     <!-- <span>Although the icons in the </span> -->
 
     <div class="task-content-set">
         <header class="task-content-wrapper">
-            <div class="task-content">Although the icons in the</div>
+            <div class="task-content">{{task.task_title}}</div>
         </header>
         <section class="task-info-wrapper">
             <div class="task-infos">

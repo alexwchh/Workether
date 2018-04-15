@@ -8,69 +8,60 @@ import { of } from "rxjs/observable/of";
 import { MessageService } from "./message.service";
 import { Router, ActivatedRoute } from "@angular/router";
 import { MatFormField } from "@angular/material";
-import{TaskList} from "./task-list"
+import{Task} from "./task"
 @Injectable()
-export class TasklistService {
-  private taskLists: TaskList[];
-  private taskListsUrl:string;
+export class TaskService {
+  private taskItems: Task[];
+  private tasksUrl:string;
   constructor( private http: HttpClient,
     private messageService: MessageService) { }
 
-    public getTaskLists(projectId:string): Observable<TaskList[]> {
-      const url =`http://localhost:3000/projects/${projectId}/task_lists`
+    public getTasks(taskListId:string): Observable<Task[]> {
+      const url =`http://localhost:3000/task_lists/${taskListId}/tasks`
       return this.http
-        .get<TaskList[]>(url, httpOptions)
+        .get<Task[]>(url, httpOptions)
         .pipe(
           tap(projectes => this.log(`fetched tasklists`)),
           catchError(this.handleError("getTaskLists", []))
         );
     }
-    getTaskList(id: string): Observable<TaskList> {
-      // Todo: send the message _after_ fetching the project
-      const url = `${this.taskListsUrl}/${id}`;
+
+    addTask(taskItem: Task): Observable<Task> {
       return this.http
-        .get<TaskList>(url, httpOptions)
+        .post<Task>(`http://localhost:3000/task_lists/${taskItem.task_list_id}/tasks`, taskItem, httpOptions)
         .pipe(
-          tap(_ => this.log(`fetched project id=${id}`)),
-          catchError(this.handleError<TaskList>(`getProject id=${id}`))
-        );
-    }
-    addTaskList(taskList: TaskList): Observable<TaskList> {
-      return this.http
-        .post<TaskList>(`http://localhost:3000/projects/${taskList.project_id}/task_lists`, taskList, httpOptions)
-        .pipe(
-          tap((taskList: any) => this.log(`added taskList w/ id=`)),
+          tap((task: any) => this.log(`added taskList w/ id=`)),
           catchError(this.handleError<any>("addTaskList"))
         );
     }
-
-    updateTaskList(tasklist: TaskList): Observable<boolean> {
+    updateTask(taskItem: Task): Observable<boolean> {
       
       let id = new ObjectId()
-      id  = JSON.parse(JSON.stringify(tasklist._id))
-      const updateUrl = `http://localhost:3000/task_lists/${id.$oid}`;
+      id  = JSON.parse(JSON.stringify(taskItem._id))
+      const updateUrl = `http://localhost:3000/tasks/${id.$oid}`;
       return this.http
-        .put(updateUrl, tasklist, httpOptions)
+        .put(updateUrl, taskItem, httpOptions)
         .pipe(
-          tap(_ => this.log(`updated project id=${tasklist._id}`)),
-          catchError(this.handleError<any>("updateProject"))
+          tap(_ => this.log(`updated task id=${taskItem._id}`)),
+          catchError(this.handleError<any>("updateTask"))
         );
     }
-    updateTaskListOrder(tasklists:TaskList[]){
-      const updateUrl = `http://localhost:3000/update_order`;
+
+    updateTaskOrder(taskItems: Task[]){
+      const updateUrl = `http://localhost:3000/tasks_order`;
       return this.http
-      .put(updateUrl, tasklists, httpOptions)
+      .put(updateUrl, taskItems, httpOptions)
       .pipe(
-        tap(_ => this.log(`updated project id=`)),
-        catchError(this.handleError<any>("updateProject"))
+        tap(_ => this.log(`updated taskItems id=`)),
+        catchError(this.handleError<any>("update taskItems order"))
       );
     }
-    deleteTaskList(taskList: TaskList): Observable<boolean> {
+    deleteTask(taskItem: Task): Observable<boolean> {
       let id = new ObjectId()
-      id  = JSON.parse(JSON.stringify(taskList._id))
+      id  = JSON.parse(JSON.stringify(taskItem._id))
       // let projectId = new ObjectId()
       // projectId = JSON.parse(JSON.stringify(taskList.project_id))
-      const deleteUrl = `http://localhost:3000/task_lists/${id.$oid}`;
+      const deleteUrl = `http://localhost:3000/tasks/${id.$oid}`;
       return this.http
         .delete<Project>(deleteUrl, httpOptions)
         .pipe(
@@ -78,6 +69,9 @@ export class TasklistService {
           catchError(this.handleError<any>("deleteproject"))
         );
     }
+
+
+
     private handleError<T>(operation = "operation", result?: T) {
       return (error: any): Observable<T> => {
         // TODO: send the error to remote logging infrastructure
@@ -100,13 +94,6 @@ const httpOptions = {
 };
 export class ObjectId{
   $oid:string;
-//   constructor(idStr: string) {
-//     this.$oid = idStr;
-// }
-}
-export class TaskOrder{
-  id:any;
-  order:number;
 //   constructor(idStr: string) {
 //     this.$oid = idStr;
 // }

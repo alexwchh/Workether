@@ -15,7 +15,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
   }
   add(){
-    this.projectService.addProject(this.project).subscribe(project=>{})
+    this.projectService.addProject(this.project).subscribe(project=>{console.log(project)})
   }
   openDialog():void{
     let dialogRef = this.dialog.open(AddProjectDialogComponent, {

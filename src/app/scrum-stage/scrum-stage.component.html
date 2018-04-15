@@ -1,12 +1,31 @@
 <div class="scrum-stage mat-elevation-z3">
     <header class="scrum-header">
-        <span>On The Go</span>
+        <span>{{tasklist.task_list_title}}</span>
         <span class="example-fill-remaining-space"></span>
         <mat-menu #appMenu="matMenu">
-            <button mat-menu-item>Settings</button>
-            <button mat-menu-item>Help</button>
+            <button mat-menu-item (click)="openEditDialog()">
+                <mat-icon>edit</mat-icon>
+                <span>Edit</span>
+            </button>
+            <button mat-menu-item (click)="onDeleteReq()">
+                <mat-icon>delete</mat-icon>
+                <span>Delete</span>
+            </button>
+            <button mat-menu-item (click)="openAddAfterDialog()">
+                <mat-icon>view_list</mat-icon>
+                <span>Add list after</span>
+            </button>
+            <button mat-menu-item [matMenuTriggerFor]="vertebrates">
+                <mat-icon>filter_list</mat-icon>
+                <span>Edit task</span>
+            </button>
         </mat-menu>
-
+        <mat-menu #vertebrates="matMenu">
+            <button *ngIf="isShowCompletedTask" mat-menu-item (click)=showOrHideCompletedTask()>Hide done task</button>
+            <button *ngIf="!isShowCompletedTask" mat-menu-item (click)=showOrHideCompletedTask()>Show done task</button>
+            <button mat-menu-item>Delete all task</button>
+            <button mat-menu-item>Complete all</button>
+        </mat-menu>
         <button mat-icon-button [matMenuTriggerFor]="appMenu">
             <mat-icon>more_vert</mat-icon>
         </button>
@@ -15,24 +34,12 @@
         <section class="scrum-stage-content">
             <div class="scrum-stage-tasks">
 
-                <app-task-item></app-task-item>
-                <app-task-item></app-task-item>
-                <app-task-item></app-task-item>
-                <app-task-item></app-task-item>
-                <app-task-item></app-task-item>
-                <app-task-item></app-task-item>
-                <app-task-item></app-task-item>
-                <app-task-item></app-task-item>
-                <app-task-item></app-task-item>
-                <app-task-item></app-task-item>
-                <app-task-item></app-task-item>
-                <app-task-item></app-task-item>
-                <app-task-item></app-task-item>
-                <app-task-item></app-task-item>
-                <app-task-item></app-task-item>
+                <app-task-item *ngFor="let activetask of activeTask" [task]="activetask" (deleteRequest)="onDestroy($event)" (editRequest)=onEdit($event) (addAfterRequest)=onAddAfter($event)></app-task-item>
+                
 
             </div>
-            <div class="scrum-stage-tasks-done">
+            <div *ngIf="isShowCompletedTask" class="scrum-stage-tasks-done" >
+                <app-task-item *ngFor="let completedtask of completedTasks" [task]="completedtask" (reviveRequest)="onRevive($event)" (editRequest)=onEdit($event) (addAfterRequest)=onAddAfter($event)></app-task-item>
 
             </div>
 
@@ -43,7 +50,7 @@
                 <div class="add-task-input-wrap" [tdToggle]="toggleDiv">
                     <mat-form-field class="add-task-input">
                         <!-- <input matInput placeholder="Add task..."> -->
-                        <textarea matInput placeholder="Autosize textarea" matTextareaAutosize matAutosizeMinRows="0" matAutosizeMaxRows="5"></textarea>
+                        <input matInput [(ngModel)]="addedTask" (keyup.enter)="addTask();addInput.reset()" placeholder="Autosize textarea" matTextareaAutosize matAutosizeMinRows="0" matAutosizeMaxRows="5" #addInput="ngModel">
 
                     </mat-form-field>
 

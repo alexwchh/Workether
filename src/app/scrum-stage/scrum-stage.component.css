@@ -17,6 +17,7 @@
     vertical-align: top;
     background-color: #eee;
     border-radius: 3px;
+    transition: all 218ms ease-in;
 }
 .scrum-header {
     display: flex;
@@ -62,9 +63,16 @@
      box-sizing: border-box;
      margin: 0px;
      padding: 0px;
-    transition: opacity 0.08s ease-out;
-    opacity: 1;
+     transition: opacity 0.8s ease-out;
+     opacity: 1;
  }
+ .scrum-stage-tasks-done{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    transition: opacity 0.8s ease-out;
+    opacity: 0.5;
+}
  
 .scrum-stage-wrap .task-creator-handler-wrap{
     width: 100%;
@@ -98,6 +106,7 @@
     margin-right: 10px
 }
 .add-task-button{
+    width: 24px
     /* align-self: flex-start; */
 }
 .add-task-input{
@@ -110,3 +119,5 @@
          Every toolbar row uses a flexbox row layout. */
     flex: 1 1 auto;
   }
+  
+  

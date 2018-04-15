@@ -3,31 +3,32 @@
 <div class="tasklists-container">
     <div class="board-scrum-view">
         <div class="board-scrum-stages ">
-            <app-scrum-stage></app-scrum-stage>
-            <div class="stage-add-view">
-                
-                <mat-expansion-panel class="tasklist_add_input_wrapper">
-                        <mat-expansion-panel-header>
-                         <mat-panel-title>
-                                <mat-icon class="mat-18" color="primary">playlist_add</mat-icon>
-                         </mat-panel-title>
-                          <mat-panel-description>
-                            Add tasklist...
-                          </mat-panel-description>
-                        </mat-expansion-panel-header>
-                    
-                        <mat-form-field>
-                          <input matInput [(ngModel)]="addedTasklist" (keyup.enter)="addTasklist()"placeholder="First name">
-                        </mat-form-field>
-                
-                      </mat-expansion-panel>
-                <!-- <mat-form-field class="tasklist_add_input_wrapper"> -->
-                        <!-- <input matInput class="add-tasklist-input" placeholder="Add task list..." type="text" #input> -->
-                       <!-- <input class="add-tasklist-input" placeholder="Add task list..." type="text"> -->
+            <app-scrum-stage *ngFor="let taskList of taskLists " [tasklist]="taskList" (deleteRequest)="onDestroy($event)" (editRequest)=onEdit($event) (addAfterRequest)=onAddAfter($event)></app-scrum-stage>
 
-                        <!-- <textarea matInput placeholder="Autosize textarea" matTextareaAutosize matAutosizeMinRows="0" -->
-                        <!-- matAutosizeMaxRows="5"></textarea> -->
-                    <!-- </mat-form-field> -->
+            <div class="stage-add-view">
+
+                <mat-expansion-panel class="tasklist_add_input_wrapper">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <mat-icon class="mat-18" color="primary">playlist_add</mat-icon>
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            Add tasklist...
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+
+                    <mat-form-field>
+                        <input matInput [(ngModel)]="addedTasklist" (keyup.enter)="addTasklist();addListInput.reset()" placeholder="First name" #addListInput="ngModel">
+                    </mat-form-field>
+
+                </mat-expansion-panel>
+                <!-- <mat-form-field class="tasklist_add_input_wrapper"> -->
+                <!-- <input matInput class="add-tasklist-input" placeholder="Add task list..." type="text" #input> -->
+                <!-- <input class="add-tasklist-input" placeholder="Add task list..." type="text"> -->
+
+                <!-- <textarea matInput placeholder="Autosize textarea" matTextareaAutosize matAutosizeMinRows="0" -->
+                <!-- matAutosizeMaxRows="5"></textarea> -->
+                <!-- </mat-form-field> -->
             </div>
         </div>
     </div>

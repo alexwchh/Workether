@@ -67,6 +67,8 @@ import { CovalentLayoutModule } from '@covalent/core/layout';
 import { CovalentStepsModule  } from '@covalent/core/steps';
 import { CovalentCommonModule } from '@covalent/core/common';
 import { TasklistService } from './tasklist.service';
+import { EditTaskListDialogComponent } from './edit-task-list-dialog/edit-task-list-dialog.component';
+import { TaskService } from './task.service';
 /* any other core modules */
 // (optional) Additional Covalent Modules imports
 
@@ -86,7 +88,8 @@ import { TasklistService } from './tasklist.service';
     TaskPageComponent,
     TabBarComponent,
     TaskItemComponent,
-    ScrumStageComponent
+    ScrumStageComponent,
+    EditTaskListDialogComponent
     
   ],
   imports: [
@@ -142,10 +145,12 @@ import { TasklistService } from './tasklist.service';
     UserService,
     MainLoginService,
     CookieService,
-    TasklistService
+    TasklistService,
+    TaskService
   ],
   entryComponents:[
-    AddProjectDialogComponent
+    AddProjectDialogComponent,
+    EditTaskListDialogComponent
   ],
   bootstrap: [AppComponent]
 })

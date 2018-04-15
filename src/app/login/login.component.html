@@ -1,4 +1,5 @@
 <div class="card-container"></div>
+
  <mat-card class="login-card">
      <mat-card-header>
          <mat-card-title><h1>Workether</h1></mat-card-title>
@@ -39,6 +40,7 @@
             </div>
 
           </form>
+          
           <button *ngIf ="isSignin" mat-raised-button  class="signinBtn"  (click)="loginToggle();loginForm.reset()">Sign in</button>
           <button *ngIf ="isSignin" mat-raised-button  class="signinBtnr" color="primary"  (click)="signUp();loginForm.reset()">Done</button>
           <button *ngIf ="isLogin" mat-raised-button  class="loginBtn" (click)="loginToggle();loginForm.reset()">Sign up</button>

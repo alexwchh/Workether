@@ -37,6 +37,7 @@ export class ProjectPageComponent implements OnInit {
       //  let projectOperation = new ProjectOperation(this.user,project);
       this.projectService.addProject(project).subscribe(addedproject => {
         this.freshProjects();
+        console.log(addedproject)
         console.log(addedproject.isStarred);
       });
     });

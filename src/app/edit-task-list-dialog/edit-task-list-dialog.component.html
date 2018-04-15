@@ -1,0 +1,17 @@
+<h1 mat-dialog-title>Hi </h1>
+<div mat-dialog-content>
+  <p>Edit task list name</p>
+  <mat-form-field>
+    <input matInput ngModel [(ngModel)]="tasklistName" required maxlength="20"
+    placeholder="List Name"
+    #project="ngModel"
+    (keyup.enter)="editTaskList()">
+    <mat-error *ngIf="project.invalid && (project.dirty || project.touched)">       
+      <span *ngIf="project.errors.required">name is required</span>
+      </mat-error>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button color ="basic" (click)="onNoClick()">Cancel</button>
+  <button mat-button (click)="editTaskList()" color="primary">Done</button> 
+</div>
