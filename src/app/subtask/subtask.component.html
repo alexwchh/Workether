@@ -1,20 +1,11 @@
-<div class="scrum-stage mat-elevation-z3">
+<div class="scrum-stage">
     <header class="scrum-header">
-        <span>{{tasklist.task_list_title}}</span>
+      
+          <mat-icon class="sublist-icon mat-18">view_list</mat-icon>
+     
+        <span>Sublist</span>
         <span class="example-fill-remaining-space"></span>
         <mat-menu #appMenu="matMenu">
-            <button mat-menu-item (click)="openEditDialog()">
-                <mat-icon>edit</mat-icon>
-                <span>Edit</span>
-            </button>
-            <button mat-menu-item (click)="onDeleteReq()">
-                <mat-icon>delete</mat-icon>
-                <span>Delete</span>
-            </button>
-            <button mat-menu-item (click)="openAddAfterDialog()">
-                <mat-icon>view_list</mat-icon>
-                <span>Add list after</span>
-            </button>
             <button mat-menu-item [matMenuTriggerFor]="vertebrates">
                 <mat-icon>filter_list</mat-icon>
                 <span>Edit task</span>
@@ -23,7 +14,7 @@
         <mat-menu #vertebrates="matMenu">
             <button *ngIf="isShowCompletedTask" mat-menu-item (click)=showOrHideCompletedTask()>Hide done task</button>
             <button *ngIf="!isShowCompletedTask" mat-menu-item (click)=showOrHideCompletedTask()>Show done task</button>
-            <button mat-menu-item >Move all task</button>
+            
             <button mat-menu-item (click)="completeAllTasks()">Complete all</button>
         </mat-menu>
         <button mat-icon-button [matMenuTriggerFor]="appMenu">
@@ -34,12 +25,12 @@
         <section class="scrum-stage-content">
             <div class="scrum-stage-tasks">
 
-                <app-task-item *ngFor="let activetask of activeTask" [task]="activetask" (click)=openTaskEditDialog($event,activetask) (deleteRequest)="onDestroy($event)" (editRequest)=onEdit($event) ></app-task-item>
+                <app-subtask-item *ngFor="let activetask of activeTask" [task]="activetask" (deleteRequest)="onDestroy($event)" (editRequest)=onEdit($event) ></app-subtask-item>
                 
 
             </div>
             <div *ngIf="isShowCompletedTask" class="scrum-stage-tasks-done" >
-                <app-task-item *ngFor="let completedtask of completedTasks" [task]="completedtask" (reviveRequest)="onRevive($event)" (editRequest)=onEdit($event) ></app-task-item>
+                <app-subtask-item *ngFor="let completedtask of completedTasks" [task]="completedtask" (reviveRequest)="onRevive($event)" (editRequest)=onEdit($event) ></app-subtask-item>
 
             </div>
 
@@ -55,8 +46,8 @@
                     </mat-form-field>
 
                 </div>
-                <button mat-icon-button color="primary" (click)="toggle()" class="add-task-button">
-                    <mat-icon class="mat-18">add_circle</mat-icon>
+                <button mat-icon-button color="basic" (click)="toggle()" class="add-task-button">
+                    <mat-icon class="mat-18">add_circle_outline</mat-icon>
                 </button>
 
             </div>

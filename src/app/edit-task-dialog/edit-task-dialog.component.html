@@ -1,0 +1,130 @@
+<!-- <div mat-dialog-content>
+  <p>Task Setting</p>
+  <mat-form-field>
+    <input matInput ngModel [(ngModel)]="tasklistName" required maxlength="20"
+    placeholder="List Name"
+    #project="ngModel"
+    (keyup.enter)="editTaskList()">
+    <mat-error *ngIf="project.invalid && (project.dirty || project.touched)">       
+      <span *ngIf="project.errors.required">name is required</span>
+      </mat-error>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button color ="basic" (click)="onNoClick()">Cancel</button>
+  <button mat-button (click)="editTaskList()" color="primary">Done</button> 
+</div> -->
+<div class="content-wrap">
+<div class="task-detail">
+  <!-- <section class="detail-content"> -->
+  <section class="detail-content">
+  <div class="task-detail-header-wrap">
+    <div class="task-detail-header">
+      <div class="menus-wrap flex">
+        <div class="task-detail-navs flex-vcenter task-tasklist-stage-wrap">
+          <span class="item task-detail-project">tasasdf</span>
+          <span class="divider">·</span>
+          <span class="item task-detail-stage"> Opened </span>
+        </div>
+        <div class="menu-right flex-space flex flex-vcenter flex-end">
+          <button mat-icon-button class="menu-handler flex-vcenter">
+            <mat-icon class="mat-18">more_horiz</mat-icon>
+          </button>
+          <button mat-icon-button class="close-handler flex-vcenter">
+            <mat-icon class="mat-18">close</mat-icon>
+          </button>
+        </div>
+      </div>
+      <div class="task clearfix ">
+        <mat-checkbox [(ngModel)]="modelName" class="check-box non-checkable hinted" value="" color="primary"></mat-checkbox>
+        <span class="label task-id-label"></span>
+        <div class="task-content-input hinted" contenteditable="true" data-title="点击即可编辑">dfggsdfgsdfgsdfgdf </div>
+      </div>
+    </div>
+  </div>
+  <div class="task-detail-basic-attrs">
+    <div class="task-basic-attrs-view flex">
+
+      <div class="task-detail-handler datetime flex">
+
+        <div class="component-mount due-date">
+
+          <mat-form-field>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <input matInput [(ngModel)]="selectedDate" [matDatepicker]="picker" placeholder="Choose a date">
+          </mat-form-field>
+          <button mat-icon-button class="repeatBtn" [matMenuTriggerFor]="menu">
+            <mat-icon class="mat-18">settings_backup_restore</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item>Repeat per day</button>
+            <button mat-menu-item>Repeat per week</button>
+            <button mat-menu-item>Repeat per month</button>
+            <button mat-menu-item>Repeat per year</button>
+          </mat-menu>
+          <button mat-icon-button [matMenuTriggerFor]="repeatMenu">
+            <mat-icon class="mat-18">alarm</mat-icon>
+          </button>
+          <mat-menu #repeatMenu="matMenu">
+            <button mat-menu-item>Disable</button>
+            <button mat-menu-item>Notify me on time</button>
+            <button mat-menu-item>5 Min early</button>
+            <button mat-menu-item>30 Min early</button>
+          </mat-menu>
+
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="task-detail-scenario-infos-wrap">
+    <section class="notes flex-horiz">
+      <mat-icon class="mat-18" color="basic">description</mat-icon>
+      <div class="description-input" contenteditable="true"></div>
+    </section>
+    <section class="priority flex">
+      <mat-icon class="mat-18" color="basic">album</mat-icon>
+
+      <mat-chip-list class="priority-chip-list">
+        <mat-chip selected="true" color="basic">normal</mat-chip>
+        <mat-chip selected="true" color="accent">medium</mat-chip>
+        <mat-chip selected="true" color="warn">high</mat-chip>
+      </mat-chip-list>
+    </section>
+    <section class="tag flex flex-vcenter">
+      <mat-icon class="mat-18" color="basic">label</mat-icon>
+      <mat-form-field class="demo-chip-list">
+        <mat-chip-list class="tag-chip-list" #chipList>
+          <mat-chip *ngFor="let fruit of fruits" [selectable]="selectable" [removable]="removable" (remove)="remove(fruit)">
+            {{fruit.name}}
+            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+          </mat-chip>
+          <input [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+            (matChipInputTokenEnd)="add($event)" />
+        </mat-chip-list>
+      </mat-form-field>
+    </section>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="task-detail-infos-wrap">
+    <div class="detail-infos-view detail-infos-wrapper">
+      <div class="detail-infos-subtask-view">
+          <app-subtask [task]="targetTask"></app-subtask>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+
+ 
+  <!-- </section> -->
+ 
+
+</div>
+
+  </section> 
+  
+  </div> 
+   <footer class="activity-creator-wrapper"></footer>
+  </div>

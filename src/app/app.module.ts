@@ -69,6 +69,12 @@ import { CovalentCommonModule } from '@covalent/core/common';
 import { TasklistService } from './tasklist.service';
 import { EditTaskListDialogComponent } from './edit-task-list-dialog/edit-task-list-dialog.component';
 import { TaskService } from './task.service';
+import { EditTaskDialogComponent } from './edit-task-dialog/edit-task-dialog.component';
+import { AngularDateTimePickerModule } from 'angular2-datetimepicker';
+import { SubtaskComponent } from './subtask/subtask.component';
+import { SubtaskService } from './subtask.service';
+import { SubtaskItemComponent } from './subtask-item/subtask-item.component';
+import { CovalentChipsModule } from '@covalent/core/chips';
 /* any other core modules */
 // (optional) Additional Covalent Modules imports
 
@@ -89,7 +95,11 @@ import { TaskService } from './task.service';
     TabBarComponent,
     TaskItemComponent,
     ScrumStageComponent,
-    EditTaskListDialogComponent
+    EditTaskListDialogComponent,
+    EditTaskDialogComponent,
+    SubtaskComponent,
+    SubtaskItemComponent,
+    
     
   ],
   imports: [
@@ -131,10 +141,11 @@ import { TaskService } from './task.service';
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
-
+    AngularDateTimePickerModule,
     CovalentLayoutModule,
     CovalentStepsModule,
     CovalentCommonModule,
+    CovalentChipsModule
   ],
   // The providers array tells Angular to create a single, 
   // shared instance of HeroService and inject into any class that asks for it.
@@ -146,11 +157,14 @@ import { TaskService } from './task.service';
     MainLoginService,
     CookieService,
     TasklistService,
-    TaskService
+    TaskService,
+    SubtaskService
   ],
   entryComponents:[
     AddProjectDialogComponent,
-    EditTaskListDialogComponent
+    EditTaskListDialogComponent,
+    EditTaskDialogComponent,
+  
   ],
   bootstrap: [AppComponent]
 })

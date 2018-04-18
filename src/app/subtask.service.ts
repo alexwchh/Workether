@@ -9,36 +9,37 @@ import { MessageService } from "./message.service";
 import { Router, ActivatedRoute } from "@angular/router";
 import { MatFormField } from "@angular/material";
 import{Task} from "./task"
+import {Subtask} from "./subtask";
 @Injectable()
-export class TaskService {
-  private taskItems: Task[];
+export class SubtaskService {
+  private subtasks: Subtask[];
   private tasksUrl:string;
   constructor( private http: HttpClient,
     private messageService: MessageService) { }
 
-    public getTasks(taskListId:string): Observable<Task[]> {
-      const url =`http://localhost:3000/task_lists/${taskListId}/tasks`
+    public getTasks(taskId:string): Observable<Subtask[]> {
+      const url =`http://localhost:3000/tasks/${taskId}/subtasks`
       return this.http
-        .get<Task[]>(url, httpOptions)
+        .get<Subtask[]>(url, httpOptions)
         .pipe(
           tap(projectes => this.log(`fetched tasklists`)),
           catchError(this.handleError("getTaskLists", []))
         );
     }
 
-    addTask(taskItem: Task): Observable<Task> {
+    addTask(taskItem: Subtask): Observable<Subtask> {
       return this.http
-        .post<Task>(`http://localhost:3000/task_lists/${taskItem.task_list_id}/tasks`, taskItem, httpOptions)
+        .post<Subtask>(`http://localhost:3000/tasks/${taskItem.task_id}/subtasks`, taskItem, httpOptions)
         .pipe(
           tap((task: any) => this.log(`added taskList w/ id=`)),
           catchError(this.handleError<any>("addTaskList"))
         );
     }
-    updateTask(taskItem: Task): Observable<boolean> {
+    updateTask(taskItem: Subtask): Observable<boolean> {
       
       let id = new ObjectId()
       id  = JSON.parse(JSON.stringify(taskItem._id))
-      const updateUrl = `http://localhost:3000/tasks/${id.$oid}`;
+      const updateUrl = `http://localhost:3000/subtasks/${id.$oid}`;
       return this.http
         .put(updateUrl, taskItem, httpOptions)
         .pipe(
@@ -47,8 +48,8 @@ export class TaskService {
         );
     }
 
-    updateTaskOrder(taskItems: Task[]){
-      const updateUrl = `http://localhost:3000/tasks_order`;
+    updateTaskOrder(taskItems: Subtask[]){
+      const updateUrl = `http://localhost:3000/subtasks_order`;
       return this.http
       .put(updateUrl, taskItems, httpOptions)
       .pipe(
@@ -56,8 +57,8 @@ export class TaskService {
         catchError(this.handleError<any>("update taskItems order"))
       );
     }
-    updateTaskGroup(taskItems: Task[]){
-      const updateUrl = `http://localhost:3000/complete_all`;
+    updateTaskGroup(taskItems: Subtask[]){
+      const updateUrl = `http://localhost:3000/complete_all_subtask`;
       return this.http
       .put(updateUrl, taskItems, httpOptions)
       .pipe(
@@ -65,14 +66,14 @@ export class TaskService {
         catchError(this.handleError<any>("update taskItems order"))
       );
     }
-    deleteTask(taskItem: Task): Observable<boolean> {
+    deleteTask(taskItem: Subtask): Observable<boolean> {
       let id = new ObjectId()
       id  = JSON.parse(JSON.stringify(taskItem._id))
       // let projectId = new ObjectId()
       // projectId = JSON.parse(JSON.stringify(taskList.project_id))
-      const deleteUrl = `http://localhost:3000/tasks/${id.$oid}`;
+      const deleteUrl = `http://localhost:3000/subtasks/${id.$oid}`;
       return this.http
-        .delete<Project>(deleteUrl, httpOptions)
+        .delete<Subtask>(deleteUrl, httpOptions)
         .pipe(
           tap(_ => this.log(`deleted project id=`)),
           catchError(this.handleError<any>("deleteproject"))

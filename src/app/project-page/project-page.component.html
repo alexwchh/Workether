@@ -27,7 +27,7 @@
     <h2>My Projects</h2>
 
     <mat-grid-list cols="4" rowHeight="2:1" gutterSize="20px">
-      <mat-grid-tile *ngFor="let project of activeProjects" class="mat-elevation-z2" [colspan]="1" [rowspan]="1">
+      <mat-grid-tile *ngFor="let project of activeProjects" class="mat-elevation-z2" [colspan]="1" [rowspan]="1" (click)="onNavigate($event,project)">
         <span class="project-title-label">{{project.project_name}}</span>
         <span class="example-fill-remaining-space"></span>
         <div class="project-options">
