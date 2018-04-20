@@ -8,6 +8,8 @@ import {MainPageComponent  } from "./main-page/main-page.component";
 import { TasksComponent } from "./tasks/tasks.component";
 import {  TaskPageComponent} from "./task-page/task-page.component";
 import { ProjectPageComponent } from "./project-page/project-page.component";
+import { AgendaPageComponent } from "./agenda-page/agenda-page.component";
+import { SharePageComponent } from "./share-page/share-page.component";
 const routes: Routes = [
   { path: 'heroes', component: HeroesComponent },
 
@@ -15,6 +17,9 @@ const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'projects', component: MainPageComponent},
   {path: 'projects/:id/tasklists', component: TaskPageComponent},
+  {path: 'projects/:id/agendas', component: AgendaPageComponent,pathMatch:'full'},
+  {path: 'projects/:id/shares', component: SharePageComponent,pathMatch:'full'},
+
   // children:[
   //   {path: 'projects', component: ProjectPageComponent,outlet:'projectPage'}, 
   //   {path: 'project-detail/:id', component: ProjectDetailComponent,outlet:'projectPage'}, ]

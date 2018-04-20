@@ -16,10 +16,10 @@ export class TasklistService {
   constructor( private http: HttpClient,
     private messageService: MessageService) { }
 
-    public getTaskLists(projectId:string): Observable<TaskList[]> {
+    public getTaskLists(projectId:string): Observable<any> {
       const url =`http://localhost:3000/projects/${projectId}/task_lists`
       return this.http
-        .get<TaskList[]>(url, httpOptions)
+        .get<any>(url, httpOptions)
         .pipe(
           tap(projectes => this.log(`fetched tasklists`)),
           catchError(this.handleError("getTaskLists", []))

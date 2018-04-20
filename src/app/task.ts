@@ -7,8 +7,8 @@ export class Task{
     task_remindDate: Date
     task_isComplete:boolean
     task_creatTime: Date
-    task_isRemind: boolean
-    task_isRepeat:boolean
+    task_remind: string
+    task_repeat:string
     task_notes:string
     task_prl:number
     task_order:number

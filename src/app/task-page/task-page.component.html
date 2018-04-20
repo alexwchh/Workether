@@ -3,7 +3,7 @@
 <div class="tasklists-container">
     <div class="board-scrum-view">
         <div class="board-scrum-stages ">
-            <app-scrum-stage *ngFor="let taskList of taskLists " [tasklist]="taskList" (deleteRequest)="onDestroy($event)" (editRequest)=onEdit($event) (addAfterRequest)=onAddAfter($event)></app-scrum-stage>
+            <app-scrum-stage *ngFor="let taskList of taskLists " [tasklist]="taskList" [project]="project" (deleteRequest)="onDestroy($event)" (editRequest)=onEdit($event) (addAfterRequest)=onAddAfter($event)></app-scrum-stage>
 
             <div class="stage-add-view">
 

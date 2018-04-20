@@ -75,6 +75,14 @@ import { SubtaskComponent } from './subtask/subtask.component';
 import { SubtaskService } from './subtask.service';
 import { SubtaskItemComponent } from './subtask-item/subtask-item.component';
 import { CovalentChipsModule } from '@covalent/core/chips';
+import {OverlayModule, Overlay, ScrollStrategyOptions} from '@angular/cdk/overlay';
+import { SelectListOverlayComponent } from './select-list-overlay/select-list-overlay.component';
+import { TagService } from './tag.service';
+import{TaskCommentService} from "./task-comment.service"
+import { CovalentDialogsModule } from '@covalent/core/dialogs';
+import { AgendaPageComponent } from './agenda-page/agenda-page.component';
+import { SharePageComponent } from './share-page/share-page.component';
+import { CovalentExpansionPanelModule } from '@covalent/core/expansion-panel';
 /* any other core modules */
 // (optional) Additional Covalent Modules imports
 
@@ -99,6 +107,9 @@ import { CovalentChipsModule } from '@covalent/core/chips';
     EditTaskDialogComponent,
     SubtaskComponent,
     SubtaskItemComponent,
+    SelectListOverlayComponent,
+    AgendaPageComponent,
+    SharePageComponent,
     
     
   ],
@@ -145,7 +156,9 @@ import { CovalentChipsModule } from '@covalent/core/chips';
     CovalentLayoutModule,
     CovalentStepsModule,
     CovalentCommonModule,
-    CovalentChipsModule
+    CovalentChipsModule,
+    CovalentDialogsModule,
+    CovalentExpansionPanelModule,
   ],
   // The providers array tells Angular to create a single, 
   // shared instance of HeroService and inject into any class that asks for it.
@@ -158,12 +171,15 @@ import { CovalentChipsModule } from '@covalent/core/chips';
     CookieService,
     TasklistService,
     TaskService,
-    SubtaskService
+    SubtaskService,
+    TagService,
+    TaskCommentService
   ],
   entryComponents:[
     AddProjectDialogComponent,
     EditTaskListDialogComponent,
     EditTaskDialogComponent,
+    SelectListOverlayComponent,
   
   ],
   bootstrap: [AppComponent]

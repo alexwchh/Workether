@@ -1,7 +1,7 @@
 <div class="task-item-wrapper">
 <div class="task-item mat-elevation-z1">
-    <div class="task-priority"></div>
-    <mat-checkbox [(ngModel)]="isComplete" class="task-check" (click)="onDeleteReq()" [checked]="isComplete"></mat-checkbox>
+    <div [class.basic]="noPrl" [class.normal]="normal" [class.medium]="medium" [class.high]="high" class="task-priority"></div>
+    <mat-checkbox [(ngModel)]="isComplete" class="task-check" (click)="onDeleteReq($event)" [checked]="isComplete"></mat-checkbox>
     <!-- <span>Although the icons in the </span> -->
 
     <div class="task-content-set">
@@ -10,7 +10,11 @@
         </header>
         <section class="task-info-wrapper">
             <div class="task-infos">
+            <span *ngIf="showDue" [class.hide]="hideDue"class="due-date"><span>{{task.task_remindDate | date:"shortDate"}}</span></span>
+            <span *ngIf="showNote"><mat-icon class="notes material-icons md-12">description</mat-icon></span>
+            <span *ngIf="showRepeat"><mat-icon class="repeat material-icons md-12">settings_backup_restore</mat-icon></span>
 
+            <span *ngIf="showReminf"><mat-icon class="remind material-icons md-12">alarm</mat-icon></span>
             </div>
         </section>
     </div>

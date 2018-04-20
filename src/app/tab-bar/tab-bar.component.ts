@@ -8,12 +8,16 @@ import { Router} from '@angular/router';
 export class TabBarComponent implements OnInit {
   @Input() public projectId:string
   taskUrl:string
+  agendaUrl:string
+  shareUrl:string
   constructor(private router:Router) { 
     
   }
 
   ngOnInit() {
     this.taskUrl = `/projects/${this.projectId}/tasklists` 
+    this.agendaUrl= `/projects/${this.projectId}/agendas`
+    this.shareUrl = `/projects/${this.projectId}/shares`
   }
 
 }

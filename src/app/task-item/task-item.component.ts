@@ -19,13 +19,75 @@ export class TaskItemComponent implements OnInit {
   @Output() editRequest = new EventEmitter<Task>();
   @Output() addAfterRequest = new EventEmitter<Task>();
   @Output() reviveRequest = new EventEmitter<Task>();
+  noPrl:boolean
+  normal:boolean;
+  medium:boolean;
+  high:boolean;
+  showNote:boolean;
+  showRepeat:boolean;
+  showReminf:boolean;
+  showDue:boolean
+  hideDue:boolean
 
   constructor(public editDialog: MatDialog) { }
   isComplete:boolean
   ngOnInit() {
     this.isComplete=this.task.task_isComplete;
+    if(this.task.task_prl==0){
+      this.noPrl=true;
+      this.normal=false;
+      this.medium=false;
+      this.high=false;
+    }
+    else if(this.task.task_prl==1) {
+      this.noPrl=false;
+      this.normal=true;
+      this.medium=false;
+      this.high=false;
+    }else if(this.task.task_prl==2) {
+      this.noPrl=false;
+      this.normal=false;
+      this.medium=true;
+      this.high=false;
+    }else if(this.task.task_prl==3) {
+      this.noPrl=false;
+      this.normal=false;
+      this.medium=false;
+      this.high=true;
+    }
+    // whether show notes icon
+    if(this.task.task_notes==null||this.task.task_notes.length==0){
+      this.showNote=false;
+    }
+    else{
+      this.showNote=true;
+    }
+    //
+    if(this.task.task_remindDate==null){
+      this.showDue=false;
+      this.hideDue=true;
+    }
+    else{
+      this.showDue=true;
+      this.hideDue=false
+    }
+    //
+    if(this.task.task_repeat==null||this.task.task_repeat=="0"){
+      this.showRepeat=false;
+    }
+    else{
+      this.showRepeat=true;
+    }
+    //
+    if(this.task.task_remind==null||this.task.task_remind=="0"){
+      this.showReminf=false;
+    }
+    else{
+      this.showReminf=true;
+    }
   }
-  onDeleteReq(){
+  onDeleteReq(event:any){
+    event.stopPropagation();
     if(this.task.task_isComplete)
     {
       this.reviveRequest.emit(this.task)

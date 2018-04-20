@@ -4,6 +4,10 @@ import { MatFormField } from "@angular/material";
 import { TasklistService, TaskOrder } from "../tasklist.service";
 import { TaskList } from "../task-list";
 import { puts } from "util";
+import { Project } from "../project";
+import { ViewContainerRef } from '@angular/core';
+import { TdDialogService } from '@covalent/core/dialogs';
+import { Task } from "../task";
 @Component({
   selector: "app-task-page",
   templateUrl: "./task-page.component.html",
@@ -11,6 +15,7 @@ import { puts } from "util";
 })
 export class TaskPageComponent implements OnInit {
   projectId: string;
+  project:Project;
   addedTasklist: string;
   taskLists: TaskList[];
   taskListOrders: Array<TaskOrder>;
@@ -18,7 +23,9 @@ export class TaskPageComponent implements OnInit {
   constructor(
     private router: Router,
     private activedRouter: ActivatedRoute,
-    private tasklistService: TasklistService
+    private tasklistService: TasklistService,
+    private _dialogService: TdDialogService,
+    private _viewContainerRef: ViewContainerRef
   ) {
     this.projectId = this.activedRouter.snapshot.paramMap.get("id");
   }
@@ -145,6 +152,22 @@ export class TaskPageComponent implements OnInit {
    * delete a list from database,and update the new order to data base
    */
   onDestroy(tasklist: TaskList) {
+    // this.tasklistService.deleteTaskList(tasklist).subscribe(isSuccess => {
+    //   if (isSuccess) {
+    //     console.log(
+    //       `${tasklist.task_list_title} has been successfully destroyed`
+    //     );
+    //     this.taskLists.splice(this.taskLists.indexOf(tasklist), 1);
+    //     this.updateOrder();
+    //     //this.freshTaskList();
+    //   } else {
+    //     console.log(`${tasklist.task_list_title} de
+    //       stroy has failed`);
+    //   }
+    // });
+    this.openDelete(tasklist)
+  }
+  onDestroyDialog(tasklist: TaskList){
     this.tasklistService.deleteTaskList(tasklist).subscribe(isSuccess => {
       if (isSuccess) {
         console.log(
@@ -159,12 +182,32 @@ export class TaskPageComponent implements OnInit {
       }
     });
   }
+  
+  openDelete(tasklist: TaskList): void {
+    this._dialogService.openConfirm({
+      message: 'This operation is irreversible, are you sure to delete?',
+       // defaults to false
+      viewContainerRef: this._viewContainerRef, //OPTIONAL
+      title: 'Delete', //OPTIONAL, hides if not provided
+      cancelButton: 'Cancel', //OPTIONAL, defaults to 'CANCEL'
+      acceptButton: 'Delete', //OPTIONAL, defaults to 'ACCEPT'
+      width: '450px', //OPTIONAL, defaults to 400px
+    }).afterClosed().subscribe((accept: boolean) => {
+      if (accept) {
+        this.onDestroyDialog(tasklist);
+      } else {
+        // DO SOMETHING ELSE
+      }
+    });
+  }
   /**
    * get lists form database and sort by tasklist order
    */
   freshTaskList() {
-    this.tasklistService.getTaskLists(this.projectId).subscribe(taskLists => {
-      this.taskLists = taskLists;
+    this.tasklistService.getTaskLists(this.projectId).subscribe(resultArray => {
+      // this.taskLists = taskLists;
+      this.taskLists = resultArray["task_lists"]
+      this.project=resultArray["project"];
       //get lists form database and sort by tasklist order
       this.sortList();
       //console.log(taskLists);

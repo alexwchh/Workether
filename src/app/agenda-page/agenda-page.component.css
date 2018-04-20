@@ -1,0 +1,77 @@
+.events-header {
+    width: 100%;
+    padding: 20px 0 0;
+    line-height: 50px;
+    text-align: center;
+    font-size: 16px;
+    background-color: #f5f5f5;
+    z-index: 1;
+}
+.events-view .events-header .event-create-handler {
+    cursor: pointer;
+    height: 50px;
+}
+.agendas-container {
+    position: fixed;
+    top: 110px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    padding: 0;
+    overflow: hidden;
+    transition: all 218ms ease;
+  }
+  .component-mount.due-date {
+    min-width: 0%;
+    margin-left: 4px;
+    display: flex;
+    flex-direction: row;
+}
+.dateInput{
+    width: 0px;
+    height: 0px;
+    visibility: hidden;
+    /* display:none */
+}
+.datepicker-form{
+    width: 100px;
+}
+.mat-icon-grey{
+    color: #757575;
+}
+.content-divider{
+  margin-left: 16px;
+  margin-right: 16px;    
+}
+.repeatBtn,.notiBtn{
+    margin-left: 20px;
+    margin-top:3px;
+}
+/* .comment-input-wrap{
+      height: 40px;
+      width: 90%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      background: white;
+      border-radius: 0px  ;
+      -webkit-border-radius: 0px  ;
+      -moz-border-radius: 0px  ;
+      -ms-border-radius: 0px  ;
+      -o-border-radius: 0px  ;
+}
+ .comment-input{
+     outline: none;
+     border: none;
+     height: 40px;
+     width: 100%;
+     background: white;
+     margin-left: 20px;
+     /* border-radius: 20px ; */
+    
+/* } */
+ .send-button{
+    align-self: flex-end;
+    color: #3F51B5;
+ } 

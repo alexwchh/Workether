@@ -29,3 +29,7 @@ h1 {
   .myapp-no-padding-dialog .mat-dialog-container {
     padding: 0;
   }
+  .myapp-no-padding-dialog .mat-form-field-underline{
+    height: 0px;
+  }
+  

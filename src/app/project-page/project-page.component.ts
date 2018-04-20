@@ -106,7 +106,8 @@ export class ProjectPageComponent implements OnInit {
    * onDelete
    * onEdit
    */
-  onAndOffStarred(project: Project) {
+  onAndOffStarred(event:any,project: Project) {
+    event.stopPropagation();
     project.isStarred = !project.isStarred;
     this.projectService.updateProject(project).subscribe(isSuccess => {
       if (isSuccess) {
@@ -117,7 +118,8 @@ export class ProjectPageComponent implements OnInit {
       }
     });
   }
-  onDelete(project: Project) {
+  onDelete(event:any,project: Project) {
+    event.stopPropagation();
     project.isActive = !project.isActive;
     this.projectService.updateProject(project).subscribe(isSuccess => {
       if (isSuccess) {

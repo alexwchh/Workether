@@ -9,6 +9,9 @@ import { TasklistService, TaskOrder } from "../tasklist.service";
 import { TaskService, ObjectId } from "../task.service";
 import { Task } from "../task";
 import { puts } from "util";
+import { Project } from "../project";
+import { ViewContainerRef } from '@angular/core';
+import { TdDialogService } from '@covalent/core/dialogs';
 @Component({
   selector: "app-scrum-stage",
   templateUrl: "./scrum-stage.component.html",
@@ -17,6 +20,7 @@ import { puts } from "util";
 export class ScrumStageComponent implements OnInit {
   toggleDiv: boolean = true;
   @Input() tasklist: TaskList;
+  @Input() project:Project;
   @Output() deleteRequest = new EventEmitter<TaskList>();
   @Output() editRequest = new EventEmitter<TaskList>();
   @Output() addAfterRequest = new EventEmitter<TaskList>();
@@ -31,7 +35,9 @@ export class ScrumStageComponent implements OnInit {
     public editDialog: MatDialog,
     private router: Router,
     private activedRouter: ActivatedRoute,
-    private taskService: TaskService
+    private taskService: TaskService,
+    private _dialogService: TdDialogService,
+    private _viewContainerRef: ViewContainerRef
   ) {}
 
   ngOnInit() {
@@ -115,8 +121,8 @@ export class ScrumStageComponent implements OnInit {
     task.task_title = this.addedTask;
     task.task_creatTime = new Date();
     task.task_isComplete = false;
-    task.task_isRemind = false;
-    task.task_isRepeat = false;
+    task.task_remind = "0";
+    task.task_repeat = "0";
     task.task_list_id = this.taskListId;
     task.task_prl = 0;
     task.task_order = this.activeTask.length + 1;
@@ -218,7 +224,7 @@ export class ScrumStageComponent implements OnInit {
     this.taskService.updateTask(task).subscribe(isSuccess => {
       if (isSuccess) {
         console.log(`${task.task_title} has been successfully modified`);
-
+      this.freshTask();
         //this.freshTaskList();
       } else {
         console.log(`${task.task_title} modifying has failed`);
@@ -229,7 +235,8 @@ export class ScrumStageComponent implements OnInit {
   /**
    * delete a list from database,and update the new order to data base
    */
-  onDestroy(task: Task) {
+
+  onDestroy(task: Task){
     this.taskService.updateTask(task).subscribe(isSuccess => {
       if (isSuccess) {
         console.log(`${task.task_title} has been successfully destroyed`);
@@ -243,6 +250,7 @@ export class ScrumStageComponent implements OnInit {
       }
     });
   }
+  
   onRevive(task:Task){
     task.task_isComplete=false;
     //this.completedTasks.splice(this.activeTask.indexOf(task), 1);
@@ -334,10 +342,12 @@ export class ScrumStageComponent implements OnInit {
       panelClass: 'myapp-no-padding-dialog',
       width: "600px",
       height: "80%",
-      data: { target:task}
+      data: { target:task,project:this.project,tasklist:this.tasklist}
     });
     dialogRef.afterClosed().subscribe(result => {
+      this.onEdit(task);
       console.log("The dialog was closed");
+      console.log(task)
       // this.tasklist.task_list_title = result;
       // this.onEditReq();
     });

@@ -1,3 +1,15 @@
+.material-icons.md-12 {
+  font-size: 14px;
+}
+.material-icons.md-24 {
+  font-size: 24px;
+}
+.material-icons.md-36 {
+  font-size: 36px;
+}
+.material-icons.md-48 {
+  font-size: 48px;
+}
 .task-item-wrapper{
   box-sizing: border-box;
   margin: 0 8px 8px;
@@ -39,9 +51,20 @@
   border-top-left-radius: 4px;
   transition: all 218ms ease-in;
   cursor: pointer;
-  background: blueviolet;
+  
 }
-
+.basic{
+  
+}
+.normal{
+  background: #3F51B5
+}
+.medium{
+  background:#FFC107
+}
+.high{
+  background:#F44336
+}
 .task-item .task-check {
   box-sizing: border-box;
   flex: 0 0 auto;
@@ -107,6 +130,7 @@
   -ms-flex-direction: column;
   flex-direction: column;
   padding-right: 14px;
+  padding-top:4px;
 }
 .task-item .task-content-set .task-info-wrapper .task-infos {
   box-sizing: border-box;
@@ -117,5 +141,22 @@
   overflow: hidden;
   margin-top: 4px;
   line-height: 16px;
-  font-size: 0;
+  font-size: 14px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+}
+.due-date{
+  box-sizing: border-box;
+  padding-right: 10px;
+}
+.notes,.repeat,.remind{
+  box-sizing: border-box;
+  padding-top:5px;
+  width: 14px;
+  margin-right: 10px;
+}
+.hide{
+  display: none;
 }
