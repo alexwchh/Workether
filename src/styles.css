@@ -3,6 +3,8 @@
 /* Application-wide Styles */
 
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+
 /* @import url('../node_modules/bootstrap/dist/css/bootstrap.css'); */
 h1 {
     color: #369;
@@ -13,12 +15,12 @@ h1 {
     color: #444;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: lighter;
-  }
-  body
+  } 
+   body
   {
     margin: 0px;
     background:#FAFAFA
-  }
+  } 
 
   
     
@@ -33,3 +35,7 @@ h1 {
     height: 0px;
   }
   
+.add-agenda.mat-expansion-panel-header-description{
+  justify-content: center;
+}
+.mat-action-row {padding: 8px 8px 8px 24px};

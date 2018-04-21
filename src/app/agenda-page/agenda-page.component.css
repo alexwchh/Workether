@@ -1,51 +1,71 @@
 .events-header {
-    width: 100%;
-    padding: 20px 0 0;
-    line-height: 50px;
-    text-align: center;
-    font-size: 16px;
-    background-color: #f5f5f5;
-    z-index: 1;
+  width: 80%;
+  min-width: 750px;
+  padding: 20px 0 0;
+  line-height: 50px;
+  text-align: center;
+  font-size: 16px;
+  z-index: 1;
 }
 .events-view .events-header .event-create-handler {
-    cursor: pointer;
-    height: 50px;
+  cursor: pointer;
+  height: 50px;
 }
 .agendas-container {
-    position: fixed;
-    top: 110px;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-    padding: 0;
-    overflow: hidden;
-    transition: all 218ms ease;
-  }
-  .component-mount.due-date {
-    min-width: 0%;
-    margin-left: 4px;
-    display: flex;
-    flex-direction: row;
+  position: fixed;
+  top: 110px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  padding: 0;
+  overflow: hidden;
+  transition: all 218ms ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
-.dateInput{
-    width: 0px;
-    height: 0px;
-    visibility: hidden;
-    /* display:none */
+.agenda-date-picker {
+  margin-top: 14px;
 }
-.datepicker-form{
-    width: 100px;
+.agenda-date-picker-span {
+  color: #757575;
+  font-size: 14px;
+  margin-top: 16px;
+  margin-right: 10px;
 }
-.mat-icon-grey{
-    color: #757575;
+.margin-left-10 {
+  margin-left: 10px;
 }
-.content-divider{
+
+.component-mount.due-date {
+  min-width: 0%;
+  margin-left: 4px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.dateInput {
+  width: 0px;
+  height: 0px;
+  visibility: hidden;
+  /* display:none */
+}
+.datepicker-form {
+  width: 100px;
+}
+.mat-icon-grey {
+  color: #757575;
+}
+.content-divider {
   margin-left: 16px;
-  margin-right: 16px;    
+  margin-right: 16px;
 }
-.repeatBtn,.notiBtn{
-    margin-left: 20px;
-    margin-top:3px;
+.repeatBtn,
+.notiBtn {
+  margin-left: 20px;
+  margin-top: 3px;
 }
 /* .comment-input-wrap{
       height: 40px;
@@ -69,9 +89,26 @@
      background: white;
      margin-left: 20px;
      /* border-radius: 20px ; */
-    
+
 /* } */
- .send-button{
-    align-self: flex-end;
-    color: #3F51B5;
- } 
+.send-button {
+  align-self: flex-end;
+  color: #3f51b5;
+}
+.events-card-wrap {
+  width: 80%;
+  padding: 20px 0 0;
+  min-width: 750px;
+}
+.events-card {
+  margin-bottom: 20px;
+}
+.events-card .events-card-header {
+  margin: 0 15px;
+  font-size: 18px;
+}
+.repeatSelect,
+.notiSelect {
+  box-sizing: border-box;
+  width: 110px;
+}

@@ -40,7 +40,7 @@ export class EditTaskDialogComponent implements OnInit {
   addOnBlur: boolean = true;
   selectedDate: Date = new Date();
   separatorKeysCodes = [ENTER, COMMA];
-  @ViewChild('tag') child: MatMenuItem; 
+  @ViewChild('tag') child: MatMenuItem;
   constructor(public dialogRef: MatDialogRef<EditTaskDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private projectService:TasklistService,
@@ -52,7 +52,7 @@ export class EditTaskDialogComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    
+
     // this.targetTask=this.data['target']
     // this.project=this.data['project']
     // this.tasklist=this.data['tasklist']
@@ -75,7 +75,7 @@ export class EditTaskDialogComponent implements OnInit {
        this.priorityMedium=true;
        this.priorityHigh=false;
        this.priorityNormal=false;
-
+       
     }
     else if(this.data.target.task_prl==3){
        this.priorityHigh=true;
@@ -95,11 +95,11 @@ export class EditTaskDialogComponent implements OnInit {
   }
   onNoClick(): void {
     this.dialogRef.close();
-    
-    
+
+
   }
   selectRepeat(){
-    
+
   }
   selectNomalPriority(){
     this.priorityMedium=false;
@@ -121,7 +121,7 @@ export class EditTaskDialogComponent implements OnInit {
      }else{
       this.data.target.task_prl=0
      }
-    
+
   }
   selectHighPriority(){
     this.priorityNormal=false;
@@ -132,23 +132,23 @@ export class EditTaskDialogComponent implements OnInit {
      }else{
     this.data.target.task_prl=0
      }
-    
+
   }
   // Enter, comma
- 
+
 /**
  * edit of tags
  */
-  
+
 
   freshTag() {
     this.tagService.getTags(this.taskId).subscribe(tags => {
       this.tags = tags;
-     
+
       // console.log(`all task lists:${taskLists}`)
     });
   }
-  
+
   add(event: MatChipInputEvent): void {
     let input = event.input;
     let value = event.value;
@@ -161,7 +161,7 @@ export class EditTaskDialogComponent implements OnInit {
       this.tagService.addTask(tag).subscribe(addedTag=>{
         this.tags.push(addedTag);
       });
-      
+
     }
 
     // Reset the input value
@@ -178,17 +178,17 @@ export class EditTaskDialogComponent implements OnInit {
       this.tags.splice(index, 1);
     }
         } else {
-        
-          
+
+
       }
     })
-    
+
 
   }
   freshComments(){
     this.taskCommentService.getComments(this.taskId).subscribe(comments => {
       this.comments = comments;
-     
+
       // console.log(`all task lists:${taskLists}`)
     });
   }
@@ -201,7 +201,7 @@ export class EditTaskDialogComponent implements OnInit {
       this.comments.push(addedcomment);
       console.log(addedcomment.commenter)
     });
-    
+
 
   }
   /**

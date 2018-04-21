@@ -36,13 +36,13 @@ export class SelectListOverlayService {
     // Attach ComponentPortal to PortalHost
     overlayRef.attach(filePreviewPortal);
     const selectListOverlayRef = new SelectListOverlayRef(overlayRef);
-    const overlayComponent = this.attachDialogContainer(overlayRef, dialogConfig, dialogRef);
+    const overlayComponent = this.attachDialogContainer(overlayRef, dialogConfig, selectListOverlayRef);
 
     overlayRef.backdropClick().subscribe(_ => selectListOverlayRef.close());
     return selectListOverlayRef
   }
   private getOverlayConfig(config: SelectListOverlayConfig): OverlayConfig {
-    const positionStrategy = this.overlay.position().connectedTo()
+    // const positionStrategy = this.overlay.position().connectedTo()
       // .global()
       // .centerHorizontally()
       // .centerVertically();
@@ -52,7 +52,7 @@ export class SelectListOverlayService {
       backdropClass: config.backdropClass,
       panelClass: config.panelClass,
       scrollStrategy: this.overlay.scrollStrategies.block(),
-      positionStrategy
+      // positionStrategy
     });
 
     return overlayConfig;
