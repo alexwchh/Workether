@@ -52,7 +52,11 @@
       </mat-expansion-panel>
     </div>
   </div>
+  
   <div class="events-card-wrap">
+    <header class="margin-bottom-15">
+    <span class="before-panel flex-start">Today</span><span class="divider">·</span><span class="date-header">{{date| date:"dd MMMM, E"}}</span>
+    </header>
     <mat-accordion>
       <mat-expansion-panel #expd="matExpansionPanel">
         <mat-expansion-panel-header>
@@ -115,4 +119,73 @@
       </mat-expansion-panel>
     </mat-accordion>
   </div>
+  <div class="events-card-wrap before-today-agenda">
+      <header class="margin-bottom-15">
+      <span class="before-panel flex-start">Before Today</span><span class="margin-left-15">·</span>
+      <button mat-icon-button (click)="toggleVisibility()">
+          <mat-icon class="mat-18 toggleBtn color-grey-button">{{visibilityIcon}}</mat-icon>
+      </button>
+      </header>
+      <mat-accordion *ngIf="this.pastVisibility">
+        <mat-expansion-panel #expd="matExpansionPanel">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              21:00~22:00
+            </mat-panel-title>
+            <mat-panel-description>
+              meeting
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <div class="component-mount due-date">
+              <span class="agenda-date-picker-span">From</span>
+              <angular2-date-picker class="agenda-date-picker range-from" [(ngModel)]="fromDate" [settings]="settings"></angular2-date-picker>
+              <span class="agenda-date-picker-span margin-left-10">To</span>
+              <angular2-date-picker class="agenda-date-picker range-to" [(ngModel)]="toDate" [settings]="settings"></angular2-date-picker>
+    
+              <button mat-icon-button class="repeatBtn">
+                <mat-icon class="mat-18 mat-icon-grey">settings_backup_restore</mat-icon>
+              </button>
+              <mat-form-field class="repeatSelect">
+                <mat-select class="select-repeat-items" placeholder="Set Repeat">
+                  <mat-option value="0">None</mat-option>
+                  <mat-option value="1">Per Day</mat-option>
+                  <mat-option value="2">Per Week</mat-option>
+                  <mat-option value="3">Per Month</mat-option>
+                  <mat-option value="4">Per Year</mat-option>
+    
+                </mat-select>
+              </mat-form-field>
+              <button mat-icon-button class="notiBtn">
+                <mat-icon class="mat-18 mat-icon-grey">alarm</mat-icon>
+              </button>
+              <mat-form-field class="notiSelect">
+                <mat-select class="select-noti-items" placeholder="Set Reminder">
+                  <mat-option value="0">None</mat-option>
+                  <mat-option value="1">Disable</mat-option>
+                  <mat-option value="2">on time</mat-option>
+                  <mat-option value="3">5 Min early</mat-option>
+                  <mat-option value="4">30 Min early</mat-option>
+    
+                </mat-select>
+              </mat-form-field>
+            </div>
+    
+            <mat-action-row class="panel-action">
+              <button mat-button (click)="closePanel()">Click me</button>
+            </mat-action-row>
+        </mat-expansion-panel>
+        <mat-expansion-panel (opened)="panelOpenState = true"
+                             (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              22:00~23:00
+            </mat-panel-title>
+            <mat-panel-description>
+             discuss
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <p>I'm visible because I am open</p>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
 </div>

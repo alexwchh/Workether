@@ -83,7 +83,6 @@ import { CovalentDialogsModule } from '@covalent/core/dialogs';
 import { AgendaPageComponent } from './agenda-page/agenda-page.component';
 import { SharePageComponent } from './share-page/share-page.component';
 import { CovalentExpansionPanelModule } from '@covalent/core/expansion-panel';
-import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 /* any other core modules */
 // (optional) Additional Covalent Modules imports
@@ -161,7 +160,6 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
     CovalentDialogsModule,
     CovalentExpansionPanelModule,
     AngularDateTimePickerModule,
-    BsDatepickerModule.forRoot(),
     
     
   ],

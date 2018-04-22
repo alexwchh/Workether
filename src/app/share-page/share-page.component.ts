@@ -16,6 +16,9 @@ import { Task } from "../task";
 })
 export class SharePageComponent implements OnInit {
   projectId: string;
+  opend:boolean
+  date:Date=new Date()
+  events = [];
   constructor(
     private router: Router,
     private activedRouter: ActivatedRoute,
@@ -27,6 +30,7 @@ export class SharePageComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log("sadfasdfasdfasdgds")
   }
 
 }

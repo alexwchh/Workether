@@ -1,2 +1,40 @@
 <app-navbar></app-navbar>
 <app-tab-bar [projectId]="projectId"></app-tab-bar>
+<mat-sidenav-container class="share-container">
+    <p>adsfasdfadgag adsgsdgf dsgs df g
+    </p>
+    <mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')" (closed)="events.push('close!')">
+        
+        <mat-list>
+            <mat-list-item *ngFor="let folder of events" [class.selected]="folder===selectedHero" (click)="onSelect()" class="article-item">
+                <mat-icon class="article-item-avator" matListAvatar>person</mat-icon>
+                <h4 matLine>plan of project</h4>
+                <p matLine class="article-info"><span>chenghao post on </span>{{ date | date:"short"}}</p>
+                <!-- <img matListAvatar src="..." alt="..."> -->
+                <!-- <mat-icon matListIcon>folder</mat-icon> -->
+                <!-- <h4 matLine>folder.name</h4> -->
+                <!-- <p matLine class="article-info"> <span>chenghao post on </span>{{ date | date:"short"}}</p> -->
+            </mat-list-item>
+            <!-- <mat-divider></mat-divider>
+            <h3 matSubheader>Notes</h3>
+            <mat-list-item *ngFor="let note of events">
+                <mat-icon matListIcon>note</mat-icon>
+                <h4 matLine>{{note.name}}</h4>
+                <p matLine class="demo-2"> {{note.updated}} </p>
+            </mat-list-item> -->
+        </mat-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <p>
+            <mat-checkbox [(ngModel)]="opened">sidenav.opened</mat-checkbox>
+        </p>
+        <p>
+            <button mat-button (click)="sidenav.toggle()">sidenav.toggle()</button>
+        </p>
+        <p>Events:</p>
+        <div class="example-events">
+            <div *ngFor="let e of events">{{e}}</div>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
