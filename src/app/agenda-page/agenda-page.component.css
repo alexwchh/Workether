@@ -31,7 +31,7 @@
   right: 0px;
   bottom: 0px;
   padding: 0;
-  overflow: hidden;
+  overflow: auto;
   transition: all 218ms ease;
   display: flex;
   flex-direction: column;
@@ -66,8 +66,9 @@ h1{
 }
 
 .toggleBtn{
+  font-size: 18px;
   box-sizing: border-box;
-  margin-bottom: 5px;
+  margin-bottom: 7px;
 }
 .date-header{
   font-size: 100%;
@@ -166,4 +167,42 @@ h1{
   align-self: flex-end;
   color: #3f51b5;
 }
+.input-wrap{
+  display: flex;
+  align-items: center;
+  text-align: left;
+  height: 40px;
+}
+.agenda-title-input{
+  width:300px;
+padding: 4px;
+margin-left: 20px;
+margin-right: 25px;
+font-size: 14px;
+word-break: break-word;
+font-weight: 500;
+border-radius: 3px;
+border: none;
+outline: none;
+}
+.agenda-title-input:focus{
+  border: none;
+    background: #eee;
 
+}
+.check-box{
+  box-sizing: border-box;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+   margin-left:10px;
+  /* margin-top: 4px; */ 
+}
+.add-agenda-icon{
+  box-sizing: border-box;
+  position: relative;
+   
+}
+.past-agenda{
+  margin-bottom: 30px;
+}

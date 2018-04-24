@@ -83,6 +83,7 @@ import { CovalentDialogsModule } from '@covalent/core/dialogs';
 import { AgendaPageComponent } from './agenda-page/agenda-page.component';
 import { SharePageComponent } from './share-page/share-page.component';
 import { CovalentExpansionPanelModule } from '@covalent/core/expansion-panel';
+import { AgendaService } from './agenda.service';
 
 /* any other core modules */
 // (optional) Additional Covalent Modules imports
@@ -176,7 +177,8 @@ import { CovalentExpansionPanelModule } from '@covalent/core/expansion-panel';
     TaskService,
     SubtaskService,
     TagService,
-    TaskCommentService
+    TaskCommentService,
+    AgendaService
   ],
   entryComponents:[
     AddProjectDialogComponent,

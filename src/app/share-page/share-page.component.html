@@ -6,7 +6,7 @@
     <mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')" (closed)="events.push('close!')">
         
         <mat-list>
-            <mat-list-item *ngFor="let folder of events" [class.selected]="folder===selectedHero" (click)="onSelect()" class="article-item">
+            <mat-list-item *ngFor="let folder of events" [class.selected]="folder"  class="article-item">
                 <mat-icon class="article-item-avator" matListAvatar>person</mat-icon>
                 <h4 matLine>plan of project</h4>
                 <p matLine class="article-info"><span>chenghao post on </span>{{ date | date:"short"}}</p>

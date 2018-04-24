@@ -13,10 +13,10 @@
             <button mat-icon-button class="edit-button" color="basic">
               <mat-icon>edit</mat-icon>
             </button>
-            <button mat-icon-button class="delete-button" (click)="onDelete(project)" color="basic">
+            <button mat-icon-button class="delete-button" (click)="onDelete($event,project)" color="basic">
               <mat-icon>delete</mat-icon>
             </button>
-            <button mat-icon-button [class.starred]="project.isStarred" class="star-button" (click)="onAndOffStarred(project)" color="basic">
+            <button mat-icon-button [class.starred]="project.isStarred" class="star-button" (click)="onAndOffStarred($event,project)" color="basic">
               <mat-icon>stars</mat-icon>
             </button>
           </div>
