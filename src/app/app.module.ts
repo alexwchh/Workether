@@ -84,6 +84,7 @@ import { AgendaPageComponent } from './agenda-page/agenda-page.component';
 import { SharePageComponent } from './share-page/share-page.component';
 import { CovalentExpansionPanelModule } from '@covalent/core/expansion-panel';
 import { AgendaService } from './agenda.service';
+import { CovalentTextEditorModule } from '@covalent/text-editor';
 
 /* any other core modules */
 // (optional) Additional Covalent Modules imports
@@ -161,7 +162,7 @@ import { AgendaService } from './agenda.service';
     CovalentDialogsModule,
     CovalentExpansionPanelModule,
     AngularDateTimePickerModule,
-    
+    CovalentTextEditorModule
     
   ],
   // The providers array tells Angular to create a single, 

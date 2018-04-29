@@ -6,7 +6,7 @@
     <mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')" (closed)="events.push('close!')">
         
         <mat-list>
-            <mat-list-item *ngFor="let folder of events" [class.selected]="folder"  class="article-item">
+            <mat-list-item *ngFor="let text of texts" [class.selected]="text===selectedText"  class="article-item" (click)="selectText(text)">
                 <mat-icon class="article-item-avator" matListAvatar>person</mat-icon>
                 <h4 matLine>plan of project</h4>
                 <p matLine class="article-info"><span>chenghao post on </span>{{ date | date:"short"}}</p>
@@ -27,14 +27,14 @@
 
     <mat-sidenav-content>
         <p>
-            <mat-checkbox [(ngModel)]="opened">sidenav.opened</mat-checkbox>
+            <button mat-icon-button (click)="toggleSideNav()">
+                <mat-icon class="mat-18">menu</mat-icon>
+            </button>
         </p>
-        <p>
-            <button mat-button (click)="sidenav.toggle()">sidenav.toggle()</button>
-        </p>
-        <p>Events:</p>
-        <div class="example-events">
-            <div *ngFor="let e of events">{{e}}</div>
-        </div>
+        <td-text-editor class="text-editor" [value]="selectedText" [options]="preOptions" #textEditorPre></td-text-editor>
+
+        <!-- <td-text-editor [(value)]="text" [options]="options" #textEditor></td-text-editor> -->
+        <!-- <td-text-editor class="text-editor" [(value)]="text" [options]="options" #textEditorPre></td-text-editor> -->
+        
     </mat-sidenav-content>
 </mat-sidenav-container>
