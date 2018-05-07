@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild, Input } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
 import { MatFormField } from "@angular/material";
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
+import {  EditArticleDialogComponent} from "../edit-article-dialog/edit-article-dialog.component";
 import { TasklistService, TaskOrder } from "../tasklist.service";
 import { TaskList } from "../task-list";
 import { puts } from "util";
@@ -36,14 +38,15 @@ export class SharePageComponent implements OnInit {
     // toolbar: false,
     autoDownloadFontAwesome:true,
   }
-  selectedText:String;
-  texts:String[];
+  selectedText:string;
+  texts:string[];
   constructor(
     private router: Router,
     private activedRouter: ActivatedRoute,
     private tasklistService: TasklistService,
     private _dialogService: TdDialogService,
-    private _viewContainerRef: ViewContainerRef
+    private _viewContainerRef: ViewContainerRef,
+    public editDialog: MatDialog,
   ) { 
     this.projectId = this.activedRouter.snapshot.paramMap.get("id");
   }
@@ -51,8 +54,7 @@ export class SharePageComponent implements OnInit {
   ngOnInit() {
     this.opened=false;
     console.log("sadfasdfasdfasdgds")
-    this.texts =["# Intro Go ahead, play around with the editor! Be sure to check out **bold** and *italic* styling, or even [links](https://google.com). You can type the Markdown syntax, use the toolbar, or use shortcuts like 'cmd-b' or 'ctrl-b'.## ListsUnordered lists can be started using the toolbar or by typing '* ', '- ', or '+ '. Ordered lists can be started by typing '1. '. #### Unordered* Lists are a piece of cake* They even auto continue as you type* A double enter will end them* Tabs and shift-tabs work too#### Ordered1. Numbered lists..  2. ...work too!## What about images?","asdgsdgdsgdfgdfgdfg"]
-    
+this.texts = ["text1","text2","text1","text2","text1","text2","text1","text2","text1","text2","text1","text2","text1","text2"];    
   }
   ngAfterViewInit(): void {
     // this._textEditorPre.togglePreview();
@@ -62,14 +64,31 @@ export class SharePageComponent implements OnInit {
   {
     this.opened=!this.opened;
   }
-  selectText(text:String){
+  selectText(text:string){
     this.selectedText=text;
-    if(this._textEditorPre.isPreviewActive){
+    this._textEditorPre.value=text;
+    if(!this._textEditorPre.isPreviewActive()){
+     
       this._textEditorPre.togglePreview();
 
     }
 
   }
-
+  openTaskEditDialog(event:any,task:Task){
+    event.stopPropagation();
+    let dialogRef = this.editDialog.open(EditArticleDialogComponent, {
+      panelClass: 'myapp-no-padding-dialog',
+      width: "600px",
+      height: "100%",
+      data: { target:task,project:this.project,tasklist:this.tasklist}
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      
+      console.log("The dialog was closed");
+      console.log(task)
+      // this.tasklist.task_list_title = result;
+      // this.onEditReq();
+    });
+  }
 
 }

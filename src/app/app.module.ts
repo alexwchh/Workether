@@ -85,7 +85,8 @@ import { SharePageComponent } from './share-page/share-page.component';
 import { CovalentExpansionPanelModule } from '@covalent/core/expansion-panel';
 import { AgendaService } from './agenda.service';
 import { CovalentTextEditorModule } from '@covalent/text-editor';
-
+import { QuillModule } from 'ngx-quill';
+import { EditArticleDialogComponent } from './edit-article-dialog/edit-article-dialog.component'
 /* any other core modules */
 // (optional) Additional Covalent Modules imports
 
@@ -113,6 +114,7 @@ import { CovalentTextEditorModule } from '@covalent/text-editor';
     SelectListOverlayComponent,
     AgendaPageComponent,
     SharePageComponent,
+    EditArticleDialogComponent,
     
     
   ],
@@ -162,7 +164,8 @@ import { CovalentTextEditorModule } from '@covalent/text-editor';
     CovalentDialogsModule,
     CovalentExpansionPanelModule,
     AngularDateTimePickerModule,
-    CovalentTextEditorModule
+    CovalentTextEditorModule,
+    QuillModule
     
   ],
   // The providers array tells Angular to create a single, 
@@ -186,6 +189,7 @@ import { CovalentTextEditorModule } from '@covalent/text-editor';
     EditTaskListDialogComponent,
     EditTaskDialogComponent,
     SelectListOverlayComponent,
+    EditArticleDialogComponent
   
   ],
   bootstrap: [AppComponent]

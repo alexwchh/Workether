@@ -1,40 +1,59 @@
 <app-navbar></app-navbar>
 <app-tab-bar [projectId]="projectId"></app-tab-bar>
 <mat-sidenav-container class="share-container">
-    <p>adsfasdfadgag adsgsdgf dsgs df g
-    </p>
+
     <mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')" (closed)="events.push('close!')">
-        
-        <mat-list>
-            <mat-list-item *ngFor="let text of texts" [class.selected]="text===selectedText"  class="article-item" (click)="selectText(text)">
-                <mat-icon class="article-item-avator" matListAvatar>person</mat-icon>
-                <h4 matLine>plan of project</h4>
-                <p matLine class="article-info"><span>chenghao post on </span>{{ date | date:"short"}}</p>
-                <!-- <img matListAvatar src="..." alt="..."> -->
-                <!-- <mat-icon matListIcon>folder</mat-icon> -->
-                <!-- <h4 matLine>folder.name</h4> -->
-                <!-- <p matLine class="article-info"> <span>chenghao post on </span>{{ date | date:"short"}}</p> -->
-            </mat-list-item>
-            <!-- <mat-divider></mat-divider>
-            <h3 matSubheader>Notes</h3>
-            <mat-list-item *ngFor="let note of events">
-                <mat-icon matListIcon>note</mat-icon>
-                <h4 matLine>{{note.name}}</h4>
-                <p matLine class="demo-2"> {{note.updated}} </p>
-            </mat-list-item> -->
-        </mat-list>
+        <div class="article-sidenav">
+            <div class="article-list-wrap">
+                <mat-list>
+                    <mat-list-item *ngFor="let text of texts" [class.selected]="text===selectedText" class="article-item" (click)="selectText(text)">
+                        <mat-icon class="article-item-avator" matListAvatar>person</mat-icon>
+                        <h4 matLine>plan of project</h4>
+                        <p matLine class="article-info">
+                            <span>chenghao post on </span>{{ date | date:"short"}}</p>
+                        <!-- <img matListAvatar src="..." alt="..."> -->
+                        <!-- <mat-icon matListIcon>folder</mat-icon> -->
+                        <!-- <h4 matLine>folder.name</h4> -->
+                        <!-- <p matLine class="article-info"> <span>chenghao post on </span>{{ date | date:"short"}}</p> -->
+                    </mat-list-item>
+                    <!-- <mat-divider></mat-divider>
+                            <h3 matSubheader>Notes</h3>
+                            <mat-list-item *ngFor="let note of events">
+                                <mat-icon matListIcon>note</mat-icon>
+                                <h4 matLine>{{note.name}}</h4>
+                                <p matLine class="demo-2"> {{note.updated}} </p>
+                            </mat-list-item> -->
+                </mat-list>
+            </div>
+
+            <div class="create-article-wrap" (click)="openTaskEditDialog($event)">
+                <div class="create-article-handler">
+                        <button mat-icon-button>
+                                <mat-icon class="material-icons md-24">add</mat-icon>
+                            </button>
+                </div>
+                   
+                
+            </div>
+        </div>
+
     </mat-sidenav>
 
     <mat-sidenav-content>
+
         <p>
-            <button mat-icon-button (click)="toggleSideNav()">
+            <button mat-icon-button class="sidenav-toggle-btn" (click)="toggleSideNav()">
                 <mat-icon class="mat-18">menu</mat-icon>
             </button>
         </p>
-        <td-text-editor class="text-editor" [value]="selectedText" [options]="preOptions" #textEditorPre></td-text-editor>
+        <div class="article-container">
+            <quill-editor [(ngModel)]="selectedText" [style]="{width: '800px',height: '100%'}" readOnly="true" [modules]="{toolbar: false}"></quill-editor>
+        </div>
 
-        <!-- <td-text-editor [(value)]="text" [options]="options" #textEditor></td-text-editor> -->
-        <!-- <td-text-editor class="text-editor" [(value)]="text" [options]="options" #textEditorPre></td-text-editor> -->
-        
+        <!-- <quill-editor [modules]="{ counter: { container: '#counter', unit: 'word' } }"> -->
+
+        <!-- </quill-editor> -->
+
+
     </mat-sidenav-content>
 </mat-sidenav-container>

@@ -26,18 +26,16 @@
   -webkit-align-items: flex-start;
   -ms-flex-align: start;
   align-items: flex-start;
-  /* 横轴的布局 */
-  /* justify-content: flex-start; */
-  /* 纵轴的布局 */
-
+  
   position: relative;
   background: #fafafa;
+  /* scrollbar don't occupy the space */
   max-width: 272px;
   width: 100%;
   min-height: 48px;
   
   border-radius: 3px;
-  /* margin: 0 8px 8px; */
+
   white-space: normal;
 }
 .task-priority {
