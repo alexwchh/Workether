@@ -15,11 +15,16 @@ import { ArrayType } from '@angular/compiler/src/output/output_ast';
   styleUrls: ['./edit-article-dialog.component.css']
 })
 export class EditArticleDialogComponent implements OnInit {
-
+  articleTitle: string;
+  articleContent:string;
   constructor(public dialogRef: MatDialogRef<EditArticleDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,) { }
 
   ngOnInit() {
   }
+  onNoClick(): void {
+    this.dialogRef.close();
 
+
+  }
 }

@@ -28,6 +28,9 @@ h1 {
   * {
     font-family: Arial, Helvetica, sans-serif;
   }
+  .myapp-no-padding-dialog{
+    max-width:none;
+  }
   .myapp-no-padding-dialog .mat-dialog-container {
     padding: 0;
   }

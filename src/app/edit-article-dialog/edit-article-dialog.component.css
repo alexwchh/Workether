@@ -1,0 +1,68 @@
+.edit-article-dialog {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 30px;
+}
+.edit-article-header-wrap {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+.article-title-input {
+  border: none;
+  font-size: 36px;
+  outline: none;
+  box-sizing: border-box;
+  padding: 10px;
+}
+.article-title-input:focus {
+  background: #eee;
+}
+.fill-space {
+  flex: 1 1 auto;
+}
+.close-handler {
+  align-self: center;
+}
+.article-text-editor {
+  display: flex;
+  box-sizing: border-box;
+  padding-top: 20px;
+  padding-bottom: 50px;
+  padding-left:10px;
+  padding-right: 10px;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  flex: 1 1 auto;
+  position: relative;
+
+  /* overflow: auto; */
+}
+quill-editor {
+  /* margin-top:20px;
+    margin-bottom: 20px; */
+  width: 100%;
+  height: 100%;
+  /* flex: 1 1 auto; */
+}
+.edit-article-footer {
+    box-sizing: border-box;
+  width: 100%;
+  height: 50px;
+  /* background: cadetblue; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 10px;
+}
+.cancel-btn{
+    margin-right: 20px;
+}

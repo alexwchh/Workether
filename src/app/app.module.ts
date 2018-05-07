@@ -86,7 +86,8 @@ import { CovalentExpansionPanelModule } from '@covalent/core/expansion-panel';
 import { AgendaService } from './agenda.service';
 import { CovalentTextEditorModule } from '@covalent/text-editor';
 import { QuillModule } from 'ngx-quill';
-import { EditArticleDialogComponent } from './edit-article-dialog/edit-article-dialog.component'
+import { EditArticleDialogComponent } from './edit-article-dialog/edit-article-dialog.component';
+import { ShareService } from './share.service'
 /* any other core modules */
 // (optional) Additional Covalent Modules imports
 
@@ -182,7 +183,8 @@ import { EditArticleDialogComponent } from './edit-article-dialog/edit-article-d
     SubtaskService,
     TagService,
     TaskCommentService,
-    AgendaService
+    AgendaService,
+    ShareService
   ],
   entryComponents:[
     AddProjectDialogComponent,

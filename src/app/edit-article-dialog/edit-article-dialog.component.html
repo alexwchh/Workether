@@ -1,3 +1,29 @@
-<p>
-  edit-article-dialog works!
-</p>
+<div class="edit-article-dialog">
+  <div class="edit-article-header-wrap">
+   <input [(ngModel)]="articleTitle" tabindex="-1" class="article-title-input" type="text" placeholder="Title"> 
+   <span class="fill-space"></span>
+   <button mat-icon-button tabindex="-1" class="close-handler flex-vcenter" (click)="onNoClick()">
+      <mat-icon class="mat-18">close</mat-icon>
+    </button>
+  </div>
+  <div class="article-text-editor">
+      <quill-editor [(ngModel)]="articleContent" tabindex="-1" [style]="{}" ></quill-editor>
+
+  </div>
+  <div class="edit-article-footer">
+      <button mat-raised-button class="cancel-btn" color ="basic" (click)="onNoClick()">Cancel</button> 
+      <button mat-raised-button color ="primary" (click)="onClick">Save</button>
+     
+  </div>
+    
+
+      <!-- <button mat-icon-button tabindex="-1" class="close-handler flex-vcenter" (click)="onNoClick()">
+          <mat-icon class="mat-18">send</mat-icon>
+        </button>
+        <button mat-icon-button tabindex="-1" class="close-handler flex-vcenter" (click)="onNoClick()">
+            <mat-icon class="mat-18">cancel</mat-icon>
+          </button> -->
+  </div>
+  
+
+
