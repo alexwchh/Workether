@@ -6,34 +6,25 @@
         <div class="article-sidenav">
             <div class="article-list-wrap">
                 <mat-list>
-                    <mat-list-item *ngFor="let text of texts" [class.selected]="text===selectedText" class="article-item" (click)="selectText(text)">
+                    <mat-list-item *ngFor="let share of shares" [class.selected]="share===selectedShare" class="article-item" (click)="selectShare(share)">
                         <mat-icon class="article-item-avator" matListAvatar>person</mat-icon>
-                        <h4 matLine>plan of project</h4>
+                        <h4 matLine>{{share.share_title}}</h4>
                         <p matLine class="article-info">
-                            <span>chenghao post on </span>{{ date | date:"short"}}</p>
-                        <!-- <img matListAvatar src="..." alt="..."> -->
-                        <!-- <mat-icon matListIcon>folder</mat-icon> -->
-                        <!-- <h4 matLine>folder.name</h4> -->
-                        <!-- <p matLine class="article-info"> <span>chenghao post on </span>{{ date | date:"short"}}</p> -->
+                            <span>chenghao post on </span>{{ share.share_creatTime | date:"short"}}</p>
+
                     </mat-list-item>
-                    <!-- <mat-divider></mat-divider>
-                            <h3 matSubheader>Notes</h3>
-                            <mat-list-item *ngFor="let note of events">
-                                <mat-icon matListIcon>note</mat-icon>
-                                <h4 matLine>{{note.name}}</h4>
-                                <p matLine class="demo-2"> {{note.updated}} </p>
-                            </mat-list-item> -->
+
                 </mat-list>
             </div>
 
-            <div class="create-article-wrap" (click)="openArticleEditDialog($event)">
+            <div class="create-article-wrap" (click)="openArticleAddDialog($event)">
                 <div class="create-article-handler">
-                        <button mat-icon-button>
-                                <mat-icon class="material-icons md-24">add</mat-icon>
-                            </button>
+                    <button mat-icon-button>
+                        <mat-icon class="material-icons md-24">add</mat-icon>
+                    </button>
                 </div>
-                   
-                
+
+
             </div>
         </div>
 
@@ -46,8 +37,71 @@
                 <mat-icon class="mat-18">menu</mat-icon>
             </button>
         </p>
-        <div class="article-container">
-            <quill-editor [(ngModel)]="selectedText" [style]="{width: '800px',height: '100%'}" readOnly="true" [modules]="{toolbar: false}"></quill-editor>
+        <div class="article-container mat-elevation-z3">
+            <div class="article-header">
+                <span class="h1-title">
+                        {{selectedTitle}}
+                </span>
+                
+                <button mat-icon-button class="menu-trigger" [matMenuTriggerFor]="menu">
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item (click)="editArticle()">
+                        <mat-icon>edit</mat-icon>
+                        <span>Edit</span>
+                    </button>
+                    <button mat-menu-item (click)="deleteArticle()">
+                        <mat-icon>delete</mat-icon>
+                        <span>Delete</span>
+                    </button>
+                    
+                </mat-menu>
+            </div>
+            <mat-divider></mat-divider>
+            <quill-editor class="" [(ngModel)]="selectedText" [style]="{}" readOnly="true" [modules]="{toolbar: false}"></quill-editor>
+
+            <div class="article-footer">
+                <mat-divider *ngIf="comments.length>0" class="footer-divider"></mat-divider>
+                <div class="task-detail-comments-wrap">
+                    <div *ngFor="let comment of comments" class="comment-item-wrapper">
+                        <div class="comment-item">
+                            <div class="task-priority"></div>
+                            <span class="profile">W</span>
+
+                            <!-- <span>Although the icons in the </span> -->
+
+                            <div class="comment-content-set">
+                                <div class="user-name">{{comment.commenter}}</div>
+                                <header class="comment-content-wrapper">
+                                    <div class="comment-content">{{comment.comment_content}}</div>
+
+                                </header>
+                                <section class="comment-info-wrapper">
+                                    <div class="comment-infos">
+                                        <span>{{comment.comment_time | date :"medium"}}</span>
+                                    </div>
+                                </section>
+                            </div>
+
+                        </div>
+                        <mat-divider class="comment-divider"></mat-divider>
+                    </div>
+                </div>
+
+
+
+
+                <footer class="activity-creator-wrapper">
+                    <div class="comment-input-wrap">
+                        <input [(ngModel)]="commentInput" class="comment-input">
+                        <button class="send-button" mat-icon-button (click)="addComments()">
+                            <mat-icon class="mat-18">send</mat-icon>
+                        </button>
+                    </div>
+                    <!-- <mat-progress-bar mode="determinate" value="100"></mat-progress-bar> -->
+                </footer>
+            </div>
         </div>
 
         <!-- <quill-editor [modules]="{ counter: { container: '#counter', unit: 'word' } }"> -->

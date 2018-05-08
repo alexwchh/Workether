@@ -87,7 +87,8 @@ import { AgendaService } from './agenda.service';
 import { CovalentTextEditorModule } from '@covalent/text-editor';
 import { QuillModule } from 'ngx-quill';
 import { EditArticleDialogComponent } from './edit-article-dialog/edit-article-dialog.component';
-import { ShareService } from './share.service'
+import { ShareService } from './share.service';
+import { ShareCommentService } from './share-comment.service'
 /* any other core modules */
 // (optional) Additional Covalent Modules imports
 
@@ -184,7 +185,8 @@ import { ShareService } from './share.service'
     TagService,
     TaskCommentService,
     AgendaService,
-    ShareService
+    ShareService,
+    ShareCommentService
   ],
   entryComponents:[
     AddProjectDialogComponent,

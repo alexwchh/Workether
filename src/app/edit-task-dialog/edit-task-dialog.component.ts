@@ -62,6 +62,7 @@ export class EditTaskDialogComponent implements OnInit {
     // this.repeat=this.targetTask.task_repeat;
     // this.noti=this.targetTask.task_remind;
     // this.notesContent = this.targetTask.task_notes;
+    
     if(this.data.target.task_prl==0){
       this.priorityNormal=false;
       this.priorityHigh=false;

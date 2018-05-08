@@ -69,19 +69,55 @@ td-text-editor{
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  position:absolute;
-  top: 50px;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  overflow: auto;
+  width: 80%;
+  min-height: 90%;
+  margin: auto;
+  margin-bottom: 50px;
+  /* height: 100%;
+  width: 100%; */
+  /* box-sizing: border-box; */
+  /* margin-top:60px; */
+  /* position:absolute; */
+  /* width: 100%; */
+  /* top: 50px; */
+  /* bottom: 50px; */
+  /* left: 30px; */
+  /* right: 30px; */
+  /* overflow: auto; */
 }
 .sidenav-toggle-btn{
   align-self:flex-start;
 }
+mat-sidenav-content{
+  
+ overflow: auto;
+}
+.article-header{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /* background: white; */
+}
+.menu-trigger{
+ 
+}
+.h1-title{
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  flex: 1 1 auto;
+  flex-wrap: wrap;
+  line-break: auto;
+  word-wrap: break-word;
+}
 quill-editor {
   position: relative;
-  height: 100%;
+  height:1000px;
+  width: 100%;
+  background: white;
+  border: none;
 
 }
 .article-sidenav{
@@ -109,7 +145,7 @@ quill-editor {
 .create-article-wrap{
 /* display: flex; */
 background: #eee;
-/* align-self: flex-end; */
+align-self: flex-end;
 width: 100%;
 height: 50px;
 box-sizing: border-box;
@@ -123,12 +159,213 @@ justify-content: center; */
   display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
+    height: 100%;
     box-sizing: border-box;
     flex-direction: row;
     -webkit-align-items: center;
     -ms-flex-align: center;
     align-items: center;
     justify-content: center;
+}
+.article-footer{
+  width: 100%;
+  background: white;
+
+}
+footer{
+  z-index: 9;
+  overflow: visible;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 60px;
+  width: 100%;
+  align-self:flex-end;
+  justify-content: center;
+  background:#F5F5F5;
+  /* position: relative;
+  bottom: 0;
+  left: 0;
+  right: 0; */
+}
+.task-detail-comments-wrap{
+  
+  box-sizing: border-box;
+  background-color: #fff;
+}
+.task-detail-comments-item {
+  padding: 0 16px;
+}
+.comment-item-wrapper{
+  box-sizing: border-box;
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-bottom: 20px;
+  margin-top: 0px;
+ 
+  /* margin: 0 8px 8px; */
+}
+.comment-item {
+  box-sizing: border-box;
+  font-size: 14px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items:flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  /* 横轴的布局 */
+  /* justify-content: flex-start; */
+  /* 纵轴的布局 */
+
+  position: relative;
+  /* background: #fafafa; */
+  /* max-width: 272px; */
+  width: 100%;
+  min-height: 32px;
+  
+  border-radius: 3px;
+  /* margin: 0 8px 8px; */
+  white-space: normal;
+ 
+}
+.comment-item .profile {
+    
+  flex: 0 0 auto;
+  -webkit-flex: 0 0 auto;
+  /* margin-top: 6px; */
+  font-size: 14px;
+  margin-left: 13px;
+  margin-right: 14px;
+  width: 14px;
+    height: 14px;
+    text-align: center;
+    text-justify: center;
+    color: #fff;
+    padding: 6px;
+    border-radius: 50%  ;
+    -webkit-border-radius: 50%  ;
+    -moz-border-radius: 50%  ;
+    -ms-border-radius: 50%  ;
+    -o-border-radius: 50%  ;
+    background: #3F51B5;
+}
+
+.comment-item .comment-content-set {
+  padding: 4px 0;
+  line-height: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  box-sizing: border-box;
+
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+}
+.comment-item .comment-content-set .comment-content-wrapper {
+  overflow: visible;
+  min-height: 20px;
+  box-sizing: border-box;
+
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  margin-bottom: 10px
+}
+.comment-item .comment-content-set .comment-content-wrapper .comment-content {
+  word-wrap: break-word;
+  overflow: hidden;
+  margin: 0px 12px 0 0;
+  box-sizing: border-box;
+
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+}
+.comment-item .comment-content-set .comment-info-wrapper {
+  box-sizing: border-box;
+
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding-right: 14px;
+}
+.comment-item .comment-content-set .comment-info-wrapper .comment-infos {
+  box-sizing: border-box;
+
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  overflow: hidden;
+  margin-top: 4px;
+  line-height: 16px;
+  font-size: 8px;
+}
+.comment-input-wrap{
+  height: 40px;
+  width: 90%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    background: white;
+    border-radius: 20px  ;
+    -webkit-border-radius: 20px  ;
+    -moz-border-radius: 20px  ;
+    -ms-border-radius: 20px  ;
+    -o-border-radius: 20px  ;
+}
+.comment-input{
+   outline: none;
+   border: none;
+   height: 40px;
+   width: 100%;
+   background: white;
+   margin-left: 20px;
+   /* border-radius: 20px ; */
+  
+}
+.send-button{
+  align-self: flex-end;
+  color: #3F51B5;
+}
+.user-name{
+  margin-bottom: 10px;
+  color: #3F51B5
+}
+.comment-divider{
+margin-left:50px;
+margin-bottom: 20px;
+}
+.footer-divider{
+  margin-bottom: 30px;
 }
 /* .editor-toolbar.fullscreen{
   position: fixed;
