@@ -1,4 +1,13 @@
 <div class="tab-bar">
+    <div class="nav-header">
+        <button mat-icon-button  class="home-btn" (click)="navToHome()">
+            <mat-icon class="mat-18">apps
+            </mat-icon>
+        </button>
+        <span class="project-name" > {{projectName}}</span>
+        
+    </div>
+   
     <nav mat-tab-nav-bar color="primary">
         <a [routerLink]="taskUrl" routerLinkActive #rla="routerLinkActive" mat-tab-link class="tab" [active]="rla.isActive">TASK</a>
         <a mat-tab-link [routerLink]="shareUrl" routerLinkActive #rla1="routerLinkActive"   [active]="rla1.isActive" class="tab">SHARE</a>

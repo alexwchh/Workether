@@ -1,6 +1,6 @@
 <h1 mat-dialog-title>Hi </h1>
 <div mat-dialog-content>
-  <p>What do you name your project?</p>
+  <p>{{dialogDes}}</p>
   <mat-form-field>
     <input matInput ngModel [(ngModel)]="projectName" required maxlength="20"
     placeholder="Project Name"

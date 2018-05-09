@@ -16,6 +16,7 @@ import { Task } from "../task";
 export class TaskPageComponent implements OnInit {
   projectId: string;
   project:Project;
+  projectName:string;
   addedTasklist: string;
   taskLists: TaskList[];
   taskListOrders: Array<TaskOrder>;
@@ -208,6 +209,7 @@ export class TaskPageComponent implements OnInit {
       // this.taskLists = taskLists;
       this.taskLists = resultArray["task_lists"]
       this.project=resultArray["project"];
+      this.projectName =this.project.project_name;
       //get lists form database and sort by tasklist order
       this.sortList();
       //console.log(taskLists);

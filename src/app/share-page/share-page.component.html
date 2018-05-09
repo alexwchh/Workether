@@ -1,5 +1,5 @@
 <app-navbar></app-navbar>
-<app-tab-bar [projectId]="projectId"></app-tab-bar>
+<app-tab-bar [projectId]="projectId" [projectName]="projectName"></app-tab-bar>
 <mat-sidenav-container class="share-container">
 
     <mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')" (closed)="events.push('close!')">
@@ -39,9 +39,14 @@
         </p>
         <div class="article-container mat-elevation-z3">
             <div class="article-header">
-                <span class="h1-title">
-                        {{selectedTitle}}
+              
+                    <span class="h1-title-wrap">
+                        <span class="h1-title">
+                                <h4 class="h4-title">{{selectedTitle}}</h4>
+
+                        </span>
                 </span>
+              
                 
                 <button mat-icon-button class="menu-trigger" [matMenuTriggerFor]="menu">
                     <mat-icon>more_vert</mat-icon>
@@ -59,7 +64,7 @@
                 </mat-menu>
             </div>
             <mat-divider></mat-divider>
-            <quill-editor class="" [(ngModel)]="selectedText" [style]="{}" readOnly="true" [modules]="{toolbar: false}"></quill-editor>
+            <quill-editor class="" [(ngModel)]="selectedText" [style]="{}" readOnly="true" [modules]="{toolbar: false}" placeholder="Open or add a article to share..."></quill-editor>
 
             <div class="article-footer">
                 <mat-divider *ngIf="comments.length>0" class="footer-divider"></mat-divider>

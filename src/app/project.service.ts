@@ -10,7 +10,7 @@ import {
   ProjectOperation,
   ProjectPageComponent
 } from "./project-page/project-page.component";
-
+import { CookieService } from 'ngx-cookie-service';
 @Injectable()
 export class ProjectService {
   private projectsUrl = "http://localhost:3000/projects";
@@ -22,12 +22,13 @@ export class ProjectService {
 
   constructor(
     private http: HttpClient,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private cookieService: CookieService
   ) {}
 
-  public getProjects(): Observable<Project[]> {
+  public getProjects(userId:string): Observable<Project[]> {
     return this.http
-      .get<Project[]>(this.projectsUrl, httpOptions)
+      .get<Project[]>(`http://localhost:3000/users/${userId}/projects`, httpOptions)
       .pipe(
         tap(projectes => this.log(`fetched projectes`)),
         catchError(this.handleError("getProjectes", []))
@@ -47,7 +48,7 @@ export class ProjectService {
 
   addProject(project: Project): Observable<Project> {
     return this.http
-      .post<Project>(this.projectsUrl, project, httpOptions)
+      .post<Project>(`http://localhost:3000/users/${project.user_id}/projects`, project, httpOptions)
       .pipe(
         tap((project: Project) => this.log(`added project w/ id=`)),
         catchError(this.handleError<Project>("addProject"))

@@ -27,6 +27,7 @@ export class SharePageComponent implements OnInit {
 
   projectId: string;
   project: Project;
+  projectName:string;
   date: Date = new Date();
   events = [];
   opened: boolean;
@@ -123,7 +124,7 @@ export class SharePageComponent implements OnInit {
       // this.taskLists = taskLists;
       this.shares = resultArray["shares"];
       this.project = resultArray["project"];
-     
+     this.projectName=this.project.project_name;
       //get lists form database and sort by tasklist order
       //console.log(taskLists);
       // console.log(`all task lists:${taskLists}`)
@@ -134,6 +135,7 @@ export class SharePageComponent implements OnInit {
       // this.taskLists = taskLists;
       this.shares = resultArray["shares"];
       this.project = resultArray["project"];
+      this.projectName=this.project.project_name;
       //get lists form database and sort by tasklist order
       this.selectFirstShare();
       //console.log(taskLists);

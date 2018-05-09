@@ -5,6 +5,9 @@ import { MainLoginService } from "../main-login.service";
 import { User } from "../user";
 import { CookieService } from "ngx-cookie-service";
 import { Router } from "@angular/router";
+
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import{AddProjectDialogComponent} from '../add-project-dialog/add-project-dialog.component'
 @Component({
   selector: "app-project-page",
   templateUrl: "./project-page.component.html",
@@ -17,13 +20,15 @@ export class ProjectPageComponent implements OnInit {
   deletedProjects: Project[];
   selectedProject: Project;
   user: User;
+  userId:string;
   showDltChecked: boolean;
   showDltdisabled: boolean;
   constructor(
     private projectService: ProjectService,
     private loginService: MainLoginService,
     private cookiesService: CookieService,
-    private router: Router
+    private router: Router,
+    public  dialog: MatDialog
   ) {
     this.projects = new Array<Project>();
     this.activeProjects = new Array<Project>();
@@ -34,23 +39,26 @@ export class ProjectPageComponent implements OnInit {
     });
     //get added project
     this.projectService.projectAdded$.subscribe(project => {
+      console.log("+1")
       //  let projectOperation = new ProjectOperation(this.user,project);
       this.projectService.addProject(project).subscribe(addedproject => {
+        console.log("add 1")
         this.freshProjects();
-        console.log(addedproject)
-        console.log(addedproject.isStarred);
+      
       });
     });
   }
 
   ngOnInit() {
+    this.userId=this.cookiesService.get("test")
     this.freshProjects();
+    
     //cannot update here cuz freshproject is an async operation
     // this.getStarredProjects()
     // this.getdeletedProjects()
   }
   freshProjects() {
-    this.projectService.getProjects().subscribe(projects => {
+    this.projectService.getProjects("hjkhk").subscribe(projects => {
       this.projects = projects;
       this.initProjects();
       for (let project of projects) {
@@ -147,6 +155,30 @@ export class ProjectPageComponent implements OnInit {
     this.router.navigateByUrl(`projects/${id.$oid}/tasklists`);
     // let url=  this.router.createUrlTree(['/mainpage',{outlets:{projectDetail:`project-detail/${id.$oid}`}}])
     //  this.router.navigateByUrl(url)
+  }
+  onEdit(event: any, project: Project){
+    event.stopPropagation();
+    this.openDialog(project);
+  }
+  openDialog( projectEdit: Project):void{
+    console.log(projectEdit.project_name)
+    let dialogRef = this.dialog.open(AddProjectDialogComponent, {
+      width: '250px',
+      height: '400px',
+      data: { isEdit:true, project:projectEdit}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.projectService.updateProject(projectEdit).subscribe(isSuccess => {
+        if (isSuccess) {
+          console.log(`${projectEdit.project_name} has been successfully deleted`);
+          this.freshProjects();
+        } else {
+          console.log(`${projectEdit.project_name} deletion has failed`);
+        }
+      });
+    });
   }
   objectIdToStr(objectId: any): ObjectId {
     let id = new ObjectId();

@@ -7,6 +7,7 @@ import { Router} from '@angular/router';
 })
 export class TabBarComponent implements OnInit {
   @Input() public projectId:string
+  @Input() public projectName:string
   taskUrl:string
   agendaUrl:string
   shareUrl:string
@@ -19,5 +20,8 @@ export class TabBarComponent implements OnInit {
     this.agendaUrl= `/projects/${this.projectId}/agendas`
     this.shareUrl = `/projects/${this.projectId}/shares`
   }
-
+  navToHome()
+{
+  this.router.navigateByUrl('/projects')
+}
 }
