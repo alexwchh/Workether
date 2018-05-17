@@ -4,6 +4,9 @@ import { Project } from '../project';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import{AddProjectDialogComponent} from '../add-project-dialog/add-project-dialog.component'
 import { Router } from "@angular/router";
+import { CovalentNotificationsModule } from '@covalent/core/notifications';
+import { CovalentMenuModule } from '@covalent/core/menu';
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',

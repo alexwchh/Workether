@@ -1,16 +1,245 @@
 <div class="tab-bar">
     <div class="nav-header">
-        <button mat-icon-button  class="home-btn" (click)="navToHome()">
+        <button mat-icon-button class="home-btn" (click)="navToHome()">
             <mat-icon class="mat-18">apps
             </mat-icon>
         </button>
-        <span class="project-name" > {{projectName}}</span>
-        
+        <span class="project-name"> {{projectName}}</span>
+
     </div>
-   
+    <div class="nav-footer">
+        <button mat-icon-button (click)="displayMenu()" #originFab>
+            <mat-icon class="mat-18">more_vert</mat-icon>
+        </button>
+    </div>
+    <!-- <div [cdkPortalOutlet]="currentPortal"></div> -->
+    <!-- <ng-template [cdkPortalOutlet]="currentPortal"></ng-template> -->
+    <div class="tab-content">
+        <div [cdkPortalOutlet]="currentPortal" #por="cdkPortalOutlet"></div>
+    </div>
+    <!-- <ng-template [cdkPortalOutlet]="currentPortal"></ng-template> -->
+    <ng-template cdkPortal let-nameInTemplate="nameInObject">
+        <p>The content of this template is captured by the portal.{{nameInTemplate}}</p>
+    </ng-template>
+    <ng-template cdkPortal #overlayMenuList>
+        <div class="fab-menu-panel mat-elevation-z3">
+            <div class="right-nav-overlay-header-wrap">
+                <span>Project Menu</span>
+                <button mat-icon-button class="toggle-rightnav-btn" (click)="displayMenu()">
+                    <mat-icon class="mat-18">close</mat-icon>
+                </button>
+            </div>
+            <mat-divider></mat-divider>
+            <div class="right-nav-overlay-container">
+                <div class="right-nav-overlay-wrap">
+                    <div class="right-nav-overlay-operation-wrap">
+                        <mat-nav-list>
+                            <a mat-list-item>统计</a>
+                            <a mat-list-item>管理聯絡人</a>
+                        </mat-nav-list>
+                    </div>
+                    <mat-divider></mat-divider>
+                    <div class="right-nav-overlay-actor-wrap">
+                        <div class="right-nav-overlay-actor-header">
+                            <mat-icon class="mat-18 margin-left-16px">supervisor_account</mat-icon>
+
+
+                            <span class="margin-left-16px">参与者</span>
+                        </div>
+                        <div class="actor-group-info-wrap">
+
+
+                            <div class="actor-item">
+                                <span class="profile">W</span>
+                                <!-- <span>Although the icons in the </span> -->
+                                <div class="actor-content-set">
+                                    <div class="user-name">asdfasd</div>
+                                    <!-- <header class="comment-content-wrapper">
+                                            <div class="comment-content">asdfasdfasdf</div>
+            
+                                        </header> -->
+                                    <!-- <section class="comment-info-wrapper">
+                                            <div class="comment-infos">
+                                                <span>{{comment.comment_time | date :"medium"}}</span>
+                                            </div>
+                                        </section> -->
+                                </div>
+
+                            </div>
+                            <div class="actor-item">
+                                <span class="profile">W</span>
+                                <!-- <span>Although the icons in the </span> -->
+                                <div class="actor-content-set">
+                                    <div class="user-name">asdfasd</div>
+                                    <!-- <header class="comment-content-wrapper">
+                                                <div class="comment-content">asdfasdfasdf</div>
+                
+                                            </header> -->
+                                    <!-- <section class="comment-info-wrapper">
+                                                <div class="comment-infos">
+                                                    <span>{{comment.comment_time | date :"medium"}}</span>
+                                                </div>
+                                            </section> -->
+                                </div>
+
+                            </div>
+                            <div class="actor-group-add-handler">
+                                <button mat-button class="add-handler" (click)="displayAddUserOverlay()" #addUserButton>
+                                    <mat-icon class="mat-18 ">person_add</mat-icon>
+                                </button>
+                                
+                                
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                    <mat-divider></mat-divider>
+                    <div class="right-nav-overlay-activity-wrap">
+                        <div class="right-nav-overlay-activity-header">
+                            <mat-icon class="mat-18 margin-left-16px">local_activity</mat-icon>
+                            <span class="margin-left-16px">最近活动</span>
+                        </div>
+                        <div class="actor-group-info-wrap">
+                            <div class="actor-item">
+                                <span class="profile">W</span>
+                                <!-- <span>Although the icons in the </span> -->
+                                <div class="actor-content-set">
+                                    <div class="user-name">asdfasd</div>
+                                    <header class="actor-content-wrapper">
+                                        <div class="actor-content">asdfasdfasdf</div>
+
+                                    </header>
+                                    <section class="actor-info-wrapper">
+                                        <div class="actor-infos">
+                                            <span>sfsfdh</span>
+                                        </div>
+                                    </section>
+                                </div>
+
+                            </div>
+                            <div class="actor-item">
+                                <span class="profile">W</span>
+                                <!-- <span>Although the icons in the </span> -->
+                                <div class="actor-content-set">
+                                    <div class="user-name">asdfasd</div>
+                                    <header class="actor-content-wrapper">
+                                        <div class="actor-content">asdfasdfasdf</div>
+
+                                    </header>
+                                    <section class="actor-info-wrapper">
+                                        <div class="actor-infos">
+                                            <span>sfsfdh</span>
+                                        </div>
+                                    </section>
+                                </div>
+
+                            </div>
+                            <div class="actor-item">
+                                <span class="profile">W</span>
+                                <!-- <span>Although the icons in the </span> -->
+                                <div class="actor-content-set">
+                                    <div class="user-name">asdfasd</div>
+                                    <header class="actor-content-wrapper">
+                                        <div class="actor-content">asdfasdfasdf</div>
+
+                                    </header>
+                                    <section class="actor-info-wrapper">
+                                        <div class="actor-infos">
+                                            <span>sfsfdh</span>
+                                        </div>
+                                    </section>
+                                </div>
+
+                            </div>
+                            <div class="actor-item">
+                                <span class="profile">W</span>
+                                <!-- <span>Although the icons in the </span> -->
+                                <div class="actor-content-set">
+                                    <div class="user-name">asdfasd</div>
+                                    <header class="actor-content-wrapper">
+                                        <div class="actor-content">asdfasdfasdf</div>
+
+                                    </header>
+                                    <section class="actor-info-wrapper">
+                                        <div class="actor-infos">
+                                            <span>sfsfdh</span>
+                                        </div>
+                                    </section>
+                                </div>
+
+                            </div>
+                            <div class="actor-item">
+                                <span class="profile">W</span>
+                                <!-- <span>Although the icons in the </span> -->
+                                <div class="actor-content-set">
+                                    <div class="user-name">asdfasd</div>
+                                    <header class="actor-content-wrapper">
+                                        <div class="actor-content">asdfasdfasdf</div>
+
+                                    </header>
+                                    <section class="actor-info-wrapper">
+                                        <div class="actor-infos">
+                                            <span>sfsfdh</span>
+                                        </div>
+                                    </section>
+                                </div>
+
+                            </div>
+                            <div class="actor-item">
+                                <span class="profile">W</span>
+                                <!-- <span>Although the icons in the </span> -->
+                                <div class="actor-content-set">
+                                    <div class="user-name">asdfasd</div>
+                                    <header class="actor-content-wrapper">
+                                        <div class="actor-content">asdfasdfasdf</div>
+
+                                    </header>
+                                    <section class="actor-info-wrapper">
+                                        <div class="actor-infos">
+                                            <span>sfsfdh</span>
+                                        </div>
+                                    </section>
+                                </div>
+
+                            </div>
+                            <div class="actor-item">
+                                <span class="profile">W</span>
+                                <!-- <span>Although the icons in the </span> -->
+                                <div class="actor-content-set">
+                                    <div class="user-name">asdfasd</div>
+                                    <header class="actor-content-wrapper">
+                                        <div class="actor-content">asdfasdfasdf</div>
+
+                                    </header>
+                                    <section class="actor-info-wrapper">
+                                        <div class="actor-infos">
+                                            <span>sfsfdh</span>
+                                        </div>
+                                    </section>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </ng-template>
+    <ng-template cdkPortal #overlayUserList>
+    <p>asdfasdfgsd</p>
+    </ng-template>
+    <!-- <div class="righte-side-nav" *cdkPortal #rightNav>
+            The content of this template is captured by the portal.
+    </div> -->
+
     <nav mat-tab-nav-bar color="primary">
         <a [routerLink]="taskUrl" routerLinkActive #rla="routerLinkActive" mat-tab-link class="tab" [active]="rla.isActive">TASK</a>
-        <a mat-tab-link [routerLink]="shareUrl" routerLinkActive #rla1="routerLinkActive"   [active]="rla1.isActive" class="tab">SHARE</a>
-        <a mat-tab-link [routerLink]="agendaUrl" routerLinkActive #rla2="routerLinkActive"  [active]="rla2.isActive" class="tab">AGENDA</a>
+        <a mat-tab-link [routerLink]="shareUrl" routerLinkActive #rla1="routerLinkActive" [active]="rla1.isActive" class="tab">SHARE</a>
+        <a mat-tab-link [routerLink]="agendaUrl" routerLinkActive #rla2="routerLinkActive" [active]="rla2.isActive" class="tab">AGENDA</a>
     </nav>
 </div>

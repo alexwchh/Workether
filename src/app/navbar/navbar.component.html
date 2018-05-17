@@ -1,14 +1,44 @@
 <div class="navbar">
-    <mat-toolbar class="mat-elevation-z6" role="toolbar" color="primary">
-     
-      <span> Workether </span>
-      
-      <button mat-icon-button (click)="openDialog()" class="add-project-button"><mat-icon>add_box</mat-icon></button>
-      <!-- This fills the remaining space of the current row -->
-      <span class="example-fill-remaining-space"></span>
-      <button mat-icon-button class="add-project-button"><mat-icon>chat</mat-icon></button>
-      <button mat-icon-button class="noti-button"><mat-icon>notifications</mat-icon></button>
-      <button mat-icon-button class="account-button"><mat-icon>account_circle</mat-icon></button>
+  <mat-toolbar class="mat-elevation-z6" role="toolbar" color="primary">
 
-    </mat-toolbar>
-  </div>
+    <span> Workether </span>
+
+    <button mat-icon-button (click)="openDialog()" class="add-project-button">
+      <mat-icon>add_box</mat-icon>
+    </button>
+    <!-- This fills the remaining space of the current row -->
+    <span class="example-fill-remaining-space"></span>
+    <button mat-icon-button class="add-project-button">
+      <mat-icon>chat</mat-icon>
+    </button>
+    <button mat-icon-button class="noti-button overflow-visible" [matMenuTriggerFor]="notificationsMenu">
+        <td-notification-count [notifications]="101">
+            <mat-icon>notifications</mat-icon>
+          </td-notification-count>
+    </button>
+    <button mat-icon-button class="account-button">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+
+    <mat-menu #notificationsMenu="matMenu" [overlapTrigger]="false">
+      <td-menu>
+        <div td-menu-header class="mat-subheading-2 push-none">Notifications</div>
+        <mat-nav-list dense>
+          <ng-template let-last="last" ngFor [ngForOf]="[0,1,2,3,4,5,6,7,8,9]">
+            <a mat-list-item>
+              <mat-icon matListAvatar>today</mat-icon>
+              <h4 matLine>
+                <span class="text-wrap">A user did an activity on an item that you've subscribed to follow actions on.</span>
+              </h4>
+              <p matLine>22 minutes ago</p>
+            </a>
+            <mat-divider *ngIf="!last"></mat-divider>
+          </ng-template>
+        </mat-nav-list>
+        <button mat-button color="accent" td-menu-footer>
+          See All Notifications
+        </button>
+      </td-menu>
+    </mat-menu>
+  </mat-toolbar>
+</div>

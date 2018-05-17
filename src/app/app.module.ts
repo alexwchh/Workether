@@ -80,6 +80,8 @@ import { SelectListOverlayComponent } from './select-list-overlay/select-list-ov
 import { TagService } from './tag.service';
 import{TaskCommentService} from "./task-comment.service"
 import { CovalentDialogsModule } from '@covalent/core/dialogs';
+
+
 import { AgendaPageComponent } from './agenda-page/agenda-page.component';
 import { SharePageComponent } from './share-page/share-page.component';
 import { CovalentExpansionPanelModule } from '@covalent/core/expansion-panel';
@@ -88,7 +90,11 @@ import { CovalentTextEditorModule } from '@covalent/text-editor';
 import { QuillModule } from 'ngx-quill';
 import { EditArticleDialogComponent } from './edit-article-dialog/edit-article-dialog.component';
 import { ShareService } from './share.service';
-import { ShareCommentService } from './share-comment.service'
+import { ShareCommentService } from './share-comment.service';
+import { PortalModule, CdkPortalOutlet } from '@angular/cdk/portal';
+import { CovalentNotificationsModule } from '@covalent/core/notifications';
+import { CovalentMenuModule } from '@covalent/core/menu';
+
 /* any other core modules */
 // (optional) Additional Covalent Modules imports
 
@@ -117,7 +123,6 @@ import { ShareCommentService } from './share-comment.service'
     AgendaPageComponent,
     SharePageComponent,
     EditArticleDialogComponent,
-    
     
   ],
   imports: [
@@ -167,9 +172,18 @@ import { ShareCommentService } from './share-comment.service'
     CovalentExpansionPanelModule,
     AngularDateTimePickerModule,
     CovalentTextEditorModule,
-    QuillModule
+    CovalentNotificationsModule,
+    CovalentMenuModule,
+    QuillModule,
+    PortalModule,
+    
     
   ],
+  exports: [
+    PortalModule,
+    OverlayModule
+  ],
+  
   // The providers array tells Angular to create a single, 
   // shared instance of HeroService and inject into any class that asks for it.
   providers: [

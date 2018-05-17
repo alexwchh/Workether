@@ -1,7 +1,6 @@
 <app-navbar></app-navbar>
 <app-tab-bar [projectId]="projectId" [projectName]="projectName"></app-tab-bar>
 <mat-sidenav-container class="share-container">
-
     <mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')" (closed)="events.push('close!')">
         <div class="article-sidenav">
             <div class="article-list-wrap">
