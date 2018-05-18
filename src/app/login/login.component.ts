@@ -5,6 +5,7 @@ import { User } from '../user';
 import { Router} from '@angular/router';
 import { MainLoginService } from "../main-login.service";
 import { CookieService } from 'ngx-cookie-service';
+import {  ObjectId} from "../project.service";
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -15,8 +16,8 @@ export class LoginComponent implements OnInit {
   public isLogin:boolean;
   newAccount:string;
   newPsw:string;
-  signinAccount:string;
-  singinPsw:string;
+  newName:string;
+ 
   public signedUser:User
   public isSuccess:boolean
  
@@ -50,14 +51,16 @@ export class LoginComponent implements OnInit {
        if (this.isSuccess){
          this.mainLoginService.announceLogged(user.user)
           this.router.navigateByUrl('/projects')
-        
-          this.cookieService.set("test",user.user._id)
+        let id = new ObjectId();
+        id  = JSON.parse(JSON.stringify(this.signedUser._id))
+          this.cookieService.set("current_user_id",id.$oid)
         } 
      })
   }
   signUp():void{
 
      let newUser = new User(this.newAccount,this.newPsw);
+     newUser.name = this.newName;
      this.userService.addUser(newUser).subscribe(
        user=>{
         this.signedUser=user.user;
@@ -66,6 +69,10 @@ export class LoginComponent implements OnInit {
         if (this.isSuccess){
           this.mainLoginService.announceLogged(user.user)
            this.router.navigateByUrl('/projects')
+           let id = new ObjectId();
+        id  = JSON.parse(JSON.stringify(this.signedUser._id))
+          this.cookieService.set("current_user_id",id.$oid)
+           console.log(id.$oid)
          } 
       })
   }

@@ -43,6 +43,7 @@ export class AgendaPageComponent implements OnInit {
   visibilityIcon:string; 
   projectId: string;
   project:Project;
+  projectName:string;
   agendas: Agenda[];
   todayAgenda:Agenda[];
   beforeTodayAgenda:Agenda[];
@@ -146,6 +147,7 @@ export class AgendaPageComponent implements OnInit {
       // this.taskLists = taskLists;
       this.agendas = resultArray["agendas"]
       this.project=resultArray["project"];
+      this.projectName=this.project.project_name;
       this.initAgendaArray()
       this.classifyAgenda();
       //get lists form database and sort by tasklist order

@@ -33,6 +33,15 @@
                   #psw ="ngModel"
                   >
               </mat-form-field>
+              <mat-form-field *ngIf ="isSignin">
+                    <input matInput ngModel type="text" class="form-control" id="name" 
+                    required minlength="1" maxlength="20"
+                    [(ngModel)]="newName"
+                    placeholder="User Name"
+                    name ="name"
+                    #name ="ngModel"
+                    >
+                </mat-form-field>
               <span class="loginbtn-container">             
                 
 

@@ -28,7 +28,8 @@ import {
 import { OverlayModule, Overlay, OverlayRef } from "@angular/cdk/overlay";
 import { PortalModule } from "@angular/cdk/portal";
 import {MatFormFieldModule} from '@angular/material/form-field';
-
+import {  UserService} from "../user.service";
+import { User } from "../user";
 @Component({
   selector: "app-tab-bar",
   templateUrl: "./tab-bar.component.html",
@@ -52,11 +53,13 @@ export class TabBarComponent implements OnInit{
   shareUrl: string;
   overlayRef: OverlayRef;
   addUserOverlayRef:OverlayRef;
+  users:User[] = new Array<User>()
   constructor(
     private router: Router,
     private overlay: Overlay,
     private viewContainerRef: ViewContainerRef,
-    private elRef: ElementRef
+    private elRef: ElementRef,
+    private userService:UserService
   ) // private viewContainerRef: ViewContainerRef
   {}
 
@@ -65,8 +68,8 @@ export class TabBarComponent implements OnInit{
     this.agendaUrl = `/projects/${this.projectId}/agendas`;
     this.shareUrl = `/projects/${this.projectId}/shares`;
 
-    this.createRightNavOverlay();
-    this.createUserNameOverlay();
+    // this.createRightNavOverlay();
+    // this.createUserNameOverlay();
   }
   createRightNavOverlay() {
    
@@ -74,6 +77,7 @@ export class TabBarComponent implements OnInit{
       .position()
       .global()
       .right();
+      //overlayRef is a PortalOutlet
     this.overlayRef = this.overlay.create({
       positionStrategy: globalStragedy,
       scrollStrategy: this.overlay.scrollStrategies.noop(),
@@ -103,16 +107,19 @@ export class TabBarComponent implements OnInit{
       this.createUserNameOverlay();
       this.addUserOverlayRef.attach(
         new TemplatePortal(this.overlayUserList, this.viewContainerRef));
+        this.getAllUsers();
+        
       
     }
       }
-  // disposeAddUserOverlay(){
-  //   if (this.addUserOverlayRef && this.addUserOverlayRef.hasAttached()) {
-  //     this.addUserOverlayRef.dispose();
-  //   } 
-  // }
+  disposeAddUserOverlay(){
+    if (this.addUserOverlayRef && this.addUserOverlayRef.hasAttached()) {
+      this.addUserOverlayRef.dispose();
+    } 
+  }
     
   displayMenu() {
+    this.disposeAddUserOverlay()
     if (this.overlayRef && this.overlayRef.hasAttached()) {
       this.overlayRef.dispose();
     } else {
@@ -136,5 +143,12 @@ export class TabBarComponent implements OnInit{
     this.templatPortals.first.context = { nameInObject: "wang" };
     this.currentPortal = this.templatPortals.first;
     // this.currentPortal = new TemplatePortal(this.template3, this.viewContainerRef);
+  }
+  getAllUsers(){
+    this.userService.getUsers().subscribe(users=>{
+      this.users = users
+      console.log(this.users)
+    })
+
   }
 }

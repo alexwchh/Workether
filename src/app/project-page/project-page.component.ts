@@ -50,7 +50,7 @@ export class ProjectPageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.userId=this.cookiesService.get("test")
+    this.userId=this.cookiesService.get("current_user_id")
     this.freshProjects();
     
     //cannot update here cuz freshproject is an async operation
@@ -58,7 +58,7 @@ export class ProjectPageComponent implements OnInit {
     // this.getdeletedProjects()
   }
   freshProjects() {
-    this.projectService.getProjects("hjkhk").subscribe(projects => {
+    this.projectService.getProjects(this.userId).subscribe(projects => {
       this.projects = projects;
       this.initProjects();
       for (let project of projects) {
