@@ -1,6 +1,6 @@
-import { Component, OnInit, ViewChild, Input } from "@angular/core";
+import { Component, OnInit, ViewChild, Input,TemplateRef ,ElementRef} from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
-import { MatFormField } from "@angular/material";
+import { MatFormField, MatButton} from "@angular/material";
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
 import { EditArticleDialogComponent } from "../edit-article-dialog/edit-article-dialog.component";
 import { TasklistService, TaskOrder } from "../tasklist.service";
@@ -16,6 +16,14 @@ import { Share } from "../share";
 import { ObjectId, TagService } from "../tag.service";
 import { ShareCommentService } from "../share-comment.service";
 import { ShareComment } from "../share_comment";
+import { OverlayModule, Overlay, OverlayRef } from "@angular/cdk/overlay";
+import {
+  PortalOutlet,
+  CdkPortal,
+  Portal,
+  CdkPortalOutlet,
+  TemplatePortal
+} from "@angular/cdk/portal";
 @Component({
   selector: "app-share-page",
   templateUrl: "./share-page.component.html",
@@ -24,6 +32,8 @@ import { ShareComment } from "../share_comment";
 export class SharePageComponent implements OnInit {
   @ViewChild("textEditor") private _textEditor: TdTextEditorComponent;
   @ViewChild("textEditorPre") private _textEditorPre: TdTextEditorComponent;
+  // @ViewChild("overlayUserList") overlayUserList: TemplateRef<any>;
+  // @ViewChild("addUserButton") addUserButton: MatButton;
 
   projectId: string;
   project: Project;
@@ -38,6 +48,9 @@ export class SharePageComponent implements OnInit {
   selectedTitle: string;
   selectedShareId: string;
   shares: Share[] = new Array<Share>();
+  typesOfShoes = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers'];
+  addUserOverlayRef:OverlayRef;
+
   constructor(
     private router: Router,
     private activedRouter: ActivatedRoute,
@@ -46,7 +59,10 @@ export class SharePageComponent implements OnInit {
     private _viewContainerRef: ViewContainerRef,
     public editDialog: MatDialog,
     private shareService: ShareService,
-    private shareCommentService: ShareCommentService
+    private shareCommentService: ShareCommentService,
+    // private overlayUser: Overlay,
+    // private viewContainerRef: ViewContainerRef,
+    // private elRef: ElementRef,
   ) {
     this.projectId = this.activedRouter.snapshot.paramMap.get("id");
   }
@@ -55,6 +71,7 @@ export class SharePageComponent implements OnInit {
     this.freshSharesAndSelectFisrt();
     this.opened = false;
     console.log("sadfasdfasdfasdgds");
+   
   }
   ngAfterViewInit(): void {
     // this._textEditorPre.togglePreview();
@@ -206,4 +223,5 @@ export class SharePageComponent implements OnInit {
       console.log(addedcomment.commenter);
     });
   }
+
 }

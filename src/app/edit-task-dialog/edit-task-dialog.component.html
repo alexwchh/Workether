@@ -116,7 +116,7 @@
         <div *ngFor = "let comment of comments" class="comment-item-wrapper">
           <div class="comment-item">
             <div class="task-priority"></div>
-            <span class="profile">W</span>
+            <div class="profile">{{comment.commenter|slice:0:1}}</div>
            
             <!-- <span>Although the icons in the </span> -->
 

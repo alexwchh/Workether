@@ -24,7 +24,7 @@ export class UserService {
       );
   }
 
-  getUserById(id: number): Observable<User> {
+  getUserById(id: string): Observable<User> {
     // Todo: send the message _after_ fetching the user
     const url = `${this.usersUrl}/${id}`;
     return this.http

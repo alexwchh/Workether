@@ -44,11 +44,16 @@ h1 {
 .mat-action-row {padding: 8px 8px 8px 24px}
 .myapp-side-overlay{
    box-sizing: border-box;
+   /* position: absolute;
+   top: 110px;
+   bottom: 0;
+   right: 0; */
+   /* padding-top: 110px; */
    margin-top: 110px;
    margin-inline-end: -500px;
    width: 300px;
-   height: 100%;
-   background: brown;
+   /* height: 100%; */
+   /* background: brown; */
    transform: translate(-500px,0px);
    /* overflow: scroll; */
    /*SafariandChrome*//*animation: myfirst 5s;
@@ -71,3 +76,27 @@ h1 {
     from {background: red;}
     to {background: yellow;}
 }
+::-webkit-scrollbar {
+  width: 7px;
+  /* background-color: #757575; */
+}
+::-webkit-scrollbar-thumb{
+  background-color: #757575;
+}
+::-webkit-scrollbar-track{
+  /* box-shadow: inset 0 0 6px rgba(0,0,0,0.3); */
+  /* -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); */
+  background-color: #F5F5F5;
+}
+/* #style-1::-webkit-scrollbar {
+  width: 6px;
+  background-color: #F5F5F5;
+}  */
+.myapp-side-add-user-overlay{
+  transition: ease-in-out;
+  -webkit-transition: ease-in-out;
+  -moz-transition: ease-in-out;
+  -ms-transition: ease-in-out;
+  -o-transition: ease-in-out;
+}
+

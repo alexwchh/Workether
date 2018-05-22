@@ -21,7 +21,7 @@
     <ng-template cdkPortal let-nameInTemplate="nameInObject">
         <p>The content of this template is captured by the portal.{{nameInTemplate}}</p>
     </ng-template>
-    <ng-template cdkPortal #overlayMenuList>
+    <ng-template cdkPortal #overlayMenuList cdkScrollable>
         <div class="fab-menu-panel mat-elevation-z3">
             <div class="right-nav-overlay-header-wrap">
                 <span>Project Menu</span>
@@ -31,7 +31,7 @@
             </div>
             <mat-divider></mat-divider>
             <div class="right-nav-overlay-container">
-                <div class="right-nav-overlay-wrap">
+                <div class="right-nav-overlay-wrap" cdkScrollable>
                     <div class="right-nav-overlay-operation-wrap">
                         <mat-nav-list>
                             <a mat-list-item>统计</a>
@@ -48,47 +48,46 @@
                         </div>
                         <div class="actor-group-info-wrap">
 
-
-                            <div class="actor-item">
-                                <span class="profile">W</span>
+                            <div class="actor-item margin-bottom-16 project-owner">
+                                <!-- <span class="profile">{{projectOwner.name | slice:0:1}}</span> -->
                                 <!-- <span>Although the icons in the </span> -->
-                                <div class="actor-content-set">
-                                    <div class="user-name">asdfasd</div>
-                                    <!-- <header class="comment-content-wrapper">
-                                            <div class="comment-content">asdfasdfasdf</div>
-            
-                                        </header> -->
-                                    <!-- <section class="comment-info-wrapper">
-                                            <div class="comment-infos">
-                                                <span>{{comment.comment_time | date :"medium"}}</span>
-                                            </div>
-                                        </section> -->
+
+                                <div class="actor-content-set-owner fill-space">
+                                    <div class="profile">
+                                        {{projectOwner.name | slice:0:1}}
+
+                                    </div>
+                                    <span> {{projectOwner.name}}
+                                        <span style="color: #757575">({{projectOwner.email}})</span>
+                                    </span>
+                                    <span class="fill-space"></span>
+                                    <mat-icon class="flex-end owner-icon">star</mat-icon>
+                                    <!-- <div class="user-name">{{actor.user_name}}</div> -->
+                                </div>
+                            </div>
+                            <div *ngFor="let actor of projectActors" class="actor-item margin-bottom-16">
+                                <!-- <span class="profile">{{actor.user_name | slice:0:1}}</span> -->
+                                <!-- <span>Although the icons in the </span> -->
+
+                                <div class="actor-content-set-owner">
+                                    <!-- <span class="profile">{{actor.user_name | slice:0:1}}</span> -->
+                                    <div class="profile">
+                                        {{actor.user_name | slice:0:1}}
+                                    </div>
+                                    <span> {{actor.user_name}}
+                                        <span style="color: #757575">{{actor.email}}</span>
+                                    </span>
+                                    <!-- <div class="user-name">{{actor.user_name}}</div> -->
                                 </div>
 
                             </div>
-                            <div class="actor-item">
-                                <span class="profile">W</span>
-                                <!-- <span>Although the icons in the </span> -->
-                                <div class="actor-content-set">
-                                    <div class="user-name">asdfasd</div>
-                                    <!-- <header class="comment-content-wrapper">
-                                                <div class="comment-content">asdfasdfasdf</div>
-                
-                                            </header> -->
-                                    <!-- <section class="comment-info-wrapper">
-                                                <div class="comment-infos">
-                                                    <span>{{comment.comment_time | date :"medium"}}</span>
-                                                </div>
-                                            </section> -->
-                                </div>
 
-                            </div>
                             <div class="actor-group-add-handler">
                                 <button mat-button class="add-handler" (click)="displayAddUserOverlay()" #addUserButton>
                                     <mat-icon class="mat-18 ">person_add</mat-icon>
                                 </button>
-                                
-                                
+
+
                             </div>
                         </div>
 
@@ -103,10 +102,15 @@
                         </div>
                         <div class="actor-group-info-wrap">
                             <div class="actor-item">
-                                <span class="profile">W</span>
+
+                                <!-- <span class="profile">里</span> -->
                                 <!-- <span>Although the icons in the </span> -->
                                 <div class="actor-content-set">
-                                    <div class="user-name">asdfasd</div>
+                                    <div class="actor-content-header">
+                                        <div class="profile">里</div>
+                                        <div class="user-name">asdfasd</div>
+                                    </div>
+                                    <!-- <div class="user-name">asdfasd</div> -->
                                     <header class="actor-content-wrapper">
                                         <div class="actor-content">asdfasdfasdf</div>
 
@@ -120,10 +124,15 @@
 
                             </div>
                             <div class="actor-item">
-                                <span class="profile">W</span>
+
+                                <!-- <span class="profile">里</span> -->
                                 <!-- <span>Although the icons in the </span> -->
                                 <div class="actor-content-set">
-                                    <div class="user-name">asdfasd</div>
+                                    <div class="actor-content-header">
+                                        <div class="profile">里</div>
+                                        <div class="user-name">asdfasd</div>
+                                    </div>
+                                    <!-- <div class="user-name">asdfasd</div> -->
                                     <header class="actor-content-wrapper">
                                         <div class="actor-content">asdfasdfasdf</div>
 
@@ -137,10 +146,15 @@
 
                             </div>
                             <div class="actor-item">
-                                <span class="profile">W</span>
+
+                                <!-- <span class="profile">里</span> -->
                                 <!-- <span>Although the icons in the </span> -->
                                 <div class="actor-content-set">
-                                    <div class="user-name">asdfasd</div>
+                                    <div class="actor-content-header">
+                                        <div class="profile">里</div>
+                                        <div class="user-name">asdfasd</div>
+                                    </div>
+                                    <!-- <div class="user-name">asdfasd</div> -->
                                     <header class="actor-content-wrapper">
                                         <div class="actor-content">asdfasdfasdf</div>
 
@@ -154,10 +168,15 @@
 
                             </div>
                             <div class="actor-item">
-                                <span class="profile">W</span>
+
+                                <!-- <span class="profile">里</span> -->
                                 <!-- <span>Although the icons in the </span> -->
                                 <div class="actor-content-set">
-                                    <div class="user-name">asdfasd</div>
+                                    <div class="actor-content-header">
+                                        <div class="profile">里</div>
+                                        <div class="user-name">asdfasd</div>
+                                    </div>
+                                    <!-- <div class="user-name">asdfasd</div> -->
                                     <header class="actor-content-wrapper">
                                         <div class="actor-content">asdfasdfasdf</div>
 
@@ -170,57 +189,9 @@
                                 </div>
 
                             </div>
-                            <div class="actor-item">
-                                <span class="profile">W</span>
-                                <!-- <span>Although the icons in the </span> -->
-                                <div class="actor-content-set">
-                                    <div class="user-name">asdfasd</div>
-                                    <header class="actor-content-wrapper">
-                                        <div class="actor-content">asdfasdfasdf</div>
 
-                                    </header>
-                                    <section class="actor-info-wrapper">
-                                        <div class="actor-infos">
-                                            <span>sfsfdh</span>
-                                        </div>
-                                    </section>
-                                </div>
 
-                            </div>
-                            <div class="actor-item">
-                                <span class="profile">W</span>
-                                <!-- <span>Although the icons in the </span> -->
-                                <div class="actor-content-set">
-                                    <div class="user-name">asdfasd</div>
-                                    <header class="actor-content-wrapper">
-                                        <div class="actor-content">asdfasdfasdf</div>
 
-                                    </header>
-                                    <section class="actor-info-wrapper">
-                                        <div class="actor-infos">
-                                            <span>sfsfdh</span>
-                                        </div>
-                                    </section>
-                                </div>
-
-                            </div>
-                            <div class="actor-item">
-                                <span class="profile">W</span>
-                                <!-- <span>Although the icons in the </span> -->
-                                <div class="actor-content-set">
-                                    <div class="user-name">asdfasd</div>
-                                    <header class="actor-content-wrapper">
-                                        <div class="actor-content">asdfasdfasdf</div>
-
-                                    </header>
-                                    <section class="actor-info-wrapper">
-                                        <div class="actor-infos">
-                                            <span>sfsfdh</span>
-                                        </div>
-                                    </section>
-                                </div>
-
-                            </div>
                         </div>
                     </div>
 
@@ -229,9 +200,39 @@
             </div>
 
         </div>
+
     </ng-template>
     <ng-template cdkPortal #overlayUserList>
-    <p>asdfasdfgsd</p>
+        <div class="add-user-panel mat-elevation-z3">
+            <div class="search-panel-header mat-elevation-z2">
+                <span *ngIf="isShowPanelHeader" class="search-panel-header-title">添加成员</span>
+                <span class="fill-space"></span>
+                <td-search-box class="search-box" backIcon="arrow_back" placeholder="Search here" [(ngModel)]="searchInputTerm" [showUnderline]="true"
+                    [debounce]="300" [alwaysVisible]="false" (searchDebounce)="searchUsers($event)" (clear)="onSearchInputClear($event)">
+                </td-search-box>
+            </div>
+            <div *ngIf="isSearchResultEmpty" class="result-empty-message">
+                <span>没有符合条件的用户</span>
+            </div>
+            <div class="search-panel-content">
+
+                <mat-selection-list #usersList>
+                    <mat-list-option *ngFor="let user of searchUserResult" [value]="user">
+                        <span> {{user.name}}
+                            <span style="color: #757575">({{user.email}})</span>
+                        </span>
+                    </mat-list-option>
+                </mat-selection-list>
+
+            </div>
+            <!-- <mat-divider></mat-divider> -->
+            <div class="search-panel-footer">
+                <!-- <button mat-mini-fab color="primary" (click)="onClick">
+                  <mat-icon class="mat-18">done</mat-icon>
+              </button> -->
+                <button mat-button color='primary' (click)="onAddUser()">添加</button>
+            </div>
+        </div>
     </ng-template>
     <!-- <div class="righte-side-nav" *cdkPortal #rightNav>
             The content of this template is captured by the portal.

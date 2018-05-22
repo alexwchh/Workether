@@ -94,7 +94,8 @@ import { ShareCommentService } from './share-comment.service';
 import { PortalModule, CdkPortalOutlet } from '@angular/cdk/portal';
 import { CovalentNotificationsModule } from '@covalent/core/notifications';
 import { CovalentMenuModule } from '@covalent/core/menu';
-
+import { CovalentSearchModule } from '@covalent/core/search';
+import { ProjectActorService } from './project-actor.service';
 /* any other core modules */
 // (optional) Additional Covalent Modules imports
 
@@ -176,6 +177,7 @@ import { CovalentMenuModule } from '@covalent/core/menu';
     CovalentMenuModule,
     QuillModule,
     PortalModule,
+    CovalentSearchModule
     
     
   ],
@@ -200,7 +202,8 @@ import { CovalentMenuModule } from '@covalent/core/menu';
     TaskCommentService,
     AgendaService,
     ShareService,
-    ShareCommentService
+    ShareCommentService,
+    ProjectActorService
   ],
   entryComponents:[
     AddProjectDialogComponent,

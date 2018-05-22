@@ -28,11 +28,19 @@
         </div>
 
     </mat-sidenav>
-
+ 
     <mat-sidenav-content>
-
+        <ng-template cdkPortal #overlayUserList>
+            <div class="all-user-panel">
+                <mat-selection-list #shoes>
+                    <mat-list-option *ngFor="let shoe of typesOfShoes">
+                      {{shoe}}
+                    </mat-list-option>
+                  </mat-selection-list>
+            </div>
+            </ng-template>
         <p>
-            <button mat-icon-button class="sidenav-toggle-btn" (click)="toggleSideNav()">
+            <button mat-icon-button class="sidenav-toggle-btn" (click)="toggleSideNav()" #addUserButton>
                 <mat-icon class="mat-18">menu</mat-icon>
             </button>
         </p>
@@ -71,7 +79,7 @@
                     <div *ngFor="let comment of comments" class="comment-item-wrapper">
                         <div class="comment-item">
                             <div class="task-priority"></div>
-                            <span class="profile">W</span>
+                            <div class="profile">{{comment.commenter|slice:0:1}}</div>
 
                             <!-- <span>Although the icons in the </span> -->
 

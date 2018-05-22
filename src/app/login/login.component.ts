@@ -42,7 +42,10 @@ export class LoginComponent implements OnInit {
     this.isSignin=!this.isSignin;
   }
   logIn():void{
-    let newUser = new User(this.newAccount,this.newPsw);
+   
+    let newUser = new User();
+    newUser.email = this.newAccount;
+    newUser.psw = this.newPsw
     this.userService.login(newUser).subscribe(
       user=>{
        this.signedUser=user.user;
@@ -59,7 +62,9 @@ export class LoginComponent implements OnInit {
   }
   signUp():void{
 
-     let newUser = new User(this.newAccount,this.newPsw);
+     let newUser = new User();
+     newUser.email = this.newAccount;
+     newUser.psw = this.newPsw
      newUser.name = this.newName;
      this.userService.addUser(newUser).subscribe(
        user=>{

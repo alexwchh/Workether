@@ -270,12 +270,15 @@ footer{
   font-size: 14px;
   margin-left: 13px;
   margin-right: 14px;
-  width: 14px;
-    height: 14px;
-    text-align: center;
-    text-justify: center;
+  width: 28px;
+    height: 28px;
+    /* text-align: center;
+    text-justify: center; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: #fff;
-    padding: 6px;
+    /* padding: 6px; */
     border-radius: 50%  ;
     -webkit-border-radius: 50%  ;
     -moz-border-radius: 50%  ;
