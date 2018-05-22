@@ -48,6 +48,7 @@ export class AddProjectDialogComponent implements OnInit {
       let date = new Date()
       let project = new Project(this.projectName,date,false,true)
       
+      project.project_owner= this.cookies.get('current_user_id')
       project.user_id= this.cookies.get('current_user_id')
       this.dialogRef.close(project);
     // this.projectService.addedProject(project)

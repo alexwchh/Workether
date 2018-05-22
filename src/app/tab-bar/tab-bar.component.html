@@ -75,7 +75,7 @@
                                         {{actor.user_name | slice:0:1}}
                                     </div>
                                     <span> {{actor.user_name}}
-                                        <span style="color: #757575">{{actor.email}}</span>
+                                        <span style="color: #757575">({{actor.email}})</span>
                                     </span>
                                     <!-- <div class="user-name">{{actor.user_name}}</div> -->
                                 </div>
@@ -242,5 +242,7 @@
         <a [routerLink]="taskUrl" routerLinkActive #rla="routerLinkActive" mat-tab-link class="tab" [active]="rla.isActive">TASK</a>
         <a mat-tab-link [routerLink]="shareUrl" routerLinkActive #rla1="routerLinkActive" [active]="rla1.isActive" class="tab">SHARE</a>
         <a mat-tab-link [routerLink]="agendaUrl" routerLinkActive #rla2="routerLinkActive" [active]="rla2.isActive" class="tab">AGENDA</a>
+        <a mat-tab-link [routerLink]="staticUrl" routerLinkActive #rla2="routerLinkActive" [active]="rla2.isActive" class="tab">STATIC</a>
+
     </nav>
 </div>

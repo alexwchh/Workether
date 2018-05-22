@@ -65,6 +65,7 @@ export class TabBarComponent implements OnInit {
   taskUrl: string;
   agendaUrl: string;
   shareUrl: string;
+  staticUrl:string;
   overlayRef: OverlayRef;
   addUserOverlayRef: OverlayRef;
   users: User[] = new Array<User>();
@@ -90,6 +91,7 @@ export class TabBarComponent implements OnInit {
     this.taskUrl = `/projects/${this.projectId}/tasklists`;
     this.agendaUrl = `/projects/${this.projectId}/agendas`;
     this.shareUrl = `/projects/${this.projectId}/shares`;
+    this.staticUrl = `/projects/${this.projectId}/statics`
     this.isSearchResultEmpty = false;
     this.isShowPanelHeader = true;
     this.getALLProjectActor();
@@ -280,7 +282,7 @@ export class TabBarComponent implements OnInit {
   
   getProjectOwner(){
     let userTmp= new User();
-    this.userService.getUserById(this.getObjectIdStr(this.project.user_id).$oid).subscribe(user=>{
+    this.userService.getUserById(this.getObjectIdStr(this.project.project_owner).$oid).subscribe(user=>{
      this.projectOwner = user;
      
     })

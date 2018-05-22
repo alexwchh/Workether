@@ -96,6 +96,7 @@ import { CovalentNotificationsModule } from '@covalent/core/notifications';
 import { CovalentMenuModule } from '@covalent/core/menu';
 import { CovalentSearchModule } from '@covalent/core/search';
 import { ProjectActorService } from './project-actor.service';
+import { StaticsComponent } from './statics/statics.component';
 /* any other core modules */
 // (optional) Additional Covalent Modules imports
 
@@ -124,6 +125,7 @@ import { ProjectActorService } from './project-actor.service';
     AgendaPageComponent,
     SharePageComponent,
     EditArticleDialogComponent,
+    StaticsComponent,
     
   ],
   imports: [
