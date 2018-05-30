@@ -1,6 +1,6 @@
 <h1 mat-dialog-title>Hi </h1>
-<div mat-dialog-content>
-  <p>Edit task list name</p>
+<div mat-dialog-content translate>
+  <p translate>EDIT_TASK_LIST.EDIT_TASK_LIST_NAME</p>
   <mat-form-field>
     <input matInput ngModel [(ngModel)]="tasklistName" required maxlength="20"
     placeholder="List Name"
@@ -12,6 +12,6 @@
   </mat-form-field>
 </div>
 <div mat-dialog-actions>
-  <button mat-button color ="basic" (click)="onNoClick()">Cancel</button>
-  <button mat-button (click)="editTaskList()" color="primary">Done</button> 
+  <button mat-button color ="basic" (click)="onNoClick()">{{'GLOBEL.CANCEL' | translate}}</button>
+  <button mat-button (click)="editTaskList()" color="primary"> {{'GLOBEL.DONE' | translate}}</button> 
 </div>

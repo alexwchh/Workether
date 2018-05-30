@@ -97,9 +97,15 @@ import { CovalentMenuModule } from '@covalent/core/menu';
 import { CovalentSearchModule } from '@covalent/core/search';
 import { ProjectActorService } from './project-actor.service';
 import { StaticsComponent } from './statics/statics.component';
+import { NgxChartsModule } from "@swimlane/ngx-charts";
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+
 /* any other core modules */
 // (optional) Additional Covalent Modules imports
-
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/', '.json');
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -179,7 +185,15 @@ import { StaticsComponent } from './statics/statics.component';
     CovalentMenuModule,
     QuillModule,
     PortalModule,
-    CovalentSearchModule
+    CovalentSearchModule,
+    NgxChartsModule,
+    TranslateModule.forRoot({
+      loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient]
+      }
+  })
     
     
   ],

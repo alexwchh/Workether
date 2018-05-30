@@ -1,0 +1,52 @@
+// $foreground: map-get($theme, foreground);
+// $background: map-get($theme, background);
+.static-container {
+    position: fixed;
+    top: 110px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    padding: 0;
+    z-index: 3;
+    overflow: auto;
+    
+    /* overflow: hidden;
+      transition: all 218ms ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center; */
+  }
+  .charts-container{
+      width: 80%;
+      margin: auto;
+      padding-bottom: 30px;
+  }
+  .chart-item{
+    //   width: 300px;
+      height: 300px;
+  }
+  mat-grid-tile{
+      min-width: 400px;
+  }
+  /* ------------------------------------------------------------------------------- */
+
+
+// Apply theme for this app
+
+// NGX Charts
+// [ngx-charts-axis-label] text {
+//     fill: mat-color($foreground, secondary-text);
+// }
+// .tick text {
+//     fill: mat-color($foreground, disabled);
+// }
+// .gridline-path {
+//     &.gridline-path-horizontal,
+//     &.gridline-path-vertical {
+//         stroke: rgba(black, 0.06);
+//     }
+// }
+// .legend-title-text {
+//     color: mat-color($foreground, secondary-text);
+// }

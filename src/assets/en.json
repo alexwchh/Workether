@@ -1,0 +1,93 @@
+{
+  "GLOBEL":{
+    "CANCEL":"Cancel",
+    "DONE":"Done",
+    "SAVE":"Save",
+    "LOG_OUT":"Log out",
+    "LANGUAGE":"Change language",
+    "EN":"English",
+    "CH":"Chinese"
+  },
+  "TAB_BAR": {
+    "AGENDA": "AGENDA",
+    "TASK": "TASK",
+    "SHARE": "SHARE",
+    "STATICS": "STATICS"
+  },
+  "RIGHTSIDE_NAV":{
+    "PROJECT_MENU":"Project Menu",
+    "ACTOR":"Actor",
+    "STATICS":"Statics",
+    "ACTIVITY":"Activity Lately"
+  },
+  "TASK_PAGE":{
+    "EDIT":"Edit",
+    "DELETE":"Delete",
+    "ADD_LIST_AFTER":"Add list after",
+    "EDIT_TASK":"Edit task",
+    "HIDE_DONE_TASK":"Hide done task",
+    "SHOW_DONE_TASK":"Show done task",
+    
+    "MOVE_ALL_TASK":"Move all tasks",
+    "COMPLETE_ALL":"Complete all",
+    "ADD_TASK_LIST":"Add task list"
+
+  },
+  "EDIT_TASK_LIST":{
+    "EDIT_TASK_LIST_NAME":"Edit task list name"
+
+  },
+  "EDIT_TASK":{
+ "DUE_DATE":"Due date",
+ "SUBLIST":"Sublist",
+ "EDIT_TASK":"Edit task",
+ "COMPLETE_ALL":"Complete all",
+ "HIDE_DONE_TASK":"Hide done task",
+    "SHOW_DONE_TASK":"Show done task",
+    "NONE":"None",
+    "PER_DAR":"Per Day",
+    "PER_WEEK":"Per Week",
+    "PER_MONTH":"Per Month",
+    "PER_YEAR":"Per Year",
+    "DISABLE":"Disable",
+    "ONTIME":"On time",
+    "5_MIN_EARLY":"5 Min early",
+    "30_MIN_EARLY":"30 Min early",
+    "NORMAL":"normal",
+    "MEDIUM":"medium",
+    "HIGH":"high"
+
+  },
+  "SHARE_PAGE":{
+    "EDIT":"Edit",
+    "DELETE":"Delete",
+    "POST_ON":"post on",
+    "TITLE":"Title"
+  },
+  "AGENDA_PAGE":{
+    "ADD_AGENDA":"ADD AGENDA",
+    "TODAY":"Today",
+    "BEFORE_TODAY":"Before Today",
+    "FROM":"from",
+    "TO":"to",
+    "FUTURE":"Future",
+    "PAST":"Past"  
+  
+  },
+  "PROJECT_PAGE":{
+    "STARRED":"Starred",
+    "MY_PROJECT":"My Projects",
+    "SHOW_DELETED_PROJECT":"Show Deleted Projects",
+    "HI":"Hi"
+    
+  
+  },
+  "LOGIN_PAGE":{
+    "SIGN_IN":"Sign in",
+    "SIGN_UP":"Sign up",
+    "LOG_IN":"Log in"
+   
+    
+  
+  }
+}

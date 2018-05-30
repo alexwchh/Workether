@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>Hi </h1>
+<h1 mat-dialog-title>{{'GLOBEL.CANCEL' | translate}} </h1>
 <div mat-dialog-content>
   <p>{{dialogDes}}</p>
   <mat-form-field>
@@ -12,6 +12,6 @@
   </mat-form-field>
 </div>
 <div mat-dialog-actions>
-  <button mat-button color ="basic" (click)="onNoClick()">Cancel</button>
-  <button mat-button (click)="addProject()" color="primary">Done</button> 
+  <button mat-button color ="basic" (click)="onNoClick()">{{'GLOBEL.CANCEL' | translate}}</button>
+  <button mat-button (click)="addProject()" color="primary">{{'GLOBEL.DONE' | translate}}</button> 
 </div>

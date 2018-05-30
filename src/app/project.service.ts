@@ -11,6 +11,7 @@ import {
   ProjectPageComponent
 } from "./project-page/project-page.component";
 import { CookieService } from 'ngx-cookie-service';
+import { Task } from "./task";
 @Injectable()
 export class ProjectService {
   private projectsUrl = "http://localhost:3000/projects";
@@ -34,6 +35,8 @@ export class ProjectService {
         catchError(this.handleError("getProjectes", []))
       );
   }
+
+ 
 
   getProject(id: string): Observable<Project> {
     // Todo: send the message _after_ fetching the project

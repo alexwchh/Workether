@@ -7,7 +7,7 @@
         <mat-expansion-panel-header>
 
           <mat-panel-description class="add-agenda">
-            ADD AGENDA
+              {{'AGENDA_PAGE.ADD_AGENDA' | translate}}
           </mat-panel-description>
 
         </mat-expansion-panel-header>
@@ -17,21 +17,21 @@
           <input class="agenda-title-input" type="text" placeholder="click to add or edit agenda" [(ngModel)]="addedAgenda" [value]=addedAgenda>
         </div>
         <div class="component-mount due-date">
-          <span class="agenda-date-picker-span">From</span>
-          <angular2-date-picker class="agenda-date-picker range-from" [(ngModel)]="fromDate" [settings]="settings"></angular2-date-picker>
-          <span class="agenda-date-picker-span margin-left-10">To</span>
-          <angular2-date-picker class="agenda-date-picker range-to" [(ngModel)]="toDate" [settings]="settings"></angular2-date-picker>
+            <span class="agenda-date-picker-span">{{'AGENDA_PAGE.FROM' | translate}}</span>
+            <angular2-date-picker class="agenda-date-picker range-from" [(ngModel)]="fromDate" [settings]="settings"></angular2-date-picker>
+            <span class="agenda-date-picker-span margin-left-10">{{'AGENDA_PAGE.TO' | translate}}</span>
+            <angular2-date-picker class="agenda-date-picker range-to" [(ngModel)]="toDate" [settings]="settings"></angular2-date-picker>
 
           <button mat-icon-button class="repeatBtn">
             <mat-icon class="mat-18 mat-icon-grey">settings_backup_restore</mat-icon>
           </button>
           <mat-form-field class="repeatSelect">
             <mat-select class="select-repeat-items" placeholder="Set Repeat" [(value)]="repeatValue">
-              <mat-option value="0">None</mat-option>
-              <mat-option value="1">Per Day</mat-option>
-              <mat-option value="2">Per Week</mat-option>
-              <mat-option value="3">Per Month</mat-option>
-              <mat-option value="4">Per Year</mat-option>
+              <mat-option value="0">{{'EDIT_TASK.NONE' | translate}}</mat-option>
+              <mat-option value="1">{{'EDIT_TASK.PER_DAR' | translate}}</mat-option>
+              <mat-option value="2">{{'EDIT_TASK.PER_WEEK' | translate}}</mat-option>
+              <mat-option value="3">{{'EDIT_TASK.PER_MONTH' | translate}}</mat-option>
+              <mat-option value="4">{{'EDIT_TASK.PER_YEAR' | translate}}</mat-option>
 
             </mat-select>
           </mat-form-field>
@@ -40,18 +40,18 @@
           </button>
           <mat-form-field class="notiSelect">
             <mat-select class="select-noti-items" placeholder="Set Reminder" [(value)]="remindValue">
-              <mat-option value="0">None</mat-option>
-              <mat-option value="1">Disable</mat-option>
-              <mat-option value="2">on time</mat-option>
-              <mat-option value="3">5 Min early</mat-option>
-              <mat-option value="4">30 Min early</mat-option>
+              <mat-option value="0">{{'EDIT_TASK.NONE' | translate}}</mat-option>
+              <mat-option value="1">{{'EDIT_TASK.DISABLE' | translate}}</mat-option>
+              <mat-option value="2">{{'EDIT_TASK.ONTIME' | translate}}</mat-option>
+              <mat-option value="3">{{'EDIT_TASK.5_MIN_EARLY' | translate}}</mat-option>
+              <mat-option value="4">{{'EDIT_TASK.30_MIN_EARLY' | translate}}</mat-option>
 
             </mat-select>
           </mat-form-field>
         </div>
 
         <mat-action-row class="panel-action">
-          <button mat-button (click)="addAgenda()">save</button>
+          <button mat-button (click)="addAgenda()">{{'GLOBEL.SAVE' | translate}}</button>
         </mat-action-row>
       </mat-expansion-panel>
     </div>
@@ -59,7 +59,7 @@
 
   <div class="events-card-wrap">
     <header class="margin-bottom-15">
-      <span class="before-panel flex-start">Today</span>
+      <span class="before-panel flex-start">{{'AGENDA_PAGE.TODAY' | translate}}</span>
       <span class="divider">·</span>
       <span class="date-header">{{date| date:"dd MMMM, E"}}</span>
     </header>
@@ -80,9 +80,9 @@
           <input class="agenda-title-input" type="text" placeholder="click to add or edit agenda" [(ngModel)]="agenda.agenda_title" [value]="agenda.agenda_title">
         </div>
         <div class="component-mount due-date">
-          <span class="agenda-date-picker-span">From</span>
+          <span class="agenda-date-picker-span">{{'AGENDA_PAGE.FROM' | translate}}</span>
           <angular2-date-picker class="agenda-date-picker range-from" [(ngModel)]="agenda.agenda_start_time" [settings]="settings"></angular2-date-picker>
-          <span class="agenda-date-picker-span margin-left-10">To</span>
+          <span class="agenda-date-picker-span margin-left-10">{{'AGENDA_PAGE.TO' | translate}}</span>
           <angular2-date-picker class="agenda-date-picker range-to" [(ngModel)]="agenda.agenda_end_time" [settings]="settings"></angular2-date-picker>
 
           <button mat-icon-button class="repeatBtn">
@@ -90,11 +90,11 @@
           </button>
           <mat-form-field class="repeatSelect">
             <mat-select class="select-repeat-items" placeholder="Set Repeat" [(value)]="agenda.agenda_repeat">
-              <mat-option value="0">None</mat-option>
-              <mat-option value="1">Per Day</mat-option>
-              <mat-option value="2">Per Week</mat-option>
-              <mat-option value="3">Per Month</mat-option>
-              <mat-option value="4">Per Year</mat-option>
+              <mat-option value="0">{{'EDIT_TASK.NONE' | translate}}</mat-option>
+              <mat-option value="1">{{'EDIT_TASK.PER_DAR' | translate}}</mat-option>
+              <mat-option value="2">{{'EDIT_TASK.PER_WEEK' | translate}}</mat-option>
+              <mat-option value="3">{{'EDIT_TASK.PER_MONTH' | translate}}</mat-option>
+              <mat-option value="4">{{'EDIT_TASK.PER_YEAR' | translate}}</mat-option>
 
             </mat-select>
           </mat-form-field>
@@ -103,18 +103,18 @@
           </button>
           <mat-form-field class="notiSelect">
             <mat-select class="select-noti-items" placeholder="Set Reminder" [(value)]="agenda.agenda_remind">
-              <mat-option value="0">None</mat-option>
-              <mat-option value="1">Disable</mat-option>
-              <mat-option value="2">on time</mat-option>
-              <mat-option value="3">5 Min early</mat-option>
-              <mat-option value="4">30 Min early</mat-option>
+              <mat-option value="0">{{'EDIT_TASK.NONE' | translate}}</mat-option>
+              <mat-option value="1">{{'EDIT_TASK.DISABLE' | translate}}</mat-option>
+              <mat-option value="2">{{'EDIT_TASK.ONTIME' | translate}}</mat-option>
+              <mat-option value="3">{{'EDIT_TASK.5_MIN_EARLY' | translate}}</mat-option>
+              <mat-option value="4">{{'EDIT_TASK.30_MIN_EARLY' | translate}}</mat-option>
 
             </mat-select>
           </mat-form-field>
         </div>
 
         <mat-action-row class="panel-action">
-          <button mat-button (click)="updateAgenda(agenda)">Save</button>
+          <button mat-button (click)="updateAgenda(agenda)">{{'GLOBEL.SAVE' | translate}}</button>
         </mat-action-row>
       </mat-expansion-panel>
     
@@ -122,7 +122,7 @@
   </div>
   <div *ngIf="beforeTodayAgenda.length>0" class="events-card-wrap before-today-agenda">
     <header class="margin-bottom-15">
-      <span class="before-panel flex-start">Before Today</span>
+      <span class="before-panel flex-start">{{'AGENDA_PAGE.BEFORE_TODAY' | translate}}</span>
       <span class="margin-left-15">·</span>
       <button mat-icon-button (click)="toggleBeforeVis()">
         <mat-icon class="mat-18 toggleBtn color-grey-button">{{beforeTodayVisibilityIcon}}</mat-icon>
@@ -145,9 +145,9 @@
           <input class="agenda-title-input" type="text" placeholder="click to add or edit agenda" [(ngModel)]="agenda.agenda_title" [value]="agenda.agenda_title">
         </div>
         <div class="component-mount due-date">
-          <span class="agenda-date-picker-span">From</span>
+          <span class="agenda-date-picker-span">{{'AGENDA_PAGE.FROM' | translate}}</span>
           <angular2-date-picker class="agenda-date-picker range-from" [(ngModel)]="agenda.agenda_start_time" [settings]="settings"></angular2-date-picker>
-          <span class="agenda-date-picker-span margin-left-10">To</span>
+          <span class="agenda-date-picker-span margin-left-10">{{'AGENDA_PAGE.TO' | translate}}</span>
           <angular2-date-picker class="agenda-date-picker range-to" [(ngModel)]="agenda.agenda_end_time" [settings]="settings"></angular2-date-picker>
 
           <button mat-icon-button class="repeatBtn">
@@ -155,11 +155,11 @@
           </button>
           <mat-form-field class="repeatSelect">
             <mat-select class="select-repeat-items" placeholder="Set Repeat" [(value)]="agenda.agenda_repeat">
-              <mat-option value="0">None</mat-option>
-              <mat-option value="1">Per Day</mat-option>
-              <mat-option value="2">Per Week</mat-option>
-              <mat-option value="3">Per Month</mat-option>
-              <mat-option value="4">Per Year</mat-option>
+                <mat-option value="0">{{'EDIT_TASK.NONE' | translate}}</mat-option>
+                <mat-option value="1">{{'EDIT_TASK.PER_DAR' | translate}}</mat-option>
+                <mat-option value="2">{{'EDIT_TASK.PER_WEEK' | translate}}</mat-option>
+                <mat-option value="3">{{'EDIT_TASK.PER_MONTH' | translate}}</mat-option>
+                <mat-option value="4">{{'EDIT_TASK.PER_YEAR' | translate}}</mat-option>
 
             </mat-select>
           </mat-form-field>
@@ -168,18 +168,18 @@
           </button>
           <mat-form-field class="notiSelect">
             <mat-select class="select-noti-items" placeholder="Set Reminder" [(value)]="agenda.agenda_remind">
-              <mat-option value="0">None</mat-option>
-              <mat-option value="1">Disable</mat-option>
-              <mat-option value="2">on time</mat-option>
-              <mat-option value="3">5 Min early</mat-option>
-              <mat-option value="4">30 Min early</mat-option>
+                <mat-option value="0">{{'EDIT_TASK.NONE' | translate}}</mat-option>
+                <mat-option value="1">{{'EDIT_TASK.DISABLE' | translate}}</mat-option>
+                <mat-option value="2">{{'EDIT_TASK.ONTIME' | translate}}</mat-option>
+                <mat-option value="3">{{'EDIT_TASK.5_MIN_EARLY' | translate}}</mat-option>
+                <mat-option value="4">{{'EDIT_TASK.30_MIN_EARLY' | translate}}</mat-option>
 
             </mat-select>
           </mat-form-field>
         </div>
 
         <mat-action-row class="panel-action">
-          <button mat-button (click)="updateAgenda(agenda)">Save</button>
+          <button mat-button (click)="updateAgenda(agenda)">{{'GLOBEL.SAVE' | translate}}</button>
         </mat-action-row>
       </mat-expansion-panel>
     
@@ -187,7 +187,7 @@
   </div>
   <div *ngIf="futureAgenda.length>0" class="events-card-wrap before-today-agenda">
     <header class="margin-bottom-15">
-      <span class="before-panel flex-start">Future</span>
+      <span class="before-panel flex-start">{{'AGENDA_PAGE.FUTURE' | translate}}</span>
       <span class="margin-left-15">·</span>
       <button mat-icon-button (click)="toggleFutureVis()">
         <mat-icon class="mat-18 toggleBtn color-grey-button">{{futureVisibilityIcon}}</mat-icon>
@@ -210,8 +210,8 @@
           <input class="agenda-title-input" type="text" placeholder="click to add or edit agenda" [(ngModel)]="agenda.agenda_title" [value]="agenda.agenda_title">
         </div>
         <div class="component-mount due-date">
-          <span class="agenda-date-picker-span">From</span>
-          <angular2-date-picker class="agenda-date-picker range-from" [(ngModel)]="agenda.agenda_start_time" [settings]="settings"></angular2-date-picker>
+            <span class="agenda-date-picker-span">{{'AGENDA_PAGE.FROM' | translate}}</span>
+            <angular2-date-picker class="agenda-date-picker range-from" [(ngModel)]="agenda.agenda_start_time" [settings]="settings"></angular2-date-picker>
           <span class="agenda-date-picker-span margin-left-10">To</span>
           <angular2-date-picker class="agenda-date-picker range-to" [(ngModel)]="agenda.agenda_end_time" [settings]="settings"></angular2-date-picker>
 
@@ -220,11 +220,11 @@
           </button>
           <mat-form-field class="repeatSelect">
             <mat-select class="select-repeat-items" placeholder="Set Repeat" [(value)]="agenda.agenda_repeat">
-              <mat-option value="0">None</mat-option>
-              <mat-option value="1">Per Day</mat-option>
-              <mat-option value="2">Per Week</mat-option>
-              <mat-option value="3">Per Month</mat-option>
-              <mat-option value="4">Per Year</mat-option>
+                <mat-option value="0">{{'EDIT_TASK.NONE' | translate}}</mat-option>
+                <mat-option value="1">{{'EDIT_TASK.PER_DAR' | translate}}</mat-option>
+                <mat-option value="2">{{'EDIT_TASK.PER_WEEK' | translate}}</mat-option>
+                <mat-option value="3">{{'EDIT_TASK.PER_MONTH' | translate}}</mat-option>
+                <mat-option value="4">{{'EDIT_TASK.PER_YEAR' | translate}}</mat-option>
 
             </mat-select>
           </mat-form-field>
@@ -233,18 +233,18 @@
           </button>
           <mat-form-field class="notiSelect">
             <mat-select class="select-noti-items" placeholder="Set Reminder" [(value)]="agenda.agenda_remind">
-              <mat-option value="0">None</mat-option>
-              <mat-option value="1">Disable</mat-option>
-              <mat-option value="2">on time</mat-option>
-              <mat-option value="3">5 Min early</mat-option>
-              <mat-option value="4">30 Min early</mat-option>
+                <mat-option value="0">{{'EDIT_TASK.NONE' | translate}}</mat-option>
+                <mat-option value="1">{{'EDIT_TASK.DISABLE' | translate}}</mat-option>
+                <mat-option value="2">{{'EDIT_TASK.ONTIME' | translate}}</mat-option>
+                <mat-option value="3">{{'EDIT_TASK.5_MIN_EARLY' | translate}}</mat-option>
+                <mat-option value="4">{{'EDIT_TASK.30_MIN_EARLY' | translate}}</mat-option>
 
             </mat-select>
           </mat-form-field>
         </div>
 
         <mat-action-row class="panel-action">
-          <button mat-button (click)="updateAgenda(agenda)">Save</button>
+          <button mat-button (click)="updateAgenda(agenda)">{{'GLOBEL.SAVE' | translate}}</button>
         </mat-action-row>
       </mat-expansion-panel>
     
@@ -253,7 +253,7 @@
   
   <div class="events-card-wrap past-agenda">
     <header class="margin-bottom-15">
-      <span class="before-panel flex-start">Past</span>
+      <span class="before-panel flex-start">{{'AGENDA_PAGE.PAST' | translate}}</span>
       <span class="margin-left-15">·</span>
       <button mat-icon-button (click)="togglePastVisibility()">
         <mat-icon class="mat-18 toggleBtn color-grey-button">{{visibilityIcon}}</mat-icon>
@@ -276,21 +276,21 @@
           <input class="agenda-title-input" type="text" placeholder="click to add or edit agenda" [(ngModel)]="agenda.agenda_title" [value]="agenda.agenda_title">
         </div>
         <div class="component-mount due-date">
-          <span class="agenda-date-picker-span">From</span>
-          <angular2-date-picker class="agenda-date-picker range-from" [(ngModel)]="agenda.agenda_start_time" [settings]="settings"></angular2-date-picker>
-          <span class="agenda-date-picker-span margin-left-10">To</span>
-          <angular2-date-picker class="agenda-date-picker range-to" [(ngModel)]="agenda.agenda_end_time" [settings]="settings"></angular2-date-picker>
+            <span class="agenda-date-picker-span">{{'AGENDA_PAGE.FROM' | translate}}</span>
+            <angular2-date-picker class="agenda-date-picker range-from" [(ngModel)]="agenda.agenda_start_time" [settings]="settings"></angular2-date-picker>
+            <span class="agenda-date-picker-span margin-left-10">{{'AGENDA_PAGE.TO' | translate}}</span>
+            <angular2-date-picker class="agenda-date-picker range-to" [(ngModel)]="agenda.agenda_end_time" [settings]="settings"></angular2-date-picker>
 
           <button mat-icon-button class="repeatBtn">
             <mat-icon class="mat-18 mat-icon-grey">settings_backup_restore</mat-icon>
           </button>
           <mat-form-field class="repeatSelect">
             <mat-select class="select-repeat-items" placeholder="Set Repeat" [(value)]="agenda.agenda_repeat">
-              <mat-option value="0">None</mat-option>
-              <mat-option value="1">Per Day</mat-option>
-              <mat-option value="2">Per Week</mat-option>
-              <mat-option value="3">Per Month</mat-option>
-              <mat-option value="4">Per Year</mat-option>
+                <mat-option value="0">{{'EDIT_TASK.NONE' | translate}}</mat-option>
+                <mat-option value="1">{{'EDIT_TASK.PER_DAR' | translate}}</mat-option>
+                <mat-option value="2">{{'EDIT_TASK.PER_WEEK' | translate}}</mat-option>
+                <mat-option value="3">{{'EDIT_TASK.PER_MONTH' | translate}}</mat-option>
+                <mat-option value="4">{{'EDIT_TASK.PER_YEAR' | translate}}</mat-option>
 
             </mat-select>
           </mat-form-field>
@@ -299,18 +299,18 @@
           </button>
           <mat-form-field class="notiSelect">
             <mat-select class="select-noti-items" placeholder="Set Reminder" [(value)]="agenda.agenda_remind">
-              <mat-option value="0">None</mat-option>
-              <mat-option value="1">Disable</mat-option>
-              <mat-option value="2">on time</mat-option>
-              <mat-option value="3">5 Min early</mat-option>
-              <mat-option value="4">30 Min early</mat-option>
+                <mat-option value="0">{{'EDIT_TASK.NONE' | translate}}</mat-option>
+                <mat-option value="1">{{'EDIT_TASK.DISABLE' | translate}}</mat-option>
+                <mat-option value="2">{{'EDIT_TASK.ONTIME' | translate}}</mat-option>
+                <mat-option value="3">{{'EDIT_TASK.5_MIN_EARLY' | translate}}</mat-option>
+                <mat-option value="4">{{'EDIT_TASK.30_MIN_EARLY' | translate}}</mat-option>
 
             </mat-select>
           </mat-form-field>
         </div>
 
         <mat-action-row class="panel-action">
-          <button mat-button (click)="updateAgenda(agenda)">Save</button>
+          <button mat-button (click)="updateAgenda(agenda)">{{'GLOBEL.SAVE' | translate}}</button>
         </mat-action-row>
       </mat-expansion-panel>
     

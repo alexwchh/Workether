@@ -24,7 +24,7 @@
     <ng-template cdkPortal #overlayMenuList cdkScrollable>
         <div class="fab-menu-panel mat-elevation-z3">
             <div class="right-nav-overlay-header-wrap">
-                <span>Project Menu</span>
+                <span translate>RIGHTSIDE_NAV.PROJECT_MENU</span>
                 <button mat-icon-button class="toggle-rightnav-btn" (click)="displayMenu()">
                     <mat-icon class="mat-18">close</mat-icon>
                 </button>
@@ -34,8 +34,8 @@
                 <div class="right-nav-overlay-wrap" cdkScrollable>
                     <div class="right-nav-overlay-operation-wrap">
                         <mat-nav-list>
-                            <a mat-list-item>统计</a>
-                            <a mat-list-item>管理聯絡人</a>
+                            <a mat-list-item>{{'RIGHTSIDE_NAV.STATICS' | translate}}</a>
+                            
                         </mat-nav-list>
                     </div>
                     <mat-divider></mat-divider>
@@ -44,7 +44,7 @@
                             <mat-icon class="mat-18 margin-left-16px">supervisor_account</mat-icon>
 
 
-                            <span class="margin-left-16px">参与者</span>
+                            <span class="margin-left-16px" translate>RIGHTSIDE_NAV.ACTOR</span>
                         </div>
                         <div class="actor-group-info-wrap">
 
@@ -98,7 +98,7 @@
                     <div class="right-nav-overlay-activity-wrap">
                         <div class="right-nav-overlay-activity-header">
                             <mat-icon class="mat-18 margin-left-16px">local_activity</mat-icon>
-                            <span class="margin-left-16px">最近活动</span>
+                            <span class="margin-left-16px" translate>RIGHTSIDE_NAV.ACTIVITY</span>
                         </div>
                         <div class="actor-group-info-wrap">
                             <div class="actor-item">
@@ -239,10 +239,10 @@
     </div> -->
 
     <nav mat-tab-nav-bar color="primary">
-        <a [routerLink]="taskUrl" routerLinkActive #rla="routerLinkActive" mat-tab-link class="tab" [active]="rla.isActive">TASK</a>
-        <a mat-tab-link [routerLink]="shareUrl" routerLinkActive #rla1="routerLinkActive" [active]="rla1.isActive" class="tab">SHARE</a>
-        <a mat-tab-link [routerLink]="agendaUrl" routerLinkActive #rla2="routerLinkActive" [active]="rla2.isActive" class="tab">AGENDA</a>
-        <a mat-tab-link [routerLink]="staticUrl" routerLinkActive #rla2="routerLinkActive" [active]="rla2.isActive" class="tab">STATIC</a>
+        <a [routerLink]="taskUrl" routerLinkActive #rla="routerLinkActive" mat-tab-link class="tab" [active]="rla.isActive" translate>TAB_BAR.TASK</a>
+        <a mat-tab-link [routerLink]="shareUrl" routerLinkActive #rla1="routerLinkActive" [active]="rla1.isActive" class="tab" translate>TAB_BAR.SHARE</a>
+        <a mat-tab-link [routerLink]="agendaUrl" routerLinkActive #rla2="routerLinkActive" [active]="rla2.isActive" class="tab" translate>TAB_BAR.AGENDA</a>
+        <a mat-tab-link [routerLink]="staticUrl" routerLinkActive #rla2="routerLinkActive" [active]="rla2.isActive" class="tab" translate>TAB_BAR.STATICS</a>
 
     </nav>
 </div>

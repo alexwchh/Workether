@@ -12,13 +12,13 @@
                         <mat-panel-title>
                             <mat-icon class="mat-18" color="primary">playlist_add</mat-icon>
                         </mat-panel-title>
-                        <mat-panel-description>
-                            Add tasklist...
+                        <mat-panel-description translate>
+                                TASK_PAGE.ADD_TASK_LIST
                         </mat-panel-description>
                     </mat-expansion-panel-header>
 
                     <mat-form-field>
-                        <input matInput [(ngModel)]="addedTasklist" (keyup.enter)="addTasklist();addListInput.reset()" placeholder="First name" #addListInput="ngModel">
+                        <input matInput [(ngModel)]="addedTasklist" (keyup.enter)="addTasklist();addListInput.reset()" placeholder="Add task list" #addListInput="ngModel">
                     </mat-form-field>
 
                 </mat-expansion-panel>

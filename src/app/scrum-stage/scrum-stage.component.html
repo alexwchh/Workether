@@ -5,26 +5,26 @@
         <mat-menu #appMenu="matMenu">
             <button mat-menu-item (click)="openEditDialog()">
                 <mat-icon>edit</mat-icon>
-                <span>Edit</span>
+                <span translate>TASK_PAGE.EDIT</span>
             </button>
             <button mat-menu-item (click)="onDeleteReq()">
                 <mat-icon>delete</mat-icon>
-                <span>Delete</span>
+                <span translate>TASK_PAGE.DELETE</span>
             </button>
             <button mat-menu-item (click)="openAddAfterDialog()">
                 <mat-icon>view_list</mat-icon>
-                <span>Add list after</span>
+                <span translate>TASK_PAGE.ADD_LIST_AFTER</span>
             </button>
             <button mat-menu-item [matMenuTriggerFor]="vertebrates">
                 <mat-icon>filter_list</mat-icon>
-                <span>Edit task</span>
+                <span translate>TASK_PAGE.EDIT_TASK</span>
             </button>
         </mat-menu>
         <mat-menu #vertebrates="matMenu">
-            <button *ngIf="isShowCompletedTask" mat-menu-item (click)=showOrHideCompletedTask()>Hide done task</button>
-            <button *ngIf="!isShowCompletedTask" mat-menu-item (click)=showOrHideCompletedTask()>Show done task</button>
-            <button mat-menu-item >Move all task</button>
-            <button mat-menu-item (click)="completeAllTasks()">Complete all</button>
+            <button *ngIf="isShowCompletedTask" mat-menu-item (click)=showOrHideCompletedTask() translate>TASK_PAGE.HIDE_DONE_TASK</button>
+            <button *ngIf="!isShowCompletedTask" mat-menu-item (click)=showOrHideCompletedTask() translate>TASK_PAGE.SHOW_DONE_TASK</button>
+            <button mat-menu-item translate>TASK_PAGE.MOVE_ALL_TASK</button>
+            <button mat-menu-item (click)="completeAllTasks()" translate>TASK_PAGE.COMPLETE_ALL</button>
         </mat-menu>
         <button mat-icon-button [matMenuTriggerFor]="appMenu">
             <mat-icon>more_vert</mat-icon>
@@ -50,7 +50,7 @@
                 <div class="add-task-input-wrap" [tdToggle]="toggleDiv">
                     <mat-form-field class="add-task-input">
                         <!-- <input matInput placeholder="Add task..."> -->
-                        <input matInput [(ngModel)]="addedTask" (keyup.enter)="addTask();addInput.reset()" placeholder="Autosize textarea" matTextareaAutosize matAutosizeMinRows="0" matAutosizeMaxRows="5" #addInput="ngModel">
+                        <input matInput [(ngModel)]="addedTask" (keyup.enter)="addTask();addInput.reset()" placeholder="Add task here.." matTextareaAutosize matAutosizeMinRows="0" matAutosizeMaxRows="5" #addInput="ngModel">
 
                     </mat-form-field>
 

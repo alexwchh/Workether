@@ -12,6 +12,7 @@ export class Task{
     task_notes:string
     task_prl:number
     task_order:number
+    task_completeDate:Date
     
   }
   

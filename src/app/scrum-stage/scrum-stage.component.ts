@@ -237,6 +237,10 @@ export class ScrumStageComponent implements OnInit {
    */
 
   onDestroy(task: Task){
+    let now = new Date()
+    task.task_completeDate = now;
+     
+    console.log(task)
     this.taskService.updateTask(task).subscribe(isSuccess => {
       if (isSuccess) {
         console.log(`${task.task_title} has been successfully destroyed`);
@@ -248,6 +252,7 @@ export class ScrumStageComponent implements OnInit {
         console.log(`${task.task_title} de
           stroy has failed`);
       }
+
     });
   }
   

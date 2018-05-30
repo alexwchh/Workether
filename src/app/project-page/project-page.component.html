@@ -1,7 +1,7 @@
 <div class="project-page">
   <div class="project-container">
     <div *ngIf="starredProjects.length>0">
-      <h2>Starred</h2>
+      <h2>{{'PROJECT_PAGE.STARRED' | translate}}</h2>
 
       <mat-grid-list cols="4" rowHeight="2:1" gutterSize="20px">
 
@@ -24,7 +24,7 @@
 
       </mat-grid-list>
     </div>
-    <h2>My Projects</h2>
+    <h2>{{'PROJECT_PAGE.MY_PROJECT' | translate}}</h2>
 
     <mat-grid-list cols="4" rowHeight="2:1" gutterSize="20px">
       <mat-grid-tile *ngFor="let project of activeProjects" class="mat-elevation-z2" [colspan]="1" [rowspan]="1" (click)="onNavigate($event,project)">
@@ -46,7 +46,7 @@
 
     </mat-grid-list>
     <mat-slide-toggle class="show-deleted-project" color="primary" [(ngModel)]="showDltChecked">
-      <h2>Show Deleted Projects</h2>
+      <h2>{{'PROJECT_PAGE.SHOW_DELETED_PROJECT' | translate}}</h2>
     </mat-slide-toggle>
 
     <mat-grid-list *ngIf="showDltChecked" cols="4" rowHeight="2:1" gutterSize="20px">

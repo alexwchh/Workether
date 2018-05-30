@@ -3,8 +3,8 @@
  <mat-card class="login-card">
      <mat-card-header>
          <mat-card-title><h1>Workether</h1></mat-card-title>
-         <mat-card-subtitle *ngIf="isSignin"><h2>Sign in</h2></mat-card-subtitle>
-         <mat-card-subtitle *ngIf="isLogin"><h2>Log in</h2></mat-card-subtitle>
+         <mat-card-subtitle *ngIf="isSignin"><h2>{{'LOGIN_PAGE.SIGN_IN' | translate}}</h2></mat-card-subtitle>
+         <mat-card-subtitle *ngIf="isLogin"><h2>{{'LOGIN_PAGE.LOG_IN' | translate}}</h2></mat-card-subtitle>
 
      </mat-card-header>
      <mat-card-content>
@@ -50,10 +50,10 @@
 
           </form>
           
-          <button *ngIf ="isSignin" mat-raised-button  class="signinBtn"  (click)="loginToggle();loginForm.reset()">Sign in</button>
-          <button *ngIf ="isSignin" mat-raised-button  class="signinBtnr" color="primary"  (click)="signUp();loginForm.reset()">Done</button>
-          <button *ngIf ="isLogin" mat-raised-button  class="loginBtn" (click)="loginToggle();loginForm.reset()">Sign up</button>
-          <button *ngIf ="isLogin" mat-raised-button  class="loginBtnr" color="primary"  (click)="logIn();loginForm.reset()">Sign in</button>
+          <button *ngIf ="isSignin" mat-raised-button  class="signinBtn"  (click)="loginToggle();loginForm.reset()">{{'LOGIN_PAGE.SIGN_IN' | translate}}</button>
+          <button *ngIf ="isSignin" mat-raised-button  class="signinBtnr" color="primary"  (click)="signUp();loginForm.reset()">{{'GLOBEL.DONE' | translate}}</button>
+          <button *ngIf ="isLogin" mat-raised-button  class="loginBtn" (click)="loginToggle();loginForm.reset()">{{'LOGIN_PAGE.SIGN_UP' | translate}}</button>
+          <button *ngIf ="isLogin" mat-raised-button  class="loginBtnr" color="primary"  (click)="logIn();loginForm.reset()">{{'LOGIN_PAGE.SIGN_IN' | translate}}</button>
 
           
      </mat-card-content>

@@ -6,7 +6,7 @@ import{AddProjectDialogComponent} from '../add-project-dialog/add-project-dialog
 import { Router } from "@angular/router";
 import { CovalentNotificationsModule } from '@covalent/core/notifications';
 import { CovalentMenuModule } from '@covalent/core/menu';
-
+import {TranslateService} from '@ngx-translate/core';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -15,7 +15,12 @@ import { CovalentMenuModule } from '@covalent/core/menu';
 export class NavbarComponent implements OnInit {
    project:Project
    name:string
-  constructor(private projectService: ProjectService,public  dialog: MatDialog,private router:Router) { }
+  constructor(private projectService: ProjectService,
+    public  dialog: MatDialog,
+    private router:Router,
+    private translate: TranslateService
+  
+  ) { }
   ngOnInit() {
   }
   add(){
@@ -35,8 +40,15 @@ export class NavbarComponent implements OnInit {
       this.router.navigateByUrl('/projects')
     });
   }
-
-
+  changeLanguageEN(){
+    this.translate.use('en');
+  }
+  changeLanguageCH(){
+    this.translate.use('ch');
+  }
+logOut(){
+  this.router.navigateByUrl('/login')
+}
 }
 // @Component({
 //   selector: 'dialog-overview-example-dialog',

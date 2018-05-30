@@ -55,6 +55,7 @@ export class EditArticleDialogComponent implements OnInit {
     }
     if(!this.data.isEdit){
       this.data.share.share_creatTime = new Date();
+      
 
     }
     this.data.share.last_modified_time=new Date();

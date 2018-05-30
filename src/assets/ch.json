@@ -1,0 +1,92 @@
+{
+  "GLOBEL":{
+    "CANCEL":"取消",
+    "DONE":"完成",
+    "SAVE":"保存",
+    "LOG_OUT":"注销账号",
+    "LANGUAGE":"切换语言",
+    "EN":"英语",
+    "CH":"中文"
+  },
+  "TAB_BAR": {
+    "AGENDA": "日程",
+    "TASK": "任务版",
+    "SHARE": "分享",
+    "STATICS": "统计"
+  },
+  "RIGHTSIDE_NAV":{
+    "PROJECT_MENU":"项目菜单",
+    "ACTOR":"参与者",
+    "STATICS":"统计",
+    "ACTIVITY":"最近活动"
+  },
+  "TASK_PAGE":{
+    "EDIT":"编辑",
+    "DELETE":"删除",
+    "ADD_LIST_AFTER":"在此后加入",
+    "EDIT_TASK":"编辑任务版",
+    "HIDE_DONE_TASK":"隐藏已完成任务",
+    "SHOW_DONE_TASK":"显示已完成任务",
+    
+    "MOVE_ALL_TASK":"移动所有的任务",
+    "COMPLETE_ALL":"完成所有的任务",
+    "ADD_TASK_LIST":"添加任务版"
+
+  },
+  "EDIT_TASK_LIST":{
+    "EDIT_TASK_LIST_NAME":"更改项目版名称"
+
+  },
+  "EDIT_TASK":{
+ "DUE_DATE":"到期",
+ "SUBLIST":"子任务",
+ "EDIT_TASK":"编辑任务",
+ "COMPLETE_ALL":"完成所有任务",
+ "HIDE_DONE_TASK":"隐藏已完成任务",
+    "SHOW_DONE_TASK":"显示已完成任务",
+    "NONE":"无",
+    "PER_DAR":"每天",
+    "PER_WEEK":"每周",
+    "PER_MONTH":"每月",
+    "PER_YEAR":"每年",
+    "DISABLE":"不重复",
+    "ONTIME":"准时",
+    "5_MIN_EARLY":"提前5分钟",
+    "30_MIN_EARLY":"提前三十分钟",
+    "NORMAL":"正常",
+    "MEDIUM":"中等",
+    "HIGH":"紧急"
+
+  },
+  "SHARE_PAGE":{
+    "EDIT":"编辑",
+    "DELETE":"删除文章",
+    "POST_ON":"发表在",
+    "TITLE":"标题"
+  },
+  "AGENDA_PAGE":{
+    "ADD_AGENDA":"添加日程",
+    "TODAY":"今天",
+    "BEFORE_TODAY":"今天之前",
+    "FROM":"从",
+    "TO":"到",
+    "FUTURE":"将来",
+    "PAST":"过去"  
+  },
+  "PROJECT_PAGE":{
+    "STARRED":"星标项目",
+    "MY_PROJECT":"我的项目",
+    "SHOW_DELETED_PROJECT":"显示已删除的项目",
+    "HI":"你好"
+    
+  
+  },
+  "LOGIN_PAGE":{
+    "SIGN_IN":"登陆",
+    "SIGN_UP":"注册",
+    "LOG_IN":"登陆"
+   
+    
+  
+  }
+}

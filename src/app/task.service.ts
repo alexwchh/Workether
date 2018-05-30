@@ -25,7 +25,14 @@ export class TaskService {
           catchError(this.handleError("getTaskLists", []))
         );
     }
-
+    public getStatics(projectId:string): Observable<Task[]> {
+      return this.http
+        .get<Task[]>(`http://localhost:3000/projects/${projectId}/statics`, httpOptions)
+        .pipe(
+          tap(projectes => this.log(`fetched projectes`)),
+          catchError(this.handleError("getProjectes", []))
+        );
+    }
     addTask(taskItem: Task): Observable<Task> {
       return this.http
         .post<Task>(`http://localhost:3000/task_lists/${taskItem.task_list_id}/tasks`, taskItem, httpOptions)

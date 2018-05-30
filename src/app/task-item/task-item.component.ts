@@ -93,6 +93,7 @@ export class TaskItemComponent implements OnInit {
       this.reviveRequest.emit(this.task)
     }
     else{
+      
       this.task.task_isComplete=true;
       this.deleteRequest.emit(this.task)
     }

@@ -9,7 +9,7 @@
                         <mat-icon class="article-item-avator" matListAvatar>person</mat-icon>
                         <h4 matLine>{{share.share_title}}</h4>
                         <p matLine class="article-info">
-                            <span>chenghao post on </span>{{ share.share_creatTime | date:"short"}}</p>
+                           <span>chenghao</span> <span>{{'SHARE_PAGE.POST_ON' | translate}} </span>{{ share.share_creatTime | date:"short"}}</p>
 
                     </mat-list-item>
 
@@ -61,11 +61,11 @@
                 <mat-menu #menu="matMenu">
                     <button mat-menu-item (click)="editArticle()">
                         <mat-icon>edit</mat-icon>
-                        <span>Edit</span>
+                        <span>{{'SHARE_PAGE.EDIT' | translate}}</span>
                     </button>
                     <button mat-menu-item (click)="deleteArticle()">
                         <mat-icon>delete</mat-icon>
-                        <span>Delete</span>
+                        <span>{{'SHARE_PAGE.DELETE' | translate}}</span>
                     </button>
                     
                 </mat-menu>

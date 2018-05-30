@@ -16,10 +16,32 @@
             <mat-icon>notifications</mat-icon>
           </td-notification-count>
     </button>
-    <button mat-icon-button class="account-button">
-      <mat-icon>account_circle</mat-icon>
+    
+    <button mat-icon-button class="account-button" [matMenuTriggerFor]="menu">
+        <mat-icon>account_circle</mat-icon>
     </button>
-
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="logOut()">
+            <mat-icon>person</mat-icon>
+            <span>{{'GLOBEL.LOG_OUT' | translate}}</span>
+        </button>
+        <button mat-menu-item   [matMenuTriggerFor]="lang">
+            <mat-icon>delete</mat-icon>
+            <span>{{'GLOBEL.LANGUAGE' | translate}}</span>
+        </button>
+        
+    </mat-menu>
+    <mat-menu #lang="matMenu">
+        <button mat-menu-item (click)="changeLanguageEN()">
+            <mat-icon>person</mat-icon>
+            <span>{{'GLOBEL.EN' | translate}}</span>
+        </button>
+        <button mat-menu-item (click)="changeLanguageCH()">
+            <mat-icon>delete</mat-icon>
+            <span>{{'GLOBEL.CH' | translate}}</span>
+        </button>
+        
+    </mat-menu>
     <mat-menu #notificationsMenu="matMenu" [overlapTrigger]="false">
       <td-menu>
         <div td-menu-header class="mat-subheading-2 push-none">Notifications</div>

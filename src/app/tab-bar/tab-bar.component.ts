@@ -163,7 +163,7 @@ export class TabBarComponent implements OnInit {
         new TemplatePortal(this.overlayMenuList, this.viewContainerRef)
       );
       // this.overlayRef.attach(this.templatPortals.last);
-      // this.getALLProjectActor();
+      //  this.getALLProjectActor();
     }
   }
 
