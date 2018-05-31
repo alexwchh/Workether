@@ -101,94 +101,29 @@
                             <span class="margin-left-16px" translate>RIGHTSIDE_NAV.ACTIVITY</span>
                         </div>
                         <div class="actor-group-info-wrap">
-                            <div class="actor-item">
+                            <div  *ngFor="let activity of activityArr" class="actor-item">
 
                                 <!-- <span class="profile">里</span> -->
                                 <!-- <span>Although the icons in the </span> -->
                                 <div class="actor-content-set">
                                     <div class="actor-content-header">
-                                        <div class="profile">里</div>
-                                        <div class="user-name">asdfasd</div>
+                                        <div class="profile">{{activity.name|slice:0:1}}</div>
+                                        <div class="user-name">{{activity.name}}</div>
                                     </div>
                                     <!-- <div class="user-name">asdfasd</div> -->
                                     <header class="actor-content-wrapper">
-                                        <div class="actor-content">asdfasdfasdf</div>
+                                        <div class="actor-content">{{activity.activity}}</div>
 
                                     </header>
                                     <section class="actor-info-wrapper">
                                         <div class="actor-infos">
-                                            <span>sfsfdh</span>
+                                            <span>{{now|date:'short'}}</span>
                                         </div>
                                     </section>
                                 </div>
 
                             </div>
-                            <div class="actor-item">
-
-                                <!-- <span class="profile">里</span> -->
-                                <!-- <span>Although the icons in the </span> -->
-                                <div class="actor-content-set">
-                                    <div class="actor-content-header">
-                                        <div class="profile">里</div>
-                                        <div class="user-name">asdfasd</div>
-                                    </div>
-                                    <!-- <div class="user-name">asdfasd</div> -->
-                                    <header class="actor-content-wrapper">
-                                        <div class="actor-content">asdfasdfasdf</div>
-
-                                    </header>
-                                    <section class="actor-info-wrapper">
-                                        <div class="actor-infos">
-                                            <span>sfsfdh</span>
-                                        </div>
-                                    </section>
-                                </div>
-
-                            </div>
-                            <div class="actor-item">
-
-                                <!-- <span class="profile">里</span> -->
-                                <!-- <span>Although the icons in the </span> -->
-                                <div class="actor-content-set">
-                                    <div class="actor-content-header">
-                                        <div class="profile">里</div>
-                                        <div class="user-name">asdfasd</div>
-                                    </div>
-                                    <!-- <div class="user-name">asdfasd</div> -->
-                                    <header class="actor-content-wrapper">
-                                        <div class="actor-content">asdfasdfasdf</div>
-
-                                    </header>
-                                    <section class="actor-info-wrapper">
-                                        <div class="actor-infos">
-                                            <span>sfsfdh</span>
-                                        </div>
-                                    </section>
-                                </div>
-
-                            </div>
-                            <div class="actor-item">
-
-                                <!-- <span class="profile">里</span> -->
-                                <!-- <span>Although the icons in the </span> -->
-                                <div class="actor-content-set">
-                                    <div class="actor-content-header">
-                                        <div class="profile">里</div>
-                                        <div class="user-name">asdfasd</div>
-                                    </div>
-                                    <!-- <div class="user-name">asdfasd</div> -->
-                                    <header class="actor-content-wrapper">
-                                        <div class="actor-content">asdfasdfasdf</div>
-
-                                    </header>
-                                    <section class="actor-info-wrapper">
-                                        <div class="actor-infos">
-                                            <span>sfsfdh</span>
-                                        </div>
-                                    </section>
-                                </div>
-
-                            </div>
+                         
 
 
 

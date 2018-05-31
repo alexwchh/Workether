@@ -77,11 +77,17 @@ h1 {
     to {background: yellow;}
 }
 ::-webkit-scrollbar {
-  width: 7px;
+  width: 5px;
   /* background-color: #757575; */
 }
+::-webkit-scrollbar{
+  width: 5px;
+  height: 5px;
+}
 ::-webkit-scrollbar-thumb{
-  background-color: #757575;
+  background-color: #afafaf;
+  /* background-color: #757575; */
+  border-radius: 5px;
 }
 ::-webkit-scrollbar-track{
   /* box-shadow: inset 0 0 6px rgba(0,0,0,0.3); */

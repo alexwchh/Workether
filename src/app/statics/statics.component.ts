@@ -64,7 +64,15 @@ export class StaticsComponent implements OnInit {
   yAxisLabel: string = "Sales";
 
   colorScheme: any = {
-    domain: ["#1565C0", "#03A9F4", "#FFA726", "#FFCC80"]
+    // domain: ["#1565C0", "#03A9F4", "#FFA726", "#FFCC80"]
+    // domain: ['#0D47A1', '#1976D2', '#039BE5', '#29B6F6']
+    domain: [ "#005CAF", "#7DB9DE","#FFB11B", "#FAD689"]
+    //domain: ["#227D51", "#91B493", "#CC543A", "#FB966E"]
+
+    
+
+
+ 
   };
 
   // line, area
@@ -128,14 +136,16 @@ export class StaticsComponent implements OnInit {
     this.taskService.getStatics(this.projectId).subscribe(tasks=>{
       this.tasks = tasks
       this.allTaskCount = this.tasks.length;
+      
       for(let task of this.tasks){
+        let reminddate = new Date(task.task_remindDate)
         if(task.task_isComplete){
           this.completeTaskCount+=1;
           this.completeTasks.push(task)
         }
         else{
           
-          if(task.task_remindDate<now){
+          if(task.task_remindDate&&reminddate.getTime()<now.getTime()){
             this.dueCount+=1;
             this.dueTasks.push(task)
 

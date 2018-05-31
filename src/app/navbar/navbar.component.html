@@ -12,53 +12,54 @@
       <mat-icon>chat</mat-icon>
     </button>
     <button mat-icon-button class="noti-button overflow-visible" [matMenuTriggerFor]="notificationsMenu">
-        <td-notification-count [notifications]="101">
-            <mat-icon>notifications</mat-icon>
-          </td-notification-count>
+      <td-notification-count [notifications]="9">
+        <mat-icon>notifications</mat-icon>
+      </td-notification-count>
     </button>
-    
+
     <button mat-icon-button class="account-button" [matMenuTriggerFor]="menu">
-        <mat-icon>account_circle</mat-icon>
+      <mat-icon>account_circle</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
-        <button mat-menu-item (click)="logOut()">
-            <mat-icon>person</mat-icon>
-            <span>{{'GLOBEL.LOG_OUT' | translate}}</span>
-        </button>
-        <button mat-menu-item   [matMenuTriggerFor]="lang">
-            <mat-icon>delete</mat-icon>
-            <span>{{'GLOBEL.LANGUAGE' | translate}}</span>
-        </button>
-        
+      <button mat-menu-item (click)="logOut()">
+        <mat-icon>person</mat-icon>
+        <span>{{'GLOBEL.LOG_OUT' | translate}}</span>
+      </button>
+      <button mat-menu-item [matMenuTriggerFor]="lang">
+        <mat-icon>delete</mat-icon>
+        <span>{{'GLOBEL.LANGUAGE' | translate}}</span>
+      </button>
+
     </mat-menu>
     <mat-menu #lang="matMenu">
-        <button mat-menu-item (click)="changeLanguageEN()">
-            <mat-icon>person</mat-icon>
-            <span>{{'GLOBEL.EN' | translate}}</span>
-        </button>
-        <button mat-menu-item (click)="changeLanguageCH()">
-            <mat-icon>delete</mat-icon>
-            <span>{{'GLOBEL.CH' | translate}}</span>
-        </button>
-        
+      <button mat-menu-item (click)="changeLanguageEN()">
+        <mat-icon>person</mat-icon>
+        <span>{{'GLOBEL.EN' | translate}}</span>
+      </button>
+      <button mat-menu-item (click)="changeLanguageCH()">
+        <mat-icon>delete</mat-icon>
+        <span>{{'GLOBEL.CH' | translate}}</span>
+      </button>
+
     </mat-menu>
-    <mat-menu #notificationsMenu="matMenu" [overlapTrigger]="false">
+    <mat-menu #notificationsMenu="matMenu" [overlapTrigger]="false" >
       <td-menu>
-        <div td-menu-header class="mat-subheading-2 push-none">Notifications</div>
-        <mat-nav-list dense>
-          <ng-template let-last="last" ngFor [ngForOf]="[0,1,2,3,4,5,6,7,8,9]">
+        <div td-menu-header class="mat-subheading-2 push-none">{{'NAV_BAR.NOTIFICATION' | translate}}</div>
+        <mat-nav-list dense class="noti-menu">
+          <!-- <ng-template let-last="last" ngFor [ngForOf]="activityArr"> -->
+          <div *ngFor="let activity of activityArr" class="noti-list">
             <a mat-list-item>
               <mat-icon matListAvatar>today</mat-icon>
               <h4 matLine>
-                <span class="text-wrap">A user did an activity on an item that you've subscribed to follow actions on.</span>
+                <span class="text-wrap">{{activity.name}} {{activity.activity}}.</span>
               </h4>
-              <p matLine>22 minutes ago</p>
+              <p matLine>22{{'NAV_BAR.MIBUTE_AGO' | translate}}</p>
             </a>
-            <mat-divider *ngIf="!last"></mat-divider>
-          </ng-template>
+            <mat-divider></mat-divider>
+          </div>
         </mat-nav-list>
-        <button mat-button color="accent" td-menu-footer>
-          See All Notifications
+        <button mat-button color="primary" td-menu-footer>
+            {{'NAV_BAR.SEE_ALL_NOTI' | translate}}
         </button>
       </td-menu>
     </mat-menu>

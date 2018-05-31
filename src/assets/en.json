@@ -14,6 +14,12 @@
     "SHARE": "SHARE",
     "STATICS": "STATICS"
   },
+  "NAV_BAR": {
+    "NOTIFICATION": "Notifications",
+    "SEE_ALL_NOTI": "See All Notifications",
+    "MIBUTE_AGO": " minutes ago"
+    
+  },
   "RIGHTSIDE_NAV":{
     "PROJECT_MENU":"Project Menu",
     "ACTOR":"Actor",

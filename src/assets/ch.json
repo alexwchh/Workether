@@ -14,6 +14,12 @@
     "SHARE": "分享",
     "STATICS": "统计"
   },
+  "NAV_BAR": {
+    "NOTIFICATION": "消息通知",
+    "SEE_ALL_NOTI": "查看所有的通知",
+    "MIBUTE_AGO": " 分钟之前"
+    
+  },
   "RIGHTSIDE_NAV":{
     "PROJECT_MENU":"项目菜单",
     "ACTOR":"参与者",

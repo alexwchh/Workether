@@ -77,6 +77,11 @@ export class TabBarComponent implements OnInit {
   projectActors: ProjectActor[] = new Array<ProjectActor>();
   project: Project;
   projectOwner:User;
+  activities:string[] = new Array<string>();
+  activityUser:string[]= new Array<string>();
+  activityArr:Activity[] = new Array<Activity>();
+
+  now:Date;
   constructor(
     private router: Router,
     private overlay: Overlay,
@@ -95,6 +100,16 @@ export class TabBarComponent implements OnInit {
     this.isSearchResultEmpty = false;
     this.isShowPanelHeader = true;
     this.getALLProjectActor();
+    this.activities = ["创建了一个任务","完成了一个任务","评论了一个任务","创建了一个任务","创建了一个分享","完成了一个任务","评论了一个任务","创建了一个任务",]
+    this.activityUser = ["王成浩","张兰","王成浩","王成浩","王成浩","王成浩","张兰","张兰",]
+    this.now = new Date();
+    for (let index = 0; index < this.activities.length; index++) {
+      let activity= new Activity()
+      activity.name=this.activityUser[index];
+      activity.activity = this.activities[index];
+     this.activityArr.push(activity);    
+    }
+    console.log(this.activityArr)
     // this.getProjectOwner()
     // this.createRightNavOverlay();
     // this.createUserNameOverlay();
@@ -293,4 +308,9 @@ export class TabBarComponent implements OnInit {
     id = JSON.parse(JSON.stringify(objectID));
     return id;
   }
+
+}
+export class Activity {
+  name:string;
+  activity:string;
 }

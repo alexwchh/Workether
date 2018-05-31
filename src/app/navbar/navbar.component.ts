@@ -7,6 +7,7 @@ import { Router } from "@angular/router";
 import { CovalentNotificationsModule } from '@covalent/core/notifications';
 import { CovalentMenuModule } from '@covalent/core/menu';
 import {TranslateService} from '@ngx-translate/core';
+import {  Activity} from "../tab-bar/tab-bar.component";
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -15,6 +16,10 @@ import {TranslateService} from '@ngx-translate/core';
 export class NavbarComponent implements OnInit {
    project:Project
    name:string
+   activityArr:Activity[] = new Array<Activity>();
+   activities:string[] = new Array<string>();
+   activityUser:string[]= new Array<string>();
+   now:Date;
   constructor(private projectService: ProjectService,
     public  dialog: MatDialog,
     private router:Router,
@@ -22,6 +27,16 @@ export class NavbarComponent implements OnInit {
   
   ) { }
   ngOnInit() {
+    this.activities = ["创建了一个任务","完成了一个任务","评论了一个任务","创建了一个任务","创建了一个分享","完成了一个任务","评论了一个任务","创建了一个任务",]
+    this.activityUser = ["王成浩","张兰","王成浩","王成浩","王成浩","王成浩","张兰","张兰",]
+    this.now = new Date();
+    for (let index = 0; index < this.activities.length; index++) {
+      let activity= new Activity()
+      activity.name=this.activityUser[index];
+      activity.activity = this.activities[index];
+     this.activityArr.push(activity);    
+    }
+    console.log(this.activityArr);
   }
   add(){
     this.projectService.addProject(this.project).subscribe(project=>{console.log(project)})

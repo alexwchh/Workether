@@ -28,6 +28,13 @@
 .account-button{
     margin-left: 20px;
 }
+.noti-list{
+width: 300px;
+}
+.noti-menu{
+    overflow-x: hidden;
+    overflow-y: auto;
+}
 
 /* .searchbar{
       height:124;

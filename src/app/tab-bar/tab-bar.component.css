@@ -349,17 +349,8 @@
       box-sizing: border-box;
       padding-right: 16px;
   }
-  ::-webkit-scrollbar {
-    width: 5px;
-    /* background-color: #757575; */
-}
-::-webkit-scrollbar-thumb{
-    background-color: #757575;
-}
-::-webkit-scrollbar-track{
-    /* -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); */
-    background-color:white;
-}
+
+
   /* ::-webkit-scrollbar {
     width: 2px;
    
