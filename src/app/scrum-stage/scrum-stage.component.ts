@@ -24,6 +24,10 @@ export class ScrumStageComponent implements OnInit {
   @Output() deleteRequest = new EventEmitter<TaskList>();
   @Output() editRequest = new EventEmitter<TaskList>();
   @Output() addAfterRequest = new EventEmitter<TaskList>();
+  @Output() dropRequest = new EventEmitter<any>();
+  @Output() taskDropRequest = new EventEmitter<any>();
+
+
   addedTask: string;
   taskListId: string;
   activeTask: Task[];
@@ -110,6 +114,7 @@ export class ScrumStageComponent implements OnInit {
         }
       }
       this.sortTasks();
+      //this.updateOrder();
       console.log(tasks);
       console.log(this.activeTask);
       // console.log(`all task lists:${taskLists}`)
@@ -125,8 +130,20 @@ export class ScrumStageComponent implements OnInit {
     task.task_repeat = "0";
     task.task_list_id = this.taskListId;
     task.task_prl = 0;
-    task.task_order = this.activeTask.length + 1;
+    task.task_order = this.activeTask.length;
 
+    this.taskService.addTask(task).subscribe(addedtask => {
+      // console.log("a new tasklist created"),
+        console.log(addedtask),
+        //this.freshTaskList()
+        this.activeTask.push(addedtask);
+       // console.log(this.tasks)
+      //console.log(this.tasks);
+    });
+  }
+  addTaskItem(task:Task){
+    task.task_order = this.activeTask.length
+    task.task_list_id = this.taskListId;
     this.taskService.addTask(task).subscribe(addedtask => {
       // console.log("a new tasklist created"),
         console.log(addedtask),
@@ -255,7 +272,21 @@ export class ScrumStageComponent implements OnInit {
 
     });
   }
-  
+  onDelete(task:Task){
+    this.taskService.deleteTask(task).subscribe(isSuccess => {
+      if (isSuccess) {
+        console.log(`${task.task_title} has been successfully destroyed`);
+        // this.completedTasks.unshift(task);
+        // this.activeTask.splice(this.activeTask.indexOf(task), 1);
+        // this.updateOrder();
+        
+      } else {
+        console.log(`${task.task_title} de
+          stroy has failed`);
+      }
+
+    });
+  }
   onRevive(task:Task){
     task.task_isComplete=false;
     //this.completedTasks.splice(this.activeTask.indexOf(task), 1);
@@ -359,5 +390,44 @@ export class ScrumStageComponent implements OnInit {
   }
   toggle(): void {
     this.toggleDiv = !this.toggleDiv;
+  }
+  onItemDrop(e:any){
+    // let gettype = Object.prototype.toString
+     console.log(e.dragData)
+    if(e.dragData.task_order==null){
+      console.log("asdfasdf")
+      let data = new Array<any>();
+      data.push(this.tasklist);
+      data.push(e.dragData)
+      this.dropRequest.emit(data);
+    }
+    else{
+      let data = new Array<any>();
+      data.push(this.tasklist);
+      data.push(e.dragData)
+      this.onDelete(e.dragData)
+      this.addTaskItem(e.dragData);
+      this.taskDropRequest.emit(data);
+      console.log("asdff")
+    }
+    // let data = new Array<any>();
+    // data.push(this.tasklist);
+    // data.push(e.dragData)
+    // this.dropRequest.emit(data);
+  }
+  onDrop(event:Array<Task>){
+    console.log(event)
+    let num0 = event[0].task_order;
+    let num1 = event[1].task_order;
+    
+    console.log(event[0].task_order)
+    this.activeTask[num0].task_order = num1;
+    this.activeTask[num1].task_order = num0;
+  //  this.tasks[num1].task_order = num0;
+   console.log(this.tasks)
+   this.sortTasks()
+  
+  this.updateOrder();
+    //console.log(event)
   }
 }

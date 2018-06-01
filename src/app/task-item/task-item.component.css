@@ -158,3 +158,8 @@
 .hide{
   display: none;
 }
+.drag-target-border{
+  border: #1236634f dashed 2px;
+    /* background: black */
+
+}

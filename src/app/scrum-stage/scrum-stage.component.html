@@ -1,4 +1,4 @@
-<div class="scrum-stage mat-elevation-z3">
+<div class="scrum-stage mat-elevation-z3" draggable droppable [dragData]="tasklist"  (onDrop)="onItemDrop($event)">
     <header class="scrum-header">
         <span>{{tasklist.task_list_title}}</span>
         <span class="example-fill-remaining-space"></span>
@@ -34,7 +34,7 @@
         <section class="scrum-stage-content">
             <div class="scrum-stage-tasks">
 
-                <app-task-item *ngFor="let activetask of activeTask" [task]="activetask" (click)=openTaskEditDialog($event,activetask) (deleteRequest)="onDestroy($event)" (editRequest)=onEdit($event) ></app-task-item>
+                <app-task-item *ngFor="let activetask of activeTask" [task]="activetask" (click)=openTaskEditDialog($event,activetask) (deleteRequest)="onDestroy($event)" (editRequest)=onEdit($event) (dropRequest)="onDrop($event)" ></app-task-item>
                 
 
             </div>

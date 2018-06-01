@@ -119,5 +119,10 @@
          Every toolbar row uses a flexbox row layout. */
     flex: 1 1 auto;
   }
+  .drag-target-border{
+    border: #1236634f dashed 2px;
+      /* background: black */
+
+  }
   
   

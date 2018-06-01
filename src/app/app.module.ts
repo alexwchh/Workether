@@ -100,6 +100,7 @@ import { StaticsComponent } from './statics/statics.component';
 import { NgxChartsModule } from "@swimlane/ngx-charts";
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { NgDragDropModule } from 'ng-drag-drop';
 
 /* any other core modules */
 // (optional) Additional Covalent Modules imports
@@ -193,7 +194,8 @@ export function HttpLoaderFactory(http: HttpClient) {
           useFactory: HttpLoaderFactory,
           deps: [HttpClient]
       }
-  })
+  }),
+  NgDragDropModule.forRoot()
     
     
   ],

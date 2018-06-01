@@ -167,17 +167,17 @@ export class AgendaPageComponent implements OnInit {
         this.todayAgenda.push(agenda);
        
       }
-      else if((agendaEndDay.getDate())>(date.getDate())
-      &&(agendaStartDate.getDate())<(date.getDate())
+      else if((agendaEndDay.getTime())>(date.getTime())
+      &&(agendaStartDate.getTime())<(date.getTime())
     
     ){
         this.beforeTodayAgenda.push(agenda);
 
       }
-      else if((agendaEndDay.getDate())<(date.getDate())){
+      else if((agendaEndDay.getTime())<(date.getTime())){
         this.pastAgenda.push(agenda);
       }
-      else if((agendaStartDate.getDate())>(date.getDate())){
+      else if((agendaStartDate.getTime())>(date.getTime())){
        this.futureAgenda.push(agenda)
       }
     }

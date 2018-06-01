@@ -1,4 +1,4 @@
-<div class="task-item-wrapper">
+<div class="task-item-wrapper" draggable droppable [dragData]="task"    [dragOverClass]="'drag-target-border'" (onDrop)="onTaskItemDrop($event)">
 <div class="task-item mat-elevation-z1">
     <div [class.basic]="noPrl" [class.normal]="normal" [class.medium]="medium" [class.high]="high" class="task-priority"></div>
     <mat-checkbox [(ngModel)]="isComplete" class="task-check" (click)="onDeleteReq($event)" [checked]="isComplete"></mat-checkbox>

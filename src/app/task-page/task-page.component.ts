@@ -77,7 +77,7 @@ export class TaskPageComponent implements OnInit {
     taskList.task_list_creatTime = new Date();
     taskList.task_list_isActive = true;
     taskList.project_id = this.projectId;
-    taskList.task_list_order = this.taskLists.length + 1;
+    taskList.task_list_order = this.taskLists.length;
 
     this.tasklistService.addTaskList(taskList).subscribe(addedTasklist => {
       console.log("a new tasklist created"),
@@ -93,7 +93,7 @@ export class TaskPageComponent implements OnInit {
     taskList.task_list_creatTime = new Date();
     taskList.task_list_isActive = true;
     taskList.project_id = this.projectId;
-    taskList.task_list_order = this.taskLists.length + 1;
+    taskList.task_list_order = this.taskLists.length;
     this.tasklistService.addTaskList(taskList).subscribe(addedTasklist => {
       console.log("a new tasklist created"),
         //console.log(taskList),
@@ -212,8 +212,27 @@ export class TaskPageComponent implements OnInit {
       this.projectName =this.project.project_name;
       //get lists form database and sort by tasklist order
       this.sortList();
+      console.log(this.taskLists)
+      //this.updateOrder();
       //console.log(taskLists);
       // console.log(`all task lists:${taskLists}`)
     });
+  }
+  onTasklistDrop(event:Array<TaskList>){
+    let num0 = event[0].task_list_order;
+    let num1 = event[1].task_list_order;
+    
+    console.log(event[0].task_list_order)
+   this.taskLists[num0].task_list_order = num1;
+   this.taskLists[num1].task_list_order = num0;
+   console.log(this.taskLists)
+   this.sortList()
+  
+   this.updateOrder();
+    console.log(event)
+  }
+  onTaskDrop(event:any){
+    this.freshTaskList();
+
   }
 }

@@ -19,6 +19,8 @@ export class TaskItemComponent implements OnInit {
   @Output() editRequest = new EventEmitter<Task>();
   @Output() addAfterRequest = new EventEmitter<Task>();
   @Output() reviveRequest = new EventEmitter<Task>();
+  @Output() dropRequest = new EventEmitter<any>();
+
   noPrl:boolean
   normal:boolean;
   medium:boolean;
@@ -130,5 +132,12 @@ export class TaskItemComponent implements OnInit {
       
       this.onAddAfterReq([result,this.task.task_order]);
     });
+  }
+  onTaskItemDrop(e:any){
+    let data = new Array<any>();
+    data.push(this.task);
+    data.push(e.dragData)
+    
+    this.dropRequest.emit(data);
   }
 }
